@@ -1,0 +1,48 @@
+<!--
+   Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- CSS-Klassen von Bootstrap
+        http://getbootstrap.com/css
+        http://www.w3schools.com/bootstrap
+        https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap
+        http://codingthesmartway.com/using-bootstrap-with-angular -->
+<!-- Bootstrap mit Media Queries (fuer Responsive Web Design):
+         (xs):    -  575px ("extra small")
+         sm:      -  767px ("small")
+         md:  768 -  991px ("medium")
+         lg:  992 - 1199px ("large")
+        xl:  1200 - 1399px ("extra large")
+        xxl: 1400 -
+        https://v5.getbootstrap.com/docs/5.1/components
+-->
+<nav class="navbar navbar-expand-md navbar-light bg-faded hs-nav">
+  <hs-logo class="navbar-brand"></hs-logo>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarCollapse"
+    aria-controls="navbarCollapse"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <hs-nav class="collapse navbar-collapse" id="navbarCollapse"></hs-nav>
+</nav>

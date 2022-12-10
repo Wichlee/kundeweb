@@ -1,0 +1,85 @@
+<!--
+    Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!-- Inline form https://getbootstrap.com/docs/5.1/forms/layout/#inline-forms -->
+<!-- prettier-ignore -->
+<form
+  class="row row-cols-md-auto g-3 align-items-center"
+  autocomplete="off"
+  role="form"
+  (submit)="onLogout()"
+  *ngIf="(isLoggedIn$ | async) || init; else login"
+>
+  <button
+    type="submit"
+    class="btn btn-primary"
+  >
+    <span class="me-1">Logout</span>
+    <i class="material-icons md-48">chevron_right</i>
+  </button>
+</form>
+
+<ng-template #login>
+  <form
+    class="row row-cols-md-auto g-3 align-items-center"
+    autocomplete="off"
+    role="form"
+    (submit)="onLogin()"
+  >
+    <div class="col-12">
+      <label for="usernameInput" class="col-form-label">
+        <small>Benutzername</small>
+      </label>
+      <input
+        id="usernameInput"
+        type="search"
+        class="form-control form-control-sm"
+        tabindex="1"
+        autocomplete="off"
+        required
+        [(ngModel)]="username"
+        name="username"
+      />
+    </div>
+
+    <div class="col-12">
+      <label for="passwordInput" class="col-form-label">
+        <small>Passwort</small>
+      </label>
+      <input
+        id="passwordInput"
+        type="password"
+        class="form-control form-control-sm"
+        tabindex="2"
+        autocomplete="off"
+        required
+        [(ngModel)]="password"
+        name="password"
+      />
+    </div>
+    <div class="col-12">
+      <button
+        type="submit"
+        class="btn btn-primary btn-sm"
+        tabindex="3"
+        (click)="onLogin()"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</ng-template>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="homeHeader" datatype="html">
+        <source>Hello!</source>
+        <target>Hallo!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Greetings at the home page header</note>
+        <note priority="1" from="meaning">Greetings</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

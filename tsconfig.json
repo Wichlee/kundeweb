@@ -1,0 +1,44 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "exactOptionalPropertyTypes": true, // bei optionalen Properties ggf. explizit undefined spezifizieren
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true, // Kompatibilitaet zwischen CommonJS und ES Modulen
+    "strict": true,
+    "noErrorTruncation": true, // https://www.typescriptlang.org/tsconfig#noErrorTruncation
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true, // undefined bei Resultaten fuer Index-Signaturen
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true, // keine nicht-benutzen lokalen Variablen
+    "noUnusedParameters": true, // keine nicht-benutzen Parameter
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "target": "es2020",
+    "module": "es2022",
+    // https://www.npmjs.com/package/@angular-builders/custom-webpack
+    // https://stackblitz.com/edit/node-mdn6pg?file=tsconfig.json
+    "moduleResolution": "node",
+    // "moduleResolution": "node16", // ab TypeScript 4.7
+    // "moduleDetection": "force", // default: "auto", ab TypeScript 4.7
+    // https://devblogs.microsoft.com/typescript/announcing-typescript-4-5
+    // https://github.com/microsoft/TypeScript/pull/45771
+    // https://github.com/microsoft/TypeScript/issues/43972
+    "lib": ["es2018", "dom"],
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

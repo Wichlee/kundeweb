@@ -1,0 +1,11 @@
+.vscode/*
+dist/*
+src/main.ts
+src/polyfills.ts
+src/environments/environment*.ts
+
+src/app/kunde/suche-kunden/suchergebnis/suchergebnis.component.ts
+src/app/layout/header/login-logout.component.ts
+
+# default:
+#node_modules/*

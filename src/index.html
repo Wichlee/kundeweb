@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<!--
+  https://github.com/thedaviddias/Front-End-Checklist
+-->
+
+<!--
+  Neue CSS-Funktionalitaet, wie z.B. CSS Grid Layout:
+  chrome://flags/#enable-experimental-web-platform-features
+-->
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <!--
+      Viewport ist der Anzeigebereich im Fenster der Anwendung, der fuer
+      die Darstellung tatsaechlich zur Verfuegung steht. Bei mobilen
+      Geraeten ist der Viewport oft auf eine Breite von 980 Pixeln
+      eingestellt. Deshalb ist eine Website zwar komplett zu sehen, aber
+      die Inhalte sind sehr klein und Schriften nicht lesbar.
+      Anfaenglicher Zoomgrad ist 1.0, damit die Seite 1:1 dargestellt wird
+      Ggf. zusaetzlich user-scalable=no
+    -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!--
+      http://de.selfhtml.org/html/kopfdaten/meta.htm
+      http://wiki.selfhtml.org/wiki/HTML/Kopfdaten/meta
+      http://wiki.whatwg.org/wiki/MetaExtensions
+    -->
+    <meta http-equiv="cache-control" content="no-cache" />
+
+    <title>Beispiel</title>
+    <base href="/" />
+
+    <!-- connect-src -->
+    <!--  http://localhost:4200/rest fuer Reverse Proxy mit Beispiel 1 (Kubernetes und On-Premise) -->
+    <!--  wss://localhost:4200/ fuer "Live Reload" mit "WebSocket Secure" (= wss) beim webpack-dev-server -->
+    <!--  http://localhost:3000 fuer CORS bei nginx mit Kubernetes und Beispiel 1 -->
+    <!-- chrome://flags/#out-of-blink-cors   Default > Disabled -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; connect-src 'self' http://localhost:4200/rest wss://localhost:4200/ https://localhost:3000; script-src 'unsafe-inline' 'unsafe-eval' 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; manifest-src 'self'"
+    />
+    <meta name="author" content="Juergen Zimmermann" />
+    <meta name="description" content="Beispiel mit Angular" />
+    <meta
+      name="keywords"
+      content="Software Engineering,Angular,RxJS,REST,Bootstrap,Material Icons,ngx-charts"
+    />
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <!--
+      manifest.json enthaelt Metadaten, falls diese Web-Anwendung zum
+      Homescreen von Android hinzugefuegt wird.
+      https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest
+      https://www.w3.org/TR/appmanifest
+      https://developer.mozilla.org/en-US/docs/Web/Manifest
+      https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json
+    -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <!-- Chrome Android, Safari, Safari iOS, Samsung Internet; NICHT: Firefox -->
+    <meta name="theme-color" content="#1976d2" />
+
+    <!--
+      Angular Material (statt Bootstrap) siehe https://material.angular.io
+    -->
+
+    <!-- Material Icons: alternativ "npm i material-icons" -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!--
+      JIT (= Just-in-Time) Compiler übersetzt im Browser: 2 Sek. für Ladezeit
+      AoT (Ahead-of-Time) Compiler innerhalb vom Buildprozess
+    -->
+    <hs-root>
+      <nav class="hs-nav"></nav>
+      <main>Bitte warten ...</main>
+    </hs-root>
+    <noscript> JavaScript muss in den Einstellungen aktiviert sein. </noscript>
+  </body>
+</html>

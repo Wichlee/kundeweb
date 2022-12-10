@@ -1,0 +1,58 @@
+# Copyright (C) 2021 - present Juergen Zimmermann, Hochschule Karlsruhe
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# Aufruf:
+# pack build gruppe2/kundeweb:1.0.0 --builder paketobuildpacks/builder:base
+
+# ------------------------------------------------------------------------------
+# P r o j e c t   D e s c r i p t o r   f u e r   p a c k
+# ------------------------------------------------------------------------------
+
+# https://paketo.io/docs/buildpacks/language-family-buildpacks/nginx
+# https://buildpacks.io/docs/app-developer-guide/using-project-descriptor
+# https://buildpacks.io/docs/reference/config/project-descriptor
+# https://github.com/buildpacks/spec/blob/main/extensions/project-descriptor.md
+# https://buildpacks.io/docs/app-developer-guide/environment-variables
+# https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/nginx
+
+# [project]
+id = "com.acme.kundeweb"
+name = "Web Frontend fuer Microservice kunde"
+version = "1.0.0"
+authors = ["Juergen.Zimmermann@h-ka.de"]
+
+[[project.licenses]]
+type = "GPL-3.0"
+
+[build]
+# fuer Verzeichnis /workspace im Image
+include = [
+  "/dist",
+  "/buildpack.yml",
+  "/mime.types",
+  "/nginx.conf",
+  "/project.toml",
+]
+
+[[build.buildpacks]]
+# https://registry.buildpacks.io/buildpacks/paketo-buildpacks/nginx
+# https://github.com/paketo-buildpacks/nginx/tags
+# https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/nginx
+uri = "urn:cnb:registry:paketo-buildpacks/nginx:0.12.0"
+
+[[build.env]]
+# http://nginx.org/en/download.html
+name = "BP_NGINX_VERSION"
+value = "1.22.1"

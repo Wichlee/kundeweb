@@ -1,0 +1,9 @@
+{
+  "connector": "local",
+  "extends": [
+    "development",
+    "web-recommended",
+    "progressive-web-apps",
+    "accessibility"
+  ]
+}

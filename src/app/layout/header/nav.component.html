@@ -1,0 +1,86 @@
+<!--
+    Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+    Internationalisierung durch z.B. https://github.com/ocombe/ng2-translate
+-->
+
+<ul class="navbar-nav me-auto">
+  <li class="nav-item active">
+    <a
+      routerLink="/buecher/suche"
+      routerLinkActive="active"
+      class="nav-link"
+      aria-label="Suche Buecher"
+    >
+      <i class="material-icons">search</i>
+      <span class="ms-1">Suche</span>
+    </a>
+  </li>
+
+  <li class="nav-item" *ngIf="isAdmin$ | async">
+    <a
+      routerLink="/buecher/create"
+      class="nav-link"
+      aria-label="Neuen Kunde anlegen"
+    >
+      <i class="material-icons">menu_book</i>
+      <span class="ms-1">Neuen Kunde</span>
+    </a>
+  </li>
+
+  <li class="nav-item dropdown" *ngIf="isAdmin$ | async">
+    <div
+      class="nav-link dropdown-toggle"
+      id="navbarDropdownMenuLink"
+      data-bs-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <i class="material-icons">bar_chart</i>
+      <span class="ms-1">Diagramme</span>
+    </div>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <a
+        routerLink="/buecher/balkendiagramm"
+        class="dropdown-item"
+        aria-label="Balkendiagramm fuer Bewertungen"
+      >
+        <i class="material-icons">bar_chart</i>
+        <span class="ms-1">Balkendiagramm</span>
+      </a>
+      <a
+        routerLink="/buecher/liniendiagramm"
+        class="dropdown-item"
+        aria-label="Liniendiagramm fuer Bewertungen"
+      >
+        <i class="material-icons">multiline_chart</i>
+        <span class="ms-1">Liniendiagramm</span>
+      </a>
+      <a
+        routerLink="/buecher/tortendiagramm"
+        class="dropdown-item"
+        aria-label="Tortendiagramm fuer Bewertungen"
+      >
+        <i class="material-icons">pie_chart</i>
+        <span class="ms-1">Tortendiagramm</span>
+      </a>
+    </div>
+  </li>
+</ul>
+
+<hs-login-logout></hs-login-logout>

@@ -1,0 +1,33 @@
+// Copyright (C) 2020 - present Juergen Zimmermann, Hochschule Karlsruhe
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+// ~ wird in ANgular nicht mehr unterstuetzt: https://github.com/angular/components/commit/f2ff9e31425f0e395e6926bcaf48f876688000d8
+// @use 'angular-calendar/scss/angular-calendar';
+
+@use './app/sass/colors';
+
+:root {
+  --background-color: var(--bluesky);
+  --gradient: url('/assets/img/gradientBlueSky.webp');
+}
+
+.hs-nav {
+  background-color: var(--background-color);
+  background-image: var(--gradient);
+  background-position: left top;
+  background-repeat: repeat-x;
+  height: 90px;
+  width: 100%;
+}
