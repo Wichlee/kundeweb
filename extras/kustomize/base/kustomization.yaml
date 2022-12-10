@@ -1,0 +1,37 @@
+# Copyright (C) 2021 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+# This program is free software: you can redistribute it and/or modify
+# #it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: acme
+
+configMapGenerator:
+  - name: kundeweb-env
+    literals:
+      - TZ=Europe/Berlin
+      - LANG=de_DE.utf8
+
+commonLabels:
+  app.kubernetes.io/component: webserver
+  app.kubernetes.io/managed-by: kustomize
+
+resources:
+  - service-account.yaml
+  - network-policy.yaml
+  - deployment.yaml
+  - service.yaml
+  - pod-disruption-budget.yaml

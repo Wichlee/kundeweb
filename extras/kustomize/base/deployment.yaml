@@ -1,0 +1,63 @@
+# Copyright (C) 2021 - present Juergen Zimmermann, Hochschule Karlsruhe
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kundeweb
+  labels:
+    app: kundeweb
+spec:
+  selector:
+    matchLabels:
+      app: kundeweb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kundeweb
+    spec:
+      serviceAccountName: acme-kundeweb
+      containers:
+        - image: docker.io/gruppe2/kundeweb:1.0.0
+          name: kundeweb
+          envFrom:
+            - configMapRef:
+                name: kundeweb-env
+          ports:
+            # - containerPort: 443
+            #   name: https
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 600m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
