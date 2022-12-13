@@ -1,17 +1,16 @@
 <div class="row">
-    <label for="emailInput" class="col col-2 col-form-label gy-3"> E-Mail </label>
-  
-    <!-- vertikale und horizontale "Gutter" als Abstaende ("gaps") zwischen den Spalten -->
-    <!-- https://v5.getbootstrap.com/docs/5.1/layout/gutters/#horizontal-gutters -->
-    <div class="col col-10 gy-3">
-      <input
-        id="emailInput"
-        placeholder="Den E-Mail oder einen Teil davon eingeben"
-        class="form-control"
-        [(ngModel)]="email"
-        name="email"
-        (blur)="onBlur()"
-      />
-    </div>
+  <label for="emailInput" class="col col-2 col-form-label gy-3"> E-Mail </label>
+
+  <!-- vertikale und horizontale "Gutter" als Abstaende ("gaps") zwischen den Spalten -->
+  <!-- https://v5.getbootstrap.com/docs/5.1/layout/gutters/#horizontal-gutters -->
+  <div class="col col-10 gy-3">
+    <input
+      id="emailInput"
+      placeholder="Die E-Mail oder einen Teil davon eingeben"
+      class="form-control"
+      [(ngModel)]="email"
+      name="email"
+      (blur)="onBlur()"
+    />
   </div>
-  
+</div>
