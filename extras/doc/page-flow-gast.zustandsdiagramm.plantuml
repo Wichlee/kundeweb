@@ -50,6 +50,6 @@ state index.html {
     SucheKunden -right[hidden]-> DetailsKunde
 }
 
-footer (c) Jürgen Zimmermann
+footer (c) Gruppe 2
 
 @enduml
