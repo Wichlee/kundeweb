@@ -96,7 +96,7 @@
     "lighthouse": "9.6.8",
     "local-web-server": "5.2.1",
     "lws-redirect": "2.1.2",
-    "prettier": "2.7.1",
+    "prettier": "2.8.1",
     "rimraf": "3.0.2",
     "source-map-explorer": "2.5.3",
     "stylelint": "14.15.0",
