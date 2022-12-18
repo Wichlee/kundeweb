@@ -1,0 +1,12 @@
+<div class="row mt-2">
+    <label class="col col-1"> Familienstand </label>
+    <div class="col col-11">
+      <span [ngSwitch]="familienstand">
+        <span *ngSwitchCase="'L'">Ledig</span>
+        <span *ngSwitchCase="'VH'">Verheiratet</span>
+        <span *ngSwitchCase="'G'">Geschieden</span>
+        <span *ngSwitchCase="'VW'">Verwitwet</span>
+        <span *ngSwitchDefault>unbekannt</span>
+      </span>
+    </div>
+  </div>
