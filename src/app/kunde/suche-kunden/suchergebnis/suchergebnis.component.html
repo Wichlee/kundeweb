@@ -1,0 +1,12 @@
+<!-- Template Binding durch die Direktive ngIf -->
+<!-- Eine Direktive ist eine Komponente ohne View -->
+
+<hs-gefundene-kunden
+  [kunden]="kunden"
+  *ngIf="kunden.length; else showErrorMsg"
+>
+</hs-gefundene-kunden>
+
+<ng-template #showErrorMsg>
+  <hs-error-message [text]="errorMsg"></hs-error-message>
+</ng-template>
