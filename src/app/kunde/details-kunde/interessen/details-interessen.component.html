@@ -1,0 +1,11 @@
+<div class="row" *ngFor="let inetresse of values">
+    <div class="col col-11">
+      <div class="checkbox">
+        <input type="checkbox" checked disabled class="checkbox" />
+        <label class="ms-2" [ngSwitch]="interesse">
+          <span *ngSwitchCase="'JAVASCRIPT'">JavaScript</span>
+          <span *ngSwitchCase="'TYPESCRIPT'">TypeScript</span>
+        </label>
+      </div>
+    </div>
+  </div>
