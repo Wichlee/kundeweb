@@ -20,13 +20,11 @@
 'top to bottom direction
 
 rectangle CreateKunden
-rectangle CreateTitel
-rectangle CreateVerlag
-rectangle CreateIsbn
+rectangle CreateNachname
+rectangle CreateEmail
 
-CreateKunden --> CreateTitel
-CreateKunden --> CreateVerlag
-CreateKunden --> CreateIsbn
+CreateKunden --> CreateNachname
+CreateKunden --> CreateEmail
 
 footer (c) Gruppe 2
 

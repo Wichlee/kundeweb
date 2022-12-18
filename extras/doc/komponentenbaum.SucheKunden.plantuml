@@ -28,11 +28,11 @@ SucheKunden --> Suchformular
 SucheKunden --> Waiting
 SucheKunden --> Suchergebnis
 
-rectangle SucheTitel
-rectangle SucheVerlag
+rectangle SucheNachname
+rectangle SucheEmail
 
-Suchformular --> SucheTitel
-Suchformular --> SucheVerlag
+Suchformular --> SucheNachname
+Suchformular --> SucheEmail
 
 rectangle ErrorMessage
 rectangle GefundeneKunden

@@ -23,22 +23,18 @@ rectangle DetailsKunde
 rectangle Waiting
 rectangle DetailsBreadcrumbs
 rectangle DetailsStammdaten
-rectangle DetailsSchlagwoerter
 rectangle DetailsBearbeiten
 
 DetailsKunde --> Waiting
 DetailsKunde --> DetailsBreadcrumbs
 DetailsKunde --> DetailsStammdaten
-DetailsKunde --> DetailsSchlagwoerter
 DetailsKunde --> DetailsBearbeiten
 
-rectangle DetailsTitel
-rectangle DetailsVerlag
-rectangle DetailsIsbn
+rectangle DetailsNachname
+rectangle DetailsEmail
 
-DetailsStammdaten --> DetailsTitel
-DetailsStammdaten --> DetailsVerlag
-DetailsStammdaten --> DetailsIsbn
+DetailsStammdaten --> DetailsNachname
+DetailsStammdaten --> DetailsEmail
 
 footer (c) Gruppe 2
 
