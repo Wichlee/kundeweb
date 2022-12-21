@@ -1,0 +1,17 @@
+<div class="row">
+    <label class="col col-2 col-form-label gy-3">Geschlecht</label>
+    <div class="col col-10 gy-3">
+      <select
+        class="form-select"
+        title="Geschlecht"
+        [(ngModel)]="geschlecht"
+        name="geschlecht"
+        (change)="onChange($event)"
+      >
+        <option value=""></option>
+        <option value="M">Männlich</option>
+        <option value="W">Weiblich</option>
+        <option value="D">Divers</option>
+      </select>
+    </div>
+  </div>

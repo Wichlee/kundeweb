@@ -1,0 +1,60 @@
+<section class="card" [@fadeIn]="'in'">
+    <div class="card-header bg-primary">
+      <i class="material-icons">search</i>
+      <span class="ms-1 fw-bold"> Eingabe der Suchkriterien </span>
+    </div>
+    <div class="card-body">
+  
+      <!--
+        Formulare zur Interaktion mit dem Endbenutzer:
+        * Eingabefelder in Such-, Erfassungs- oder Aenderungsformularen
+        * Eingaben validieren und abschicken
+        * Ergebnisse oder Fehler anzeigen, ggf. Navigationsmoeglichkeiten
+  
+        Template-Syntax:, z.B. (submit)="onFind()" fuer Output (= Event Binding)
+        d.h. Angular registriert einen "DOM Event Listener" fuer das Ereignis
+        "submit" und ruft die Methode onFind() der Komponentenklasse,
+        wenn das Ereignis eintritt.
+  
+        Definition von Attributnamen gemaess HTML: Attribute names must
+        consist of one or more characters other than the space characters,
+        U+0000 NULL, """, "'", ">", "/", "=", the control characters,
+        and any characters that are not defined by Unicode.
+      -->
+  
+      <!-- Ereignis "submit" durch Abschicken des Formulars -->
+      <form (submit)="onSubmit()" role="form">
+        <hs-suche-nachname (nachname$)="setNachname($event)"></hs-suche-nachname>
+        <hs-suche-email (email$)="setEmail($event)"></hs-suche-email>
+        <hs-suche-geschlecht (geschlecht$)="setGeschlecht($event)"></hs-suche-geschlecht>
+        <hs-suche-interesssen
+          (javascript$)="setJavascript($event)"
+          (typescript$)="setTypescript($event)"
+        >
+        </hs-suche-interesssen>
+  
+        <!-- vertikale und horizontale "Gutter" als Abstaende ("gaps") zwischen den Spalten -->
+        <!-- https://v5.getbootstrap.com/docs/5.1/layout/gutters/#horizontal-gutters -->
+        <div class="row">
+          <div class="col offset-2 gy-3">
+            <i class="material-icons">info</i>
+            <!-- margin left -->
+            <span class="ms-1">
+              Hinweis: Keine Eingabe liefert alle Kunden
+            </span>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col offset-2 gy-3">
+            <!-- default: type="submit" -->
+            <button type="submit" class="btn btn-primary">
+              <i class="material-icons">search</i>
+              <span class="ms-1">Suchen</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  
