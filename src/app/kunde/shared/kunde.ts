@@ -16,32 +16,42 @@
  */
 import { type Temporal } from '@js-temporal/polyfill';
 
-export const MAX_RATING = 5;
+export const MIN_KATEGORIE = 0;
 
-export type Verlag = 'BAR_VERLAG' | 'FOO_VERLAG';
+export const MAX_KATEGORIE = 9;
 
-export type BuchArt = 'DRUCKAUSGABE' | 'KINDLE';
+export type Adresse = 'BAR_VERLAG' | 'FOO_VERLAG';
 
-export const ISBN_REGEX =
-    /\d{3}-\d-\d{5}-\d{3}-\d|\d-\d{5}-\d{3}-\d|\d{13}|\d{10}/u;
+export type Familienstand = 'LEDIG' | 'VERHEIRATET' | 'GESCHIEDEN' | 'VERWITWET';
+
+export type Geschlecht = 'MAENNLICH' | 'WEIBLICH' | 'DIVERS';
+
+export type Interesse = 'SPORT' | 'LESEN' | 'REISEN';
+
+export type Umsatz = null;
+
+export const NACHNAME_REGEX = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
 
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
  */
-export interface Buch {
+export interface Kunde {
     id: string | undefined;
     version: number | undefined;
-    titel: string;
-    rating: number | undefined;
-    art: BuchArt;
-    verlag: Verlag | '' | undefined;
-    datum: Temporal.PlainDate | undefined;
-    preis: number;
+    nachname: string;
+    email: string;
+    kategorie: number;
+    hasNewsletter: boolean;
+    geburtsdatum: Temporal.PlainDate | undefined;
+    homepage: URL;
     rabatt: number;
-    lieferbar: boolean | undefined;
-    schlagwoerter: string[];
-    isbn: string;
+    geschlecht: Geschlecht;
+    familienstand: Familienstand;
+    interessen: string[];
+    umsatz: Umsatz;
+    adresse: Adresse;
+    username: string;
 }
 
 /**
