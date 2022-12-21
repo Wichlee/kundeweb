@@ -50,7 +50,7 @@ include = [
 # https://registry.buildpacks.io/buildpacks/paketo-buildpacks/nginx
 # https://github.com/paketo-buildpacks/nginx/tags
 # https://console.cloud.google.com/gcr/images/paketo-buildpacks/GLOBAL/nginx
-uri = "urn:cnb:registry:paketo-buildpacks/nginx:0.12.0"
+uri = "urn:cnb:registry:paketo-buildpacks/nginx@0.12.0"
 
 [[build.env]]
 # http://nginx.org/en/download.html
