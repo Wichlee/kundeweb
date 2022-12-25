@@ -20,17 +20,23 @@ export const MIN_KATEGORIE = 0;
 
 export const MAX_KATEGORIE = 9;
 
-export type Adresse = 'BAR_VERLAG' | 'FOO_VERLAG';
+export type Adresse = null;
 
-export type Familienstand = 'LEDIG' | 'VERHEIRATET' | 'GESCHIEDEN' | 'VERWITWET';
+export type Familienstand =
+    | 'GESCHIEDEN'
+    | 'LEDIG'
+    | 'VERHEIRATET'
+    | 'VERWITWET';
 
-export type Geschlecht = 'MAENNLICH' | 'WEIBLICH' | 'DIVERS';
+export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
-export type Interesse = 'SPORT' | 'LESEN' | 'REISEN';
+export type Interesse = 'LESEN' | 'REISEN' | 'SPORT';
 
 export type Umsatz = null;
 
-export const NACHNAME_REGEX = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
+export const NACHNAME_REGEX =
+    // eslint-disable-next-line max-len
+    /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆŠŽ∂ð ,.'-]+$/u;
 
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
@@ -55,18 +61,22 @@ export interface Kunde {
 }
 
 /**
- * Gemeinsame Datenfelder unabh&auml;ngig, ob die Buchdaten von einem Server
+ * Gemeinsame Datenfelder unabh&auml;ngig, ob die Kundendaten von einem Server
  * (z.B. RESTful Web Service) oder von einem Formular kommen.
  * Verwendung in den Interfaces:
- * - BuchServer für BuchReadService
- * - BuchForm für CreateBuchComponent
+ * - KundeServer für KundeReadService
+ * - KundeForm für CreateKundeComponent
  */
-export interface BuchShared {
-    titel: string | undefined;
-    verlag?: Verlag | '';
-    art: BuchArt;
-    preis: number;
-    rabatt: number | undefined;
-    lieferbar?: boolean;
-    isbn: string;
+export interface KundeShared {
+    nachname: string;
+    email: string;
+    kategorie: number;
+    hasNewsletter: boolean;
+    homepage: URL;
+    rabatt: number;
+    geschlecht: Geschlecht;
+    familienstand: Familienstand;
+    umsatz: Umsatz;
+    adresse: Adresse;
+    username: string;
 }
