@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Buch, type BuchArt, type Verlag } from './kunde';
-import { type BuchServer, toBuch } from './kundeServer';
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import { type Familienstand, type Geschlecht, type Kunde } from './kunde';
+import { type KundeServer, toKunde } from './kundeServer';
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports, sort-imports
 import {
     HttpClient,
     type HttpErrorResponse,
@@ -31,16 +31,16 @@ import log from 'loglevel';
 import { paths } from '../../shared/paths';
 
 export interface Suchkriterien {
-    titel: string;
-    verlag: Verlag | '';
-    art: BuchArt | '';
-    schlagwoerter: { javascript: boolean; typescript: boolean };
+    name: string;
+    familienstand: Familienstand | '';
+    geschlecht: Geschlecht | '';
+    interessen: { lesen: boolean; reisen: boolean; sport: boolean };
 }
 
-export interface BuecherServer {
+export interface KundenServer {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _embedded: {
-        buecher: BuchServer[];
+        kunden: KundeServer[];
     };
 }
 
@@ -63,11 +63,11 @@ export interface BuecherServer {
 // https://angular.io/guide/singleton-services
 
 /**
- * Die Service-Klasse zu B&uuml;cher wird zum "Root Application Injector"
+ * Die Service-Klasse zu Kunden wird zum "Root Application Injector"
  * hinzugefuegt und ist in allen Klassen der Webanwendung verfuegbar.
  */
 @Injectable({ providedIn: 'root' })
-export class BuchReadService {
+export class KundeReadService {
     readonly #baseUrl = paths.base;
 
     /**
@@ -75,21 +75,20 @@ export class BuchReadService {
      * @return void
      */
     constructor(private readonly httpClient: HttpClient) {
-        log.debug('BuchReadService.constructor: baseUrl=', this.#baseUrl);
+        log.debug('KundeReadService.constructor: baseUrl=', this.#baseUrl);
     }
 
     /**
-     * Buecher anhand von Suchkriterien suchen
+     * Kunden anhand von Suchkriterien suchen
      * @param suchkriterien Die Suchkriterien
-     * @returns Gefundene Buecher oder Statuscode des fehlerhaften GET-Requests
+     * @returns Gefundene Kunden oder Statuscode des fehlerhaften GET-Requests
      */
     find(
         suchkriterien: Suchkriterien | undefined = undefined, // eslint-disable-line unicorn/no-useless-undefined
-    ): Observable<Buch[] | FindError> {
-        log.debug('BuchReadService.find: suchkriterien=', suchkriterien);
-        log.debug('BuchReadService.find: url=', this.#baseUrl);
+    ): Observable<FindError | Kunde[]> {
+        log.debug('KundeReadService.find: suchkriterien=', suchkriterien);
+        log.debug('KundeReadService.find: url=', this.#baseUrl);
 
-        // Query-Parameter ?titel=x&art=KINDLE&...
         const params = this.#suchkriterienToHttpParams(suchkriterien);
 
         // Promise:
@@ -106,7 +105,7 @@ export class BuchReadService {
 
         return (
             this.httpClient
-                .get<BuecherServer>(this.#baseUrl, { params })
+                .get<KundenServer>(this.#baseUrl, { params })
 
                 // pipe ist eine "pure" Funktion, die ein Observable in ein NEUES Observable transformiert
                 .pipe(
@@ -120,8 +119,8 @@ export class BuchReadService {
                             of(this.#buildFindError(err as HttpErrorResponse)),
                     ),
 
-                    // entweder Observable<BuecherServer> oder Observable<FindError>
-                    map(restResult => this.#toBuchArrayOrError(restResult)),
+                    // entweder Observable<KundenServer> oder Observable<FindError>
+                    map(restResult => this.#toKundeArrayOrError(restResult)),
                 )
         );
 
@@ -131,11 +130,11 @@ export class BuchReadService {
         // Falls benoetigt, gibt es in Angular dafuer den Service Jsonp.
     }
 
-    #toBuchArrayOrError(
-        restResult: BuecherServer | FindError,
-    ): Buch[] | FindError {
+    #toKundeArrayOrError(
+        restResult: FindError | KundenServer,
+    ): FindError | Kunde[] {
         log.debug(
-            'BuchReadService.#toBuchArrayOrError: restResult=',
+            'KundeReadService.#toKundeArrayOrError: restResult=',
             restResult,
         );
         if (restResult instanceof FindError) {
@@ -143,33 +142,33 @@ export class BuchReadService {
         }
 
         // eslint-disable-next-line no-underscore-dangle
-        const buecher = restResult._embedded.buecher.map(buchServer =>
-            toBuch(buchServer),
+        const kunden = restResult._embedded.kunden.map(kundeServer =>
+            toKunde(kundeServer),
         );
-        log.debug('BuchReadService.#toBuchArrayOrError: buecher=', buecher);
-        return buecher;
+        log.debug('KundeReadService.#toKundeArrayOrError: kunden=', kunden);
+        return kunden;
     }
 
     /**
-     * Ein Buch anhand der ID suchen
-     * @param id Die ID des gesuchten Buchs
+     * Einen Kunden anhand der ID suchen
+     * @param id Die ID des gesuchten Kunden
      */
-    findById(id: string | undefined): Observable<Buch | FindError> {
-        log.debug('BuchReadService.findById: id=', id);
+    findById(id: string | undefined): Observable<FindError | Kunde> {
+        log.debug('KundeReadService.findById: id=', id);
 
         if (id === undefined) {
-            log.debug('BuchReadService.findById: Keine Id');
+            log.debug('KundeReadService.findById: Keine Id');
             return of(this.#buildFindError());
         }
 
         // wegen fehlender Versionsnummer (im ETag) nachladen
         const url = `${this.#baseUrl}/${id}`;
-        log.debug('BuchReadService.findById: url=', url);
+        log.debug('KundeReadService.findById: url=', url);
 
         return (
             this.httpClient
                 /* eslint-disable object-curly-newline */
-                .get<BuchServer>(url, {
+                .get<KundeServer>(url, {
                     observe: 'response',
                 })
                 /* eslint-enable object-curly-newline */
@@ -183,28 +182,29 @@ export class BuchReadService {
                         return of(this.#buildFindError(errResponse));
                     }),
 
-                    // entweder Observable<HttpResponse<BuchServer>> oder Observable<FindError>
-                    map(restResult => this.#toBuchOrError(restResult)),
+                    // entweder Observable<HttpResponse<KundeServer>> oder Observable<FindError>
+                    map(restResult => this.#toKundeOrError(restResult)),
                 )
         );
     }
 
-    #toBuchOrError(
-        restResult: FindError | HttpResponse<BuchServer>,
-    ): Buch | FindError {
+    #toKundeOrError(
+        restResult: FindError | HttpResponse<KundeServer>,
+    ): FindError | Kunde {
         if (restResult instanceof FindError) {
             return restResult;
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { body, headers } = restResult;
         if (body === null) {
             return this.#buildFindError();
         }
 
         const etag = headers.get('ETag') ?? undefined;
-        log.debug('BuchReadService.#toBuchOrError: etag=', etag);
+        log.debug('KundeReadService.#toKundeOrError: etag=', etag);
 
-        return toBuch(body, etag);
+        return toKunde(body, etag);
     }
 
     /**
@@ -216,7 +216,7 @@ export class BuchReadService {
         suchkriterien: Suchkriterien | undefined,
     ): HttpParams {
         log.debug(
-            'BuchReadService.#suchkriterienToHttpParams: suchkriterien=',
+            'KundeReadService.#suchkriterienToHttpParams: suchkriterien=',
             suchkriterien,
         );
         let httpParams = new HttpParams();
@@ -225,23 +225,26 @@ export class BuchReadService {
             return httpParams;
         }
 
-        const { titel, verlag, art, schlagwoerter } = suchkriterien;
-        const { javascript, typescript } = schlagwoerter;
+        const { name, familienstand, geschlecht, interessen } = suchkriterien;
+        const { lesen, reisen, sport } = interessen;
 
-        if (titel !== '') {
-            httpParams = httpParams.set('titel', titel);
+        if (name !== '') {
+            httpParams = httpParams.set('titel', name);
         }
-        if (art !== '') {
-            httpParams = httpParams.set('art', art);
+        if (familienstand !== '') {
+            httpParams = httpParams.set('art', familienstand);
         }
-        if (verlag !== '') {
-            httpParams = httpParams.set('verlag', verlag);
+        if (geschlecht !== '') {
+            httpParams = httpParams.set('verlag', geschlecht);
         }
-        if (javascript) {
-            httpParams = httpParams.set('javascript', 'true');
+        if (lesen) {
+            httpParams = httpParams.set('lesen', 'true');
         }
-        if (typescript) {
-            httpParams = httpParams.set('typescript', 'true');
+        if (reisen) {
+            httpParams = httpParams.set('reisen', 'true');
+        }
+        if (sport) {
+            httpParams = httpParams.set('sport', 'true');
         }
         return httpParams;
     }
@@ -260,7 +263,7 @@ export class BuchReadService {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { status, error } = err;
         log.debug(
-            'BuchReadService.#buildFindError: status / Response-Body=',
+            'KundeReadService.#buildFindError: status / Response-Body=',
             status,
             error,
         );
