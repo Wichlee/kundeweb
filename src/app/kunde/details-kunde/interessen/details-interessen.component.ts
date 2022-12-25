@@ -23,6 +23,6 @@ export class DetailsInteressenComponent implements OnInit {
     values!: string[];
 
     ngOnInit() {
-        log.debug('DetailsSchlagwoerterComponent.values=', this.values);
+        log.debug('DetailsInteressenComponent.values=', this.values);
     }
 }

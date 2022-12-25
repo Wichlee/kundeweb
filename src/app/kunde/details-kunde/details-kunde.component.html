@@ -1,0 +1,73 @@
+<hs-waiting *ngIf="waiting; else details"></hs-waiting>
+
+<ng-template #details>
+  <hs-details-breadcrumbs></hs-details-breadcrumbs>
+
+  <section class="mt-1 ms-1" *ngIf="kunde; else showErrorMsg">
+    <h4>Kunde {{ kunde.id }}:</h4>
+
+    <!-- https://v5.getbootstrap.com/docs/5.1/components/navs/tabs -->
+    <!-- jQuery erfordert id -->
+    <ul class="nav nav-tabs mt-1 ms-1" id="kundeDetails">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          id="stammdaten-tab"
+          href="#stammdaten"
+          data-bs-toggle="tab"
+          role="tab"
+          aria-controls="stammdaten"
+          aria-expanded="true"
+        >
+          Stammdaten
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="kunde.interessen.length > 0">
+        <a
+          class="nav-link"
+          id="interessen-tab"
+          href="#interessen"
+          data-bs-toggle="tab"
+          role="tab"
+          aria-controls="interessen"
+          aria-expanded="true"
+        >
+          Interessen
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="kundeContent">
+      <div
+        class="tab-pane fade show active"
+        id="stammdaten"
+        role="tabpanel"
+        aria-labelledby="stammdaten-tab"
+      >
+        <div class="mt-2 ms-2">
+          <hs-details-stammdaten [kunde]="kunde"> </hs-details-stammdaten>
+        </div>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="interessen"
+        role="tabpanel"
+        aria-labelledby="interessen-tab"
+        *ngIf="kunde.interessen.length > 0"
+      >
+        <div class="mt-2 ms-2">
+          <hs-details-interessen [values]="kunde.interessen">
+          </hs-details-interessen>
+        </div>
+      </div>
+    </div>
+
+    <hs-details-bearbeiten [id]="kunde.id" *ngIf="isAdmin">
+    </hs-details-bearbeiten>
+  </section>
+
+  <ng-template #showErrorMsg>
+    <hs-error-message [text]="errorMsg"></hs-error-message>
+  </ng-template>
+</ng-template>
