@@ -20,8 +20,6 @@ export const MIN_KATEGORIE = 0;
 
 export const MAX_KATEGORIE = 9;
 
-export type Adresse = null;
-
 export type Familienstand =
     | 'GESCHIEDEN'
     | 'LEDIG'
@@ -31,8 +29,6 @@ export type Familienstand =
 export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
 export type Interesse = 'LESEN' | 'REISEN' | 'SPORT';
-
-export type Umsatz = null;
 
 export const NACHNAME_REGEX =
     // eslint-disable-next-line max-len
@@ -55,8 +51,8 @@ export interface Kunde {
     geschlecht: Geschlecht;
     familienstand: Familienstand;
     interessen: string[];
-    umsatz: Umsatz;
-    adresse: Adresse;
+    umsatz: number;
+    adresse: string;
     username: string;
 }
 
@@ -76,7 +72,7 @@ export interface KundeShared {
     rabatt: number;
     geschlecht: Geschlecht;
     familienstand: Familienstand;
-    umsatz: Umsatz;
-    adresse: Adresse;
+    umsatz: number;
+    adresse: string;
     username: string;
 }
