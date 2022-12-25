@@ -20,13 +20,13 @@ export const MIN_KATEGORIE = 0;
 
 export const MAX_KATEGORIE = 9;
 
-export type Familienstand =
+export type FamilienstandType =
     | 'GESCHIEDEN'
     | 'LEDIG'
     | 'VERHEIRATET'
     | 'VERWITWET';
 
-export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
+export type GeschlechtType = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
 export const NACHNAME_REGEX =
     // eslint-disable-next-line max-len
@@ -46,8 +46,8 @@ export interface Kunde {
     geburtsdatum: Temporal.PlainDate | undefined;
     homepage: URL;
     rabatt: number;
-    geschlecht: Geschlecht;
-    familienstand: Familienstand;
+    geschlecht: GeschlechtType;
+    familienstand: FamilienstandType;
     interessen: string[];
     umsatz: number;
     adresse: string;
@@ -68,8 +68,8 @@ export interface KundeShared {
     hasNewsletter: boolean;
     homepage: URL;
     rabatt: number;
-    geschlecht: Geschlecht;
-    familienstand: Familienstand;
+    geschlecht: GeschlechtType;
+    familienstand: FamilienstandType;
     umsatz: number;
     adresse: string;
     username: string;

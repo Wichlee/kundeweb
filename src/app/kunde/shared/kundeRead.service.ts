@@ -14,7 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Familienstand, type Geschlecht, type Kunde } from './kunde';
+import {
+    type FamilienstandType,
+    type GeschlechtType,
+    type Kunde,
+} from './kunde';
 import { type KundeServer, toKunde } from './kundeServer';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports, sort-imports
 import {
@@ -32,8 +36,8 @@ import { paths } from '../../shared/paths';
 
 export interface Suchkriterien {
     name: string;
-    familienstand: Familienstand | '';
-    geschlecht: Geschlecht | '';
+    familienstand: FamilienstandType | '';
+    geschlecht: GeschlechtType | '';
     interessen: { lesen: boolean; reisen: boolean; sport: boolean };
 }
 
@@ -195,7 +199,6 @@ export class KundeReadService {
             return restResult;
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { body, headers } = restResult;
         if (body === null) {
             return this.#buildFindError();
