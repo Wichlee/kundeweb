@@ -28,8 +28,6 @@ export type Familienstand =
 
 export type Geschlecht = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
-export type Interesse = 'LESEN' | 'REISEN' | 'SPORT';
-
 export const NACHNAME_REGEX =
     // eslint-disable-next-line max-len
     /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆŠŽ∂ð ,.'-]+$/u;
