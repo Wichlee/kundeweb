@@ -33,7 +33,7 @@
     // https://devblogs.microsoft.com/typescript/announcing-typescript-4-5
     // https://github.com/microsoft/TypeScript/pull/45771
     // https://github.com/microsoft/TypeScript/issues/43972
-    "lib": ["es2018", "dom"],
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
