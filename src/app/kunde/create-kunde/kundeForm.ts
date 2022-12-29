@@ -1,7 +1,10 @@
 import { type Kunde type KundeShared } from '../shared/kunde';
 
 export interface KundeForm extends KundeShared {
-
+  geburtsdatum: Date;
+  sport: boolean;
+  lesen: boolean;
+  reisen: boolean;
 }
 
 export const toKunde = (kundeForm: KundeForm): Kunde => {
