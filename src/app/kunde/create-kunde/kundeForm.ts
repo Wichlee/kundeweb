@@ -42,7 +42,7 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         username,
     } = kundeForm;
 
-    const geburtsdatum;
+    const geburtsdatum; //todo: muss geburtsdatum nochmal umgewandelt werden?
 
     const interessen: string[] = [];
     if (sport) {
