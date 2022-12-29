@@ -10,35 +10,68 @@ import log from 'loglevel';
  * </ul>
  */
 export interface KundeForm extends KundeShared {
-  geburtsdatum: Date;
-  sport: boolean;
-  lesen: boolean;
-  reisen: boolean;
+    geburtsdatum: Date;
+    sport: boolean;
+    lesen: boolean;
+    reisen: boolean;
 }
 
 /**
  * Ein Kunde-Objekt mit JSON-Objekt aus einem Formular erzeugen
  * @param kunde JSON-Objekt mit Daten aus dem Formular
+ * @return Das initialisierte Kunde-Objekt
  */
 export const toKunde = (kundeForm: KundeForm): Kunde => {
-  log.debug('toKunde: kundeForm=', kundeForm);
+    log.debug('toKunde: kundeForm=', kundeForm);
 
-  const {
-    nachname,
-    email,
-    kategorie,
-    hasNewsletter,
-    geburtsdatum,
-    homepage,
-    rabatt,
-    geschlecht,
-    familienstand,
-    sport, // Interessen als bools, da diese eine Liste sind -> siehe kunde.ts
-    lesen,
-    reisen,
-    umsatz,
-    adresse,
-    username,
-  } = kundeForm;
+    const {
+        nachname,
+        email,
+        kategorie,
+        hasNewsletter,
+        geburtsdatum,
+        homepage,
+        rabatt,
+        geschlecht,
+        familienstand,
+        sport, // Interessen als bools, da diese eine Liste sind -> siehe kunde.ts
+        lesen,
+        reisen,
+        umsatz,
+        adresse,
+        username,
+    } = kundeForm;
 
-}
+    const geburtsdatum;
+
+    const interessen: string[] = [];
+    if (sport) {
+        interessen.push('SPORT');
+    }
+    if (lesen) {
+        interessen.push('LESEN');
+    }
+    if (reisen) {
+        interessen.push('REISEN');
+    }
+
+    const kunde: Kunde = {
+        id: undefined,
+        nachname,
+        email,
+        kategorie,
+        hasNewsletter,
+        geburtsdatum,
+        homepage,
+        rabatt,
+        geschlecht,
+        familienstand,
+        interessen,
+        umsatz,
+        adresse,
+        username,
+        version: 0,
+    };
+    log.debug('toKunde: kunde=', kunde);
+    return kunde;
+};
