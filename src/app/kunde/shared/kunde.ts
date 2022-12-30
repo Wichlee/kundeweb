@@ -16,47 +16,61 @@
  */
 import { type Temporal } from '@js-temporal/polyfill';
 
-export const MAX_RATING = 5;
+export const MIN_KATEGORIE = 0;
 
-export type Verlag = 'BAR_VERLAG' | 'FOO_VERLAG';
+export const MAX_KATEGORIE = 9;
 
-export type BuchArt = 'DRUCKAUSGABE' | 'KINDLE';
+export type FamilienstandType =
+    | 'GESCHIEDEN'
+    | 'LEDIG'
+    | 'VERHEIRATET'
+    | 'VERWITWET';
 
-export const ISBN_REGEX =
-    /\d{3}-\d-\d{5}-\d{3}-\d|\d-\d{5}-\d{3}-\d|\d{13}|\d{10}/u;
+export type GeschlechtType = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
+
+export const NACHNAME_REGEX =
+    // eslint-disable-next-line max-len
+    /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆŠŽ∂ð ,.'-]+$/u;
 
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
  */
-export interface Buch {
+export interface Kunde {
     id: string | undefined;
     version: number | undefined;
-    titel: string;
-    rating: number | undefined;
-    art: BuchArt;
-    verlag: Verlag | '' | undefined;
-    datum: Temporal.PlainDate | undefined;
-    preis: number;
+    nachname: string;
+    email: string;
+    kategorie: number;
+    hasNewsletter: boolean;
+    geburtsdatum: Temporal.PlainDate | undefined;
+    homepage: URL;
     rabatt: number;
-    lieferbar: boolean | undefined;
-    schlagwoerter: string[];
-    isbn: string;
+    geschlecht: GeschlechtType;
+    familienstand: FamilienstandType;
+    interessen: string[];
+    umsatz: number;
+    adresse: string;
+    username: string;
 }
 
 /**
- * Gemeinsame Datenfelder unabh&auml;ngig, ob die Buchdaten von einem Server
+ * Gemeinsame Datenfelder unabh&auml;ngig, ob die Kundendaten von einem Server
  * (z.B. RESTful Web Service) oder von einem Formular kommen.
  * Verwendung in den Interfaces:
- * - BuchServer für BuchReadService
- * - BuchForm für CreateBuchComponent
+ * - KundeServer für KundeReadService
+ * - KundeForm für CreateKundeComponent
  */
-export interface BuchShared {
-    titel: string | undefined;
-    verlag?: Verlag | '';
-    art: BuchArt;
-    preis: number;
-    rabatt: number | undefined;
-    lieferbar?: boolean;
-    isbn: string;
+export interface KundeShared {
+    nachname: string;
+    email: string;
+    kategorie: number;
+    hasNewsletter: boolean;
+    homepage: URL;
+    rabatt: number;
+    geschlecht: GeschlechtType;
+    familienstand: FamilienstandType;
+    umsatz: number;
+    adresse: string;
+    username: string;
 }
