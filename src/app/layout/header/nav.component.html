@@ -22,10 +22,10 @@
 <ul class="navbar-nav me-auto">
   <li class="nav-item active">
     <a
-      routerLink="/buecher/suche"
+      routerLink="/kunden/suche"
       routerLinkActive="active"
       class="nav-link"
-      aria-label="Suche Buecher"
+      aria-label="Suche Kunden"
     >
       <i class="material-icons">search</i>
       <span class="ms-1">Suche</span>
@@ -34,7 +34,7 @@
 
   <li class="nav-item" *ngIf="isAdmin$ | async">
     <a
-      routerLink="/buecher/create"
+      routerLink="/kunden/create"
       class="nav-link"
       aria-label="Neuen Kunde anlegen"
     >
@@ -56,7 +56,7 @@
     </div>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
       <a
-        routerLink="/buecher/balkendiagramm"
+        routerLink="/kunden/balkendiagramm"
         class="dropdown-item"
         aria-label="Balkendiagramm fuer Bewertungen"
       >
@@ -64,7 +64,7 @@
         <span class="ms-1">Balkendiagramm</span>
       </a>
       <a
-        routerLink="/buecher/liniendiagramm"
+        routerLink="/kunden/liniendiagramm"
         class="dropdown-item"
         aria-label="Liniendiagramm fuer Bewertungen"
       >
@@ -72,7 +72,7 @@
         <span class="ms-1">Liniendiagramm</span>
       </a>
       <a
-        routerLink="/buecher/tortendiagramm"
+        routerLink="/kunden/tortendiagramm"
         class="dropdown-item"
         aria-label="Tortendiagramm fuer Bewertungen"
       >
