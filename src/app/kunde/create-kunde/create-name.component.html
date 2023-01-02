@@ -1,0 +1,27 @@
+<!--
+  todo: Angular-Material-Formularfelder verwenden
+-->
+<div class="row">
+  <label for="nameInput" class="col col-2 col-form-label gy-3"> Name * </label>
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <input
+        id="nameInput"
+        placeholder="Name"
+        class="form-control"
+        autofocus
+        formControlName="name"
+        [class.is-invalid]="nachname.invalid && nachname.touched"
+        [class.is-valid]="nachname.valid && nachname.touched"
+      />
+
+      <div
+        class="invalid-feedback"
+        *ngIf="nachname.invalid && nachname.touched && nachname.errors"
+      >
+        <i class="material-icons">error</i>
+        
+      </div>
+    </div>
+  </div>
+</div>
