@@ -35,7 +35,7 @@ import log from 'loglevel';
 import { paths } from '../../shared/paths';
 
 export interface Suchkriterien {
-    name: string;
+    nachname: string;
     familienstand: FamilienstandType | '';
     geschlecht: GeschlechtType | '';
     interessen: { lesen: boolean; reisen: boolean; sport: boolean };
@@ -228,17 +228,18 @@ export class KundeReadService {
             return httpParams;
         }
 
-        const { name, familienstand, geschlecht, interessen } = suchkriterien;
+        const { nachname, familienstand, geschlecht, interessen } =
+            suchkriterien;
         const { lesen, reisen, sport } = interessen;
 
-        if (name !== '') {
-            httpParams = httpParams.set('titel', name);
+        if (nachname !== '') {
+            httpParams = httpParams.set('nachname', nachname);
         }
         if (familienstand !== '') {
-            httpParams = httpParams.set('art', familienstand);
+            httpParams = httpParams.set('familienstand', familienstand);
         }
         if (geschlecht !== '') {
-            httpParams = httpParams.set('verlag', geschlecht);
+            httpParams = httpParams.set('geschlecht', geschlecht);
         }
         if (lesen) {
             httpParams = httpParams.set('lesen', 'true');
