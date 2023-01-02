@@ -65,14 +65,14 @@ import log from 'loglevel';
     //       </hs-header>
     //       <hs-main>
     //           <router-outlet>
-    //               <hs-suche-buecher>
+    //               <hs-suche-kunden>
     //                   <hs-suchformular>
     //                       ...
     //                   </hs-suchformular>
     //                   <hs-suchergebnis>
     //                       ...
     //                   </hs-suchergebnis>
-    //               </hs-suche-buecher>
+    //               </hs-suche-kunden>
     //           <router-outlet>
     //       </hs-main>
     //   </hs-root>
