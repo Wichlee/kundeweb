@@ -7,7 +7,7 @@ import { type Routes } from '@angular/router';
 import { SucheKundenComponent } from './suche-kunden/suche-kunden.component';
 import { TortendiagrammComponent } from './diagramme/tortendiagramm.component';
 import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
-import { canDeactivateGuard } from './create-unde/create-deactivate.guard';
+import { canDeactivateGuard } from './create-kunde/create-deactivate.guard';
 import { isAdminGuard } from '../auth/isAdmin.guard';
 
 // Route-Definitionen fuer das Feature-Modul "Kunde":
