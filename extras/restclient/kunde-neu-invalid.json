@@ -1,12 +1,19 @@
 {
-  "titel": "?!",
-  "rating": 2,
-  "art": "UNSICHTBAR",
-  "verlag": "NO_VERLAG",
-  "preis": -1,
-  "rabatt": 0,
-  "lieferbar": true,
-  "datum": "12345-123-123",
-  "isbn": "falsche-isbn",
-  "homepage": "anyHomepage"
+  "kunde": {
+    "nachname": "?!$",
+    "email": "email",
+    "kategorie": 11,
+    "hasNewsletter": true,
+    "geburtsdatum": "3000-01-01",
+    "homepage": "https://www.test.de",
+    "geschlecht": "WEIBLICH",
+    "familienstand": "LEDIG",
+    "interessen": [
+      "REISEN",
+      "LESEN"
+    ],
+    "umsatz": 1500,
+    "adresse": "12345 Testort",
+    "username": "test"
+  }
 }
