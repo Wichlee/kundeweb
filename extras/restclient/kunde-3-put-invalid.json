@@ -1,14 +1,18 @@
 {
   "_id": "00000000-0000-0000-0000-000000000003",
-  "titel": "?!",
-  "rating": 5,
-  "art": "KINDLE",
-  "verlag": "IWI_VERLAG",
-  "preis": 9999,
-  "rabatt": 1,
-  "lieferbar": true,
-  "datum": "12345-123-123",
-  "isbn": "falsche-isbn",
-  "homepage": "anyHomepage",
-  "schlagwoerter": ["JAVASCRIPT"]
+  "nachname": "?!$",
+  "email": "email",
+  "kategorie": 11,
+  "hasNewsletter": true,
+  "geburtsdatum": "2023-01-01",
+  "homepage": "https://www.test.de",
+  "geschlecht": "WEIBLICH",
+  "familienstand": "LEDIG",
+  "interessen": [
+    "REISEN",
+    "LESEN"
+  ],
+  "umsatz": 1500,
+  "adresse": "12345 Testort",
+  "username": "test"
 }
