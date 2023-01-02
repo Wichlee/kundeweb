@@ -24,11 +24,14 @@ export class CreateNameComponent implements OnInit {
     protected readonly nachname = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateNameComponent.MIN_LENGTH),
-        Validators.pattern(/^\w/u),
+        Validators.pattern(
+            // eslint-disable-next-line max-len
+            /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆŠŽ∂ð ,.'-]+$/u,
+        ),
     ]);
 
     ngOnInit() {
-        log.debug('CreateNameComponent.ngOnInit()');
+        log.debug('CreateNameComponent.ngOnInit');
 
         this.form.addControl('nachname', this.nachname);
     }
