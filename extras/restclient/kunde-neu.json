@@ -1,0 +1,19 @@
+{
+  "titel": "Test",
+  "rating": 1,
+  "art": "KINDLE",
+  "verlag": "FOO_VERLAG",
+  "preis": 99.9,
+  "rabatt": 0.1,
+  "lieferbar": true,
+  "datum": "2020-02-01",
+  "isbn": "0-0070-0644-6",
+  "homepage": "https://test.de/",
+  "schlagwoerter": ["JAVASCRIPT", "TYPESCRIPT"],
+  "autoren": [
+    {
+      "vorname": "Theo",
+      "nachname": "Test"
+    }
+  ]
+}

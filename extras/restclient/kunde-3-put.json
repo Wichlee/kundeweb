@@ -1,0 +1,13 @@
+{
+  "titel": "Geaendert",
+  "rating": 5,
+  "art": "KINDLE",
+  "verlag": "FOO_VERLAG",
+  "preis": 9999,
+  "rabatt": 0.99,
+  "lieferbar": true,
+  "datum": "2020-02-01",
+  "isbn": "0-0070-9732-8",
+  "homepage": "https://test.de/",
+  "schlagwoerter": ["JAVASCRIPT", "TYPESCRIPT"]
+}
