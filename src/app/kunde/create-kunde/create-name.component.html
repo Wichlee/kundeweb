@@ -1,16 +1,16 @@
+<!--
+  todo: Angular-Material-Formularfelder verwenden
+-->
 <div class="row">
-  <label for="nachnameUpdate" class="col col-2 col-form-label gy-3"
-    >Nachname *</label
-  >
-
+  <label for="nameInput" class="col col-2 col-form-label gy-3"> Name * </label>
   <div class="col col-10 gy-3" [formGroup]="form">
     <div class="input-group">
       <input
-        id="nachnameUpdate"
-        placeholder="Nachname"
+        id="nameInput"
+        placeholder="Name"
         class="form-control"
         autofocus
-        formControlName="nachname"
+        formControlName="name"
         [class.is-invalid]="nachname.invalid && nachname.touched"
         [class.is-valid]="nachname.valid && nachname.touched"
       />
@@ -20,14 +20,6 @@
         *ngIf="nachname.invalid && nachname.touched && nachname.errors"
       >
         <i class="material-icons">error</i>
-        <span class="ms-1">
-          <span *ngIf="nachname.errors['required']">
-            Der Nachname muss eingegeben werden.
-          </span>
-          <span *ngIf="nachname.errors['pattern']">
-            Der Nachname muss mit einem Buchstaben beginnen.
-          </span>
-        </span>
       </div>
     </div>
   </div>

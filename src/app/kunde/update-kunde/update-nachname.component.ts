@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
+// eslint-disable-next-line sort-imports
+import { NACHNAME_REGEX } from '../shared/kunde';
 
 /**
  * Komponente f&uuml;r den CSS-Selektor <code>hs-update-nachname</code>
@@ -19,8 +21,6 @@ import log from 'loglevel';
     standalone: true,
 })
 export class UpdateNachnameComponent implements OnInit {
-    private static readonly MIN_LENGTH = 2;
-
     // <hs-update-nachname [form]="form" [currentValue]="...">
     @Input()
     form!: FormGroup;
@@ -38,8 +38,7 @@ export class UpdateNachnameComponent implements OnInit {
         // siehe formControlName innerhalb @Component({templateUrl: ...})
         this.nachname = new FormControl(this.currentValue, [
             Validators.required,
-            Validators.minLength(UpdateNachnameComponent.MIN_LENGTH),
-            Validators.pattern(/^\w/u),
+            Validators.pattern(NACHNAME_REGEX),
         ]);
         this.form.addControl('nachname', this.nachname);
     }

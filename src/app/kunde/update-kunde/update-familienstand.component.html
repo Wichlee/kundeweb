@@ -1,0 +1,12 @@
+<div class="row">
+  <label class="col col-2 col-form-label gy-3">Familienstand *</label>
+
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <select class="form-select" formControlName="familienstand">
+      <option value="GESCHIEDEN">Geschieden</option>
+      <option value="LEDIG">Ledig</option>
+      <option value="VERHEIRATET">Verheiratet</option>
+      <option value="VERWITWET">Verwitwet</option>
+    </select>
+  </div>
+</div>

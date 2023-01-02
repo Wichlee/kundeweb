@@ -61,7 +61,9 @@ export class DetailsKundeComponent implements OnInit {
 
     ngOnInit() {
         if (this.kunde === undefined) {
-            log.debug('DetailsKundeComponent.ngOnInit: this.kunde === undefined');
+            log.debug(
+                'DetailsKundeComponent.ngOnInit: this.kunde === undefined',
+            );
 
             // Pfad-Parameter aus /kunden/:id beobachten, ohne dass bisher ein
             // JavaScript-Ereignis, wie z.B. click, eingetreten ist.

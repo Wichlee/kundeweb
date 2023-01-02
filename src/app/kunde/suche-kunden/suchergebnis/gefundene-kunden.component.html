@@ -2,81 +2,81 @@
 <!-- Eine Direktive ist eine Komponente ohne View -->
 
 <div class="card" aria-label="Gefundene Kunden" *ngIf="kunden.length">
-    <div class="card-header">
-      <i class="material-icons">folder_open</i>
-      <span class="ms-1 fw-bold">Gefundene Kunden</span>
+  <div class="card-header">
+    <i class="material-icons">folder_open</i>
+    <span class="ms-1 fw-bold">Gefundene Kunden</span>
+  </div>
+  <div class="card-body">
+    <table
+      class="table table-striped table-hover table-responsive"
+      [@easeIn]="'in'"
+    >
+      <thead class="thead-default">
+        <th>Nr.</th>
+        <th>ID</th>
+        <th>Nachname</th>
+        <th>E-Mail</th>
+        <th>
+          <span class="visually-hidden">Spalte f&uuml;r Details</span>
+        </th>
+        <th *ngIf="isAdmin || (isAdmin$ | async)">
+          <span class="visually-hidden">Spalte f&uuml;r Entfernen</span>
+        </th>
+      </thead>
+      <tbody>
+        <!-- Template Binding: ngFor -->
+        <!-- Event-Binding: statt (click) auch on-click -->
+        <!-- ts als Komponente: https://stackoverflow.com/questions/34556277/angular2-table-rows-as-component -->
+        <tr
+          *ngFor="let kunde of kunden; index as idx; trackBy: trackBy"
+          [@easeOut]="'in'"
+        >
+          <td (click)="onClick(kunde)">{{ idx + 1 }}</td>
+          <td (click)="onClick(kunde)">{{ kunde.id }}</td>
+          <td (click)="onClick(kunde)">{{ kunde.nachname }}</td>
+          <td (click)="onClick(kunde)">{{ kunde.email }}</td>
+          <td>
+            <!-- Pfad /:id, in kunde-routing.module.ts -->
+            <a
+              [routerLink]="['..', kunde.id]"
+              [state]="{ kunde: kunde }"
+              title="Details anzeigen"
+            >
+              <i class="material-icons">search</i>
+            </a>
+          </td>
+          <!-- implizites "unsubscribe()" durch async -->
+          <td *ngIf="isAdmin || (isAdmin$ | async)">
+            <span (click)="onRemove(kunde)" title="Entfernen">
+              <i class="material-icons">delete</i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <div>
+      <i class="material-icons">info</i>
+      <span class="ms-1" [ngPlural]="kunden.length">
+        <!-- zu vergleichender Ausdruck -->
+        <ng-template ngPluralCase="=0"> Es gibt keinen Kunden </ng-template>
+        <ng-template ngPluralCase="=1"> Es gibt einen Kunden </ng-template>
+        <ng-template ngPluralCase="other">
+          Es gibt {{ kunden.length }} Kunden
+        </ng-template>
+      </span>
     </div>
-    <div class="card-body">
-      <table
-        class="table table-striped table-hover table-responsive"
-        [@easeIn]="'in'"
-      >
-        <thead class="thead-default">
-          <th>Nr.</th>
-          <th>ID</th>
-          <th>Nachname</th>
-          <th>E-Mail</th>
-          <th>
-            <span class="visually-hidden">Spalte f&uuml;r Details</span>
-          </th>
-          <th *ngIf="isAdmin || (isAdmin$ | async)">
-            <span class="visually-hidden">Spalte f&uuml;r Entfernen</span>
-          </th>
-        </thead>
-        <tbody>
-          <!-- Template Binding: ngFor -->
-          <!-- Event-Binding: statt (click) auch on-click -->
-          <!-- ts als Komponente: https://stackoverflow.com/questions/34556277/angular2-table-rows-as-component -->
-          <tr
-            *ngFor="let kunde of kunden; index as idx; trackBy: trackBy"
-            [@easeOut]="'in'"
-          >
-            <td (click)="onClick(kunde)">{{ idx + 1 }}</td>
-            <td (click)="onClick(kunde)">{{ kunde.id }}</td>
-            <td (click)="onClick(kunde)">{{ kunde.nachname }}</td>
-            <td (click)="onClick(kunde)">{{ kunde.email }}</td>
-            <td>
-              <!-- Pfad /:id, in kunde-routing.module.ts -->
-              <a
-                [routerLink]="['..', kunde.id]"
-                [state]="{ kunde: kunde }"
-                title="Details anzeigen"
-              >
-                <i class="material-icons">search</i>
-              </a>
-            </td>
-            <!-- implizites "unsubscribe()" durch async -->
-            <td *ngIf="isAdmin || (isAdmin$ | async)">
-              <span (click)="onRemove(kunde)" title="Entfernen">
-                <i class="material-icons">delete</i>
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card-footer">
-      <div>
-        <i class="material-icons">info</i>
-        <span class="ms-1" [ngPlural]="kunden.length">
-          <!-- zu vergleichender Ausdruck -->
-          <ng-template ngPluralCase="=0"> Es gibt keinen Kunden </ng-template>
-          <ng-template ngPluralCase="=1"> Es gibt einen Kunden </ng-template>
-          <ng-template ngPluralCase="other">
-            Es gibt {{ kunden.length }} Kunden
-          </ng-template>
-        </span>
-      </div>
-  
-      <div>
-        <i class="material-icons">info</i>
-        <span class="ms-1">
-          Zur Anzeige der JSON-Datens&auml;tze in gefundene-kunden.html am
-          Dateiende den Kommentar beim Tag &lt;pre&gt; entfernen
-        </span>
-      </div>
+
+    <div>
+      <i class="material-icons">info</i>
+      <span class="ms-1">
+        Zur Anzeige der JSON-Datens&auml;tze in gefundene-kunden.html am
+        Dateiende den Kommentar beim Tag &lt;pre&gt; entfernen
+      </span>
     </div>
   </div>
-  
-  <!-- Ausgabe im Webbrowser durch: -->
-  <!-- <pre>{{kunden | json}}</pre> -->
+</div>
+
+<!-- Ausgabe im Webbrowser durch: -->
+<!-- <pre>{{kunden | json}}</pre> -->

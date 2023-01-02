@@ -1,0 +1,15 @@
+<h3>Kategorien der Kunden</h3>
+
+<section id="balkendiagramm">
+  <ngx-charts-bar-vertical
+    [results]="dataItems"
+    [xAxis]="true"
+    [xAxisLabel]="'IDs'"
+    [showXAxisLabel]="true"
+    [yAxis]="true"
+    [yAxisLabel]="'Kategorie'"
+    [showYAxisLabel]="true"
+    [gradient]="true"
+  >
+  </ngx-charts-bar-vertical>
+</section>

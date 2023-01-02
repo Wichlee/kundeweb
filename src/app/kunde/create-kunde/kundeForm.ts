@@ -34,7 +34,7 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         rabatt,
         geschlecht,
         familienstand,
-        sport, // Interessen als bools, da diese eine Liste sind -> siehe kunde.ts
+        sport,
         lesen,
         reisen,
         umsatz,
@@ -42,7 +42,11 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         username,
     } = kundeForm;
 
-    const geburtsdatum; //todo: muss geburtsdatum nochmal umgewandelt werden?
+    const geburtsdatumTemporal = new Temporal.PlainDate(
+        geburtsdatum.getFullYear(),
+        geburtsdatum.getMonth() + 1,
+        geburtsdatum.getDate(),
+    );
 
     const interessen: string[] = [];
     if (sport) {
@@ -61,7 +65,7 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         email,
         kategorie,
         hasNewsletter,
-        geburtsdatum,
+        geburtsdatum: geburtsdatumTemporal,
         homepage,
         rabatt,
         geschlecht,

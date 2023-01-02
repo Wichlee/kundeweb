@@ -55,10 +55,7 @@ export class SucheKundenComponent {
      * @param suchkriterien f&uuml;r die Suche.
      */
     suchen(suchkriterien: Suchkriterien) {
-        log.debug(
-            'SucheKundenComponent.suchen: suchkriterien=',
-            suchkriterien,
-        );
+        log.debug('SucheKundenComponent.suchen: suchkriterien=', suchkriterien);
 
         this.kunden = [];
         this.errorMsg = undefined;
@@ -90,10 +87,7 @@ export class SucheKundenComponent {
 
     #handleFindError(err: FindError) {
         const { statuscode } = err;
-        log.debug(
-            'SucheKundenComponent.#handleError: statuscode=',
-            statuscode,
-        );
+        log.debug('SucheKundenComponent.#handleError: statuscode=', statuscode);
 
         this.kunden = [];
 

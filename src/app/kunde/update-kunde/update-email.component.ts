@@ -19,8 +19,6 @@ import log from 'loglevel';
     standalone: true,
 })
 export class UpdateEmailComponent implements OnInit {
-    private static readonly MIN_LENGTH = 2;
-
     // <hs-update-email [form]="form" [currentValue]="...">
     @Input()
     form!: FormGroup;
@@ -36,11 +34,7 @@ export class UpdateEmailComponent implements OnInit {
             this.currentValue,
         );
         // siehe formControlName innerhalb @Component({templateUrl: ...})
-        this.email = new FormControl(this.currentValue, [
-            Validators.required,
-            Validators.minLength(UpdateEmailComponent.MIN_LENGTH),
-            Validators.pattern(/^\w/u),
-        ]);
+        this.email = new FormControl(this.currentValue, [Validators.required]);
         this.form.addControl('email', this.email);
     }
 }
