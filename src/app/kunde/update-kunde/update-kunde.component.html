@@ -1,0 +1,32 @@
+<section class="mt-1 ms-1" *ngIf="kunde">
+    <h4>Kunde {{ kunde.id }}:</h4>
+  
+    <div class="mt-2 ms-2">
+      <form [formGroup]="form" role="form" (submit)="onSubmit()">
+        <hs-update-nachname [form]="form" [currentValue]="kunde.nachname">
+        </hs-update-nachname>
+        <hs-update-familienstand [form]="form" [currentValue]="kunde.familienstand">
+        </hs-update-familienstand>
+        <hs-update-kategorie [form]="form" [currentValue]="kunde.kategorie">
+        </hs-update-kategorie>
+        <hs-update-email [form]="form" [currentValue]="kunde.email">
+        </hs-update-email>
+  
+        <div class="row">
+          <div class="col offset-2 gy-3">
+            <!-- form.pristine ist das Gegenteil von form.dirty -->
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="form.pristine || form.invalid"
+            >
+              <i class="material-icons">check</i>
+              <span class="ms-1">Stammdaten aktualisieren</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <hs-error-message [text]="errorMsg"></hs-error-message>
