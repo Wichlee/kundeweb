@@ -45,7 +45,6 @@ export interface Kunde {
     hasNewsletter: boolean;
     geburtsdatum: Temporal.PlainDate | undefined;
     homepage: URL;
-    rabatt: number;
     geschlecht: GeschlechtType;
     familienstand: FamilienstandType;
     interessen: string[];
@@ -67,7 +66,6 @@ export interface KundeShared {
     kategorie: number;
     hasNewsletter: boolean;
     homepage: URL;
-    rabatt: number;
     geschlecht: GeschlechtType;
     familienstand: FamilienstandType;
     umsatz: number;
