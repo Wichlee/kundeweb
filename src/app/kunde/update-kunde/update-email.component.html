@@ -1,30 +1,29 @@
 <div class="row">
-    <label for="emailUpdate" class="col col-2 col-form-label gy-3">Email *</label>
-  
-    <div class="col col-10 gy-3" [formGroup]="form">
-      <div class="input-group">
-        <input
-          id="emailUpdate"
-          placeholder="Email"
-          class="form-control"
-          autofocus
-          formControlName="email"
-          [class.is-invalid]="email.invalid && email.touched"
-          [class.is-valid]="email.valid && email.touched"
-        />
-  
-        <div
-          class="invalid-feedback"
-          *ngIf="email.invalid && email.touched && email.errors"
-        >
-          <i class="material-icons">error</i>
-          <span class="ms-1">
-            <span *ngIf="email.errors['required']">
-              Die Email muss eingegeben werden.
-            </span>
+  <label for="emailUpdate" class="col col-2 col-form-label gy-3">Email *</label>
+
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <input
+        id="emailUpdate"
+        placeholder="Email"
+        class="form-control"
+        autofocus
+        formControlName="email"
+        [class.is-invalid]="email.invalid && email.touched"
+        [class.is-valid]="email.valid && email.touched"
+      />
+
+      <div
+        class="invalid-feedback"
+        *ngIf="email.invalid && email.touched && email.errors"
+      >
+        <i class="material-icons">error</i>
+        <span class="ms-1">
+          <span *ngIf="email.errors['required']">
+            Die Email muss eingegeben werden.
           </span>
-        </div>
+        </span>
       </div>
     </div>
   </div>
-  
+</div>
