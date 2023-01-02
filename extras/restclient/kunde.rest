@@ -43,61 +43,52 @@ GET {{localHTTPS}}/rest/kunden/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY
 ### Suche mit nicht-vorhandener Kunde-ID
 GET {{localHTTPS}}/rest/kunden/99999999-9999-9999-9999-999999999999
 
-### Suche mit vorhandenem Titel
-GET {{localHTTPS}}/rest/buecher?titel=a
+### Suche mit vorhandenem Nachname
+GET {{localHTTPS}}/rest/kunden?nachname=Alpha
 
-### Suche mit vorhandener ISBN-Nummber
-GET {{localHTTPS}}/rest/buecher?isbn=000-0-00000-000-1
+### Suche mit vorhandenen Interessen
+GET {{localHTTPS}}/rest/kunden?lesen=true&reisen=true
 
-### Suche mit vorhandenen Schlagwoertern
-GET {{localHTTPS}}/rest/buecher?javascript=true&typescript=true
+### Suche mit gueltigem Familienstand
+GET {{localHTTPS}}/rest/kunden?familienstand=LEDIG
 
-### Suche mit gueltiger Buchart
-GET {{localHTTPS}}/rest/buecher?art=KINDLE
-
-### Suche mit gueltigem Rating
-GET {{localHTTPS}}/rest/buecher?rating=1
-
-### Suche lieferbare Buecher
-GET {{localHTTPS}}/rest/buecher?lieferbar=true
-
-### Neues Buch anlegen
-POST {{localHTTPS}}/rest/buecher
+### Neuen Kunden anlegen
+POST {{localHTTPS}}/rest/kunden
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.$.token}}
 
-< ./buch-neu.json
+< ./kunde-neu.json
 
-### Neues Buch mit ungueltigen Daten anlegen
-POST {{localHTTPS}}/rest/buecher
+### Neuen Kunden mit ungueltigen Daten anlegen
+POST {{localHTTPS}}/rest/kunden
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.$.token}}
 
-< ./buch-neu-invalid.json
+< ./kunde-neu-invalid.json
 
-### Vorhandenes Buch aktualisieren
-PUT {{localHTTPS}}/rest/buecher/00000000-0000-0000-0000-000000000003
+### Vorhandenen Kunden aktualisieren
+PUT {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000003
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.$.token}}
 If-Match: 0
 
-< ./buch-3-put.json
+< ./kunde-3-put.json
 
-### Vorhandenes Buch *OHNE* Versionsnummer aktualisieren
-PUT {{localHTTPS}}/rest/buecher/00000000-0000-0000-0000-000000000003
+### Vorhandenen Kunden *OHNE* Versionsnummer aktualisieren
+PUT {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000003
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.$.token}}
 
-< ./buch-3-put.json
+< ./kunde-3-put.json
 
-### Vorhandenes Buch mit ungueltigen Daten aktualisieren
-PUT {{localHTTPS}}/rest/buecher/00000000-0000-0000-0000-000000000003
+### Vorhandenen Kunden mit ungueltigen Daten aktualisieren
+PUT {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000003
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.$.token}}
 If-Match: 0
 
-< ./buch-3-put-invalid.json
+< ./kunde-3-put-invalid.json
 
-### Loeschen eines vorhandenen Buches
-DELETE {{localHTTPS}}/rest/buecher/00000000-0000-0000-0000-000000000005
+### Loeschen eines vorhandenen Kunden
+DELETE {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000005
 Authorization: Bearer {{login.response.body.$.token}}
