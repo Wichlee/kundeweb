@@ -1,13 +1,13 @@
 import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type FamilienstandType, type Kunde } from '../shared/kunde';
 import { Component, type OnInit } from '@angular/core';
+import { type FamilienstandType, type Kunde } from '../shared/kunde';
 import { FindError, UpdateError } from '../shared/errors';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { first, map, tap } from 'rxjs/operators';
+import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { UpdateEmailComponent } from './update-email.component';
