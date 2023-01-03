@@ -9,3 +9,11 @@ import {
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
+@Component({
+    selector: 'hs-create-email',
+    templateUrl: './create-email.component.html',
+    imports: [FormsModule, NgIf, ReactiveFormsModule],
+    standalone: true,
+})
+export class CreateEmailComponent implements OnInit {
+  
