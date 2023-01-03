@@ -1,6 +1,3 @@
-<!--
-  todo: Angular-Material-Formularfelder verwenden
--->
 <div class="row">
   <label for="nameInput" class="col col-2 col-form-label gy-3"> Name * </label>
   <div class="col col-10 gy-3" [formGroup]="form">
@@ -19,7 +16,19 @@
         class="invalid-feedback"
         *ngIf="nachname.invalid && nachname.touched && nachname.errors"
       >
-        <i class="material-icons">error</i>
+        <!-- todo: Angular-Material Icon verwenden -->
+        <mat-icon>error</mat-icon>
+        <span class="ms-1">
+          <span *ngIf="nachname.errors['required']">
+            Nachname ist erforderlich.</span
+          >
+          <span *ngIf="nachname.errors['minlength']">
+            Nachname muss mindestens 2 Zeichen lang sein.
+          </span>
+          <span *ngIf="nachname.errors['pattern']">
+            Nachname muss mit einem Buchstaben beginnen.
+          </span>
+        </span>
       </div>
     </div>
   </div>
