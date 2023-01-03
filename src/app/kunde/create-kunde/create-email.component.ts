@@ -16,4 +16,12 @@ import log from 'loglevel';
     standalone: true,
 })
 export class CreateEmailComponent implements OnInit {
-  
+    @Input()
+    form!: FormGroup;
+
+    protected readonly email = new FormControl(undefined, [
+        Validators.required,
+        // todo: Jan verprügeln, mehrmals
+        Validators.pattern(EMAIL_REGEX),
+    ]);
+}
