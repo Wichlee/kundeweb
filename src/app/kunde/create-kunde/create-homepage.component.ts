@@ -16,7 +16,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-homepage',
     templateUrl: './create-homepage.component.html',
-    imports: [FormsModule, ReactiveFormsModule],
+    imports: [FormsModule, NgIf, ReactiveFormsModule],
     standalone: true,
 })
 export class CreateHomepageComponent implements OnInit {
