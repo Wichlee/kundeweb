@@ -9,6 +9,9 @@ import {
 import { HOMEPAGE_REGEX } from '../shared/kunde';
 import log from 'loglevel';
 
+/**
+ * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-homepage&gt;, um Erfassungsformular f&uuml;r einen neun Kunden zu realisieren.
+ */
 @Component({
     selector: 'hs-create-homepage',
     templateUrl: './create-homepage.component.html',
