@@ -33,6 +33,9 @@ export const NACHNAME_REGEX =
     /^(o'|von|von der|von und zu|van)?[A-ZÄÖÜ][a-zäöüß]+(-[A-ZÄÖÜ][a-zäöüß]+)?/u;
 
 export const EMAIL_REGEX = /^[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}$/u;
+
+// eslint-disable-next-line unicorn/no-unsafe-regex
+export const HOMEPAGE_REGEX = /^(https?:\/\/)?[a-z\d.-]+\.[a-z]{2,4}$/u;
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
