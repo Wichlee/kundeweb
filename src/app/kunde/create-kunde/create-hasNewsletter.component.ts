@@ -4,7 +4,6 @@ import {
     type FormGroup,
     FormsModule,
     ReactiveFormsModule,
-    Validators,
 } from '@angular/forms';
 import log from 'loglevel';
 
