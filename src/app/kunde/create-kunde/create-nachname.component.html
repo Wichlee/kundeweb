@@ -1,13 +1,13 @@
 <div class="row">
-  <label for="nameInput" class="col col-2 col-form-label gy-3"> Name * </label>
+  <label for="nachnameInput" class="col col-2 col-form-label gy-3"> Nachname * </label>
   <div class="col col-10 gy-3" [formGroup]="form">
     <div class="input-group">
       <input
-        id="nameInput"
-        placeholder="Name"
+        id="nachnameInput"
+        placeholder="Nachname"
         class="form-control"
         autofocus
-        formControlName="name"
+        formControlName="nachname"
         [class.is-invalid]="nachname.invalid && nachname.touched"
         [class.is-valid]="nachname.valid && nachname.touched"
       />
@@ -16,7 +16,6 @@
         class="invalid-feedback"
         *ngIf="nachname.invalid && nachname.touched && nachname.errors"
       >
-        <!-- todo: Angular-Material Icon verwenden -->
         <mat-icon>error</mat-icon>
         <span class="ms-1">
           <span *ngIf="nachname.errors['required']">
