@@ -18,4 +18,9 @@ export class CreateGeburtsdatumComponent implements OnInit {
         log.debug('CreateGeburtsdatumComponent.ngOnInit');
         this.form.addControl('geburtsdatum', this.geburtsdatum);
     }
+
+    dayClicked({ date }: { date: Date }): void {
+        log.debug('CreateGeburtsdatumComponent.dayClicked(): date=', date);
+        this.form.setControl('geburtsdatum', new FormControl(date));
+    }
 }
