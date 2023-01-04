@@ -1,6 +1,4 @@
 import { Component, Input, type OnInit } from '@angular/core';
-import { MAX_KATEGORIE } from '../shared/kunde';
-import { MIN_KATEGORIE } from '../shared/kunde';
 import {
     FormControl,
     type FormGroup,
@@ -8,7 +6,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { MAX_KATEGORIE, MIN_KATEGORIE } from '../shared/kunde';
 import log from 'loglevel';
 
 @Component({
