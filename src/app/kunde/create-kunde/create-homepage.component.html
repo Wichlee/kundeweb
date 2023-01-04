@@ -2,5 +2,29 @@
   <label for="homepageInput" class="col col-2 col-form-label gy-3">
     Homepage
   </label>
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <input
+        id="homepageInput"
+        placeholder="https://www.acme.com"
+        class="form-control"
+        autofocus
+        formControlName="homepage"
+        [class.is-invalid]="homepage.invalid && homepage.touched"
+        [class.is-valid]="homepage.valid && homepage.touched"
+      />
 
+      <div
+        class="invalid-feedback"
+        *ngIf="homepage.invalid && homepage.touched && homepage.errors"
+      >
+        <mat-icon>error</mat-icon>
+        <span class="ms-1">
+          <span *ngIf="homepage.errors['pattern']">
+            Eine gültige URL, z.B. https://acme.com, muss eingegeben werden.
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
