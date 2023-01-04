@@ -7,6 +7,7 @@ import {
     Validators,
 } from '@angular/forms';
 import { HOMEPAGE_REGEX } from '../shared/kunde';
+import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
 /**
