@@ -29,8 +29,8 @@ export type FamilienstandType =
 export type GeschlechtType = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
 export const NACHNAME_REGEX =
-    // eslint-disable-next-line max-len
-    /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆŠŽ∂ð ,.'-]+$/u;
+    // eslint-disable-next-line max-len, unicorn/no-unsafe-regex
+    /^(o'|von|von der|von und zu|van)?[A-ZÄÖÜ][a-zäöüß]+(-[A-ZÄÖÜ][a-zäöüß]+)?/u;
 
 export const EMAIL_REGEX = /^[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}$/u;
 /**
