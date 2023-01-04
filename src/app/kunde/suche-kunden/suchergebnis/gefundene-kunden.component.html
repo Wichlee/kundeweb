@@ -3,7 +3,7 @@
 
 <div class="card" aria-label="Gefundene Kunden" *ngIf="kunden.length">
   <div class="card-header">
-    <i class="material-icons">folder_open</i>
+    <mat-icon>folder_open</mat-icon>
     <span class="ms-1 fw-bold">Gefundene Kunden</span>
   </div>
   <div class="card-body">
@@ -42,13 +42,13 @@
               [state]="{ kunde: kunde }"
               title="Details anzeigen"
             >
-              <i class="material-icons">search</i>
+              <mat-icon>search</mat-icon>
             </a>
           </td>
           <!-- implizites "unsubscribe()" durch async -->
           <td *ngIf="isAdmin || (isAdmin$ | async)">
             <span (click)="onRemove(kunde)" title="Entfernen">
-              <i class="material-icons">delete</i>
+              <mat-icon>delete</mat-icon>
             </span>
           </td>
         </tr>
@@ -57,7 +57,7 @@
   </div>
   <div class="card-footer">
     <div>
-      <i class="material-icons">info</i>
+      <mat-icon>info</mat-icon>
       <span class="ms-1" [ngPlural]="kunden.length">
         <!-- zu vergleichender Ausdruck -->
         <ng-template ngPluralCase="=0"> Es gibt keinen Kunden </ng-template>
@@ -69,7 +69,7 @@
     </div>
 
     <div>
-      <i class="material-icons">info</i>
+      <mat-icon>info</mat-icon>
       <span class="ms-1">
         Zur Anzeige der JSON-Datens&auml;tze in gefundene-kunden.html am
         Dateiende den Kommentar beim Tag &lt;pre&gt; entfernen

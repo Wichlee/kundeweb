@@ -17,7 +17,7 @@
         class="invalid-feedback"
         *ngIf="email.invalid && email.touched && email.errors"
       >
-        <i class="material-icons">error</i>
+        <mat-icon>error</mat-icon>
         <span class="ms-1">
           <span *ngIf="email.errors['required']">
             Die Email muss eingegeben werden.
