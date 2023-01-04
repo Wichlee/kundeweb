@@ -1,0 +1,19 @@
+<div class="row">
+  <label for="geburtsdatumInput" class="col col-2 col-form-label gy-3"> Geburtsdatum </label>
+
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="btn-group">
+      <!-- angular-calendar https://github.com/mattlewis92/angular-calendar -->
+      <!-- Alternative: Tempus Dominus https://getdatepicker.com -->
+      <div class="btn btn-primary" mwlCalendarPreviousView>&lt;</div>
+      <div class="btn btn-outline-secondary" mwlCalendarToday>Heute</div>
+      <div class="btn btn-primary" mwlCalendarNextView>&gt;</div>
+    </div>
+    <mwl-calendar-month-view
+      [viewDate]="today"
+      [events]="[]"
+      (dayClicked)="dayClicked($event.day)"
+    >
+    </mwl-calendar-month-view>
+  </div>
+</div>
