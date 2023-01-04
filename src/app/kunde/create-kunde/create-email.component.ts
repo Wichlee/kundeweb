@@ -1,4 +1,5 @@
 import { Component, Input, type OnInit } from '@angular/core';
+import { EMAIL_REGEX } from '../shared/kunde';
 import {
     FormControl,
     type FormGroup,
@@ -21,7 +22,6 @@ export class CreateEmailComponent implements OnInit {
 
     protected readonly email = new FormControl(undefined, [
         Validators.required,
-        // todo: Jan verprügeln, mehrmals
         Validators.pattern(EMAIL_REGEX),
     ]);
 }

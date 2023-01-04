@@ -32,6 +32,7 @@ export const NACHNAME_REGEX =
     // eslint-disable-next-line max-len
     /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆŠŽ∂ð ,.'-]+$/u;
 
+export const EMAIL_REGEX = /^[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}$/u;
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
