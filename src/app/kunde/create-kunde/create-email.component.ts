@@ -24,4 +24,9 @@ export class CreateEmailComponent implements OnInit {
         Validators.required,
         Validators.pattern(EMAIL_REGEX),
     ]);
+
+    ngOnInit() {
+        log.debug('CreateEmailComponent.ngOnInit');
+        this.form.addControl('email', this.email);
+    }
 }
