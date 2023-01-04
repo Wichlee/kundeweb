@@ -1,0 +1,30 @@
+<div class="row">
+  <label for="emailInput" class="col col-2 col-form-label gy-3">Email *</label>
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <input
+        id="emailInput"
+        placeholder="max.mustermann@acme.com"
+        class="form-control"
+        required
+        minlength="6"
+        formControlName="email"
+        [class.is-invalid]="email.invalid && email.touched"
+        [class.is-valid]="email.valid && email.touched"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="email.invalid && email.touched && email.errors"
+      >
+        <mat-icon>error</mat-icon>
+        <span
+          class="ms-1"
+          *ngIf="email.errors['required'] && email.errors['pattern']"
+        >
+          Eine gültige Email-Adresse, z.B. com.acme@example.de, muss eingegeben
+          werden.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
