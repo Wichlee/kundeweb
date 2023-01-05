@@ -2,7 +2,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
-import { Component, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { CreateAdresseComponent } from './create-adresse.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
