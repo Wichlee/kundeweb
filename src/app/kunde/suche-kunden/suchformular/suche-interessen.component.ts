@@ -13,34 +13,43 @@ import log from 'loglevel';
     standalone: true,
 })
 export class SucheInteressenComponent {
-    protected javascript = false;
+    protected sport = false;
 
-    protected typescript = false;
+    protected lesen = false;
+
+    protected reisen = false;
 
     @Output()
-    protected readonly javascript$ = new Subject<boolean>();
+    protected readonly sport$ = new Subject<boolean>();
 
     @Output()
-    protected readonly typescript$ = new Subject<boolean>();
+    protected readonly lesen$ = new Subject<boolean>();
+
+    @Output()
+    protected readonly reisen$ = new Subject<boolean>();
 
     constructor() {
         log.debug('SucheInteressenComponent.constructor()');
     }
 
-    onChangeJavascript(event: Event) {
+    onChangeSport(event: Event) {
         // https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript
         const { checked } = event.target as HTMLInputElement;
-        log.debug(
-            `SucheInteressenComponent.onChangeJavascript: checked=${checked}`,
-        );
-        this.javascript$.next(checked);
+        log.debug(`SucheInteressenComponent.onChangeSport: checked=${checked}`);
+        this.sport$.next(checked);
     }
 
-    onChangeTypescript(event: Event) {
+    onChangeLesen(event: Event) {
+        const { checked } = event.target as HTMLInputElement;
+        log.debug(`SucheInteressenComponent.onChangeLesen: checked=${checked}`);
+        this.lesen$.next(checked);
+    }
+
+    onChangeReisen(event: Event) {
         const { checked } = event.target as HTMLInputElement;
         log.debug(
-            `SucheInteressenComponent.onChangeTypescript: checked=${checked}`,
+            `SucheInteressenComponent.onChangeReisen: checked=${checked}`,
         );
-        this.typescript$.next(checked);
+        this.reisen$.next(checked);
     }
 }

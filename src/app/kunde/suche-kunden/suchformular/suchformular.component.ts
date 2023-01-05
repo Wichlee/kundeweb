@@ -1,8 +1,11 @@
-import { type InteresseType, type GeschlechtType } from '../../shared/kunde';
 import { Component, Output } from '@angular/core';
+import {
+    type FamilienstandType,
+    type GeschlechtType,
+} from '../../shared/kunde';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { SucheEmailComponent } from './suche-email.component';
+import { SucheFamilienstandComponent } from './suche-familienstand.component';
 import { SucheGeschlechtComponent } from './suche-geschlecht.component';
 import { SucheInteressenComponent } from './suche-interessen.component';
 import { SucheNachnameComponent } from './suche-nachname.component';
@@ -20,7 +23,7 @@ import log from 'loglevel';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        SucheEmailComponent,
+        SucheFamilienstandComponent,
         SucheGeschlechtComponent,
         SucheInteressenComponent,
         SucheNachnameComponent,
@@ -33,13 +36,15 @@ export class SuchformularComponent {
 
     #nachname = '';
 
-    #email: string = '';
+    #familienstand: FamilienstandType | '' = '';
 
     #geschlecht: GeschlechtType | '' = '';
 
-    #javascript = false;
+    #sport = false;
 
-    #typescript = false;
+    #lesen = false;
+
+    #reisen = false;
 
     constructor() {
         log.debug('SuchformularComponent.constructor()');
@@ -50,9 +55,9 @@ export class SuchformularComponent {
         this.#nachname = nachname;
     }
 
-    setEmail(email: string) {
-        log.debug('SuchformularComponent.setEmail', email);
-        this.#email = email;
+    setFamilienstand(familienstand: string) {
+        log.debug('SuchformularComponent.setFamilienstand', familienstand);
+        this.#familienstand = familienstand as FamilienstandType;
     }
 
     setGeschlecht(geschlecht: string) {
@@ -60,14 +65,19 @@ export class SuchformularComponent {
         this.#geschlecht = geschlecht as GeschlechtType;
     }
 
-    setJavascript(isChecked: boolean) {
-        log.debug('SuchformularComponent.setJavascript', isChecked);
-        this.#javascript = isChecked;
+    setSport(isChecked: boolean) {
+        log.debug('SuchformularComponent.setSport', isChecked);
+        this.#sport = isChecked;
     }
 
-    setTypescript(isChecked: boolean) {
-        log.debug('SuchformularComponent.setTypescript', isChecked);
-        this.#typescript = isChecked;
+    setLesen(isChecked: boolean) {
+        log.debug('SuchformularComponent.setLesen', isChecked);
+        this.#lesen = isChecked;
+    }
+
+    setReisen(isChecked: boolean) {
+        log.debug('SuchformularComponent.setReisen', isChecked);
+        this.#reisen = isChecked;
     }
 
     /**
@@ -75,21 +85,23 @@ export class SuchformularComponent {
      */
     onSubmit() {
         log.debug(
-            'SuchformularComponent.onSubmit: nachname / email / geschlecht / javascript / typescript',
+            'SuchformularComponent.onSubmit: nachname / email / geschlecht / sport / lesen / reisen',
             this.#nachname,
-            this.#email,
+            this.#familienstand,
             this.#geschlecht,
-            this.#javascript,
-            this.#typescript,
+            this.#sport,
+            this.#lesen,
+            this.#reisen,
         );
 
         this.suchkriterien$.next({
             nachname: this.#nachname,
-            email: this.#email,
+            familienstand: this.#familienstand,
             geschlecht: this.#geschlecht,
             interessen: {
-                javascript: this.#javascript,
-                typescript: this.#typescript,
+                sport: this.#sport,
+                lesen: this.#lesen,
+                reisen: this.#reisen,
             },
         });
     }

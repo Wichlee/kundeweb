@@ -4,10 +4,10 @@ import {
     type Suchkriterien,
 } from '../shared/kundeRead.service';
 import { first, tap } from 'rxjs/operators';
-import { type Kunde } from '../shared/kunde';
 import { Component } from '@angular/core';
 import { FindError } from '../shared/errors';
 import { HttpStatusCode } from '@angular/common/http';
+import { type Kunde } from '../shared/kunde';
 import { NgIf } from '@angular/common';
 import { SuchergebnisComponent } from './suchergebnis/suchergebnis.component';
 import { SuchformularComponent } from './suchformular/suchformular.component';
@@ -73,7 +73,7 @@ export class SucheKundenComponent {
             .subscribe();
     }
 
-    #setProps(result: Kunde[] | FindError) {
+    #setProps(result: FindError | Kunde[]) {
         this.waiting = false;
 
         if (result instanceof FindError) {

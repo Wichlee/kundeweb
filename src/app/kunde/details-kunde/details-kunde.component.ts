@@ -2,8 +2,6 @@ import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line
 import { Component, type OnInit } from '@angular/core';
 import { first, tap } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Kunde } from '../shared/kunde';
-import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { DetailsBearbeitenComponent } from './details-bearbeiten.component';
 import { DetailsBreadcrumbsComponent } from './details-breadcrumbs.component';
 import { DetailsInteressenComponent } from './interessen/details-interessen.component';
@@ -11,6 +9,8 @@ import { DetailsStammdatenComponent } from './stammdaten/details-stammdaten.comp
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { FindError } from '../shared/errors';
 import { HttpStatusCode } from '@angular/common/http';
+import { type Kunde } from '../shared/kunde';
+import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { WaitingComponent } from '../../shared/waiting.component';
@@ -86,7 +86,7 @@ export class DetailsKundeComponent implements OnInit {
         this.isAdmin = this.authService.isAdmin;
     }
 
-    #setProps(result: Kunde | FindError) {
+    #setProps(result: FindError | Kunde) {
         this.waiting = false;
 
         if (result instanceof FindError) {
