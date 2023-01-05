@@ -6,8 +6,8 @@ import log from 'loglevel';
  * Komponente f&uuml;r den CSS-Selektor <code>hs-details-newsletter</code>
  */
 @Component({
-    selector: 'hs-details-newsletter',
-    templateUrl: './details-newsletter.component.html',
+    selector: 'hs-details-has-newsletter',
+    templateUrl: './details-hasNewsletter.component.html',
     // *ngIf
     imports: [NgIf],
     standalone: true,
