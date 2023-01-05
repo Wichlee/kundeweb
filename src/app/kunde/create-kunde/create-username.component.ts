@@ -26,7 +26,7 @@ export class CreateUsernameComponent implements OnInit {
 
     protected readonly username = new FormControl(undefined, [
         Validators.required,
-        Validators.minLength(CreateUsernameComponent.MAX_LENGTH),
+        Validators.maxLength(CreateUsernameComponent.MAX_LENGTH),
     ]);
 
     ngOnInit() {
