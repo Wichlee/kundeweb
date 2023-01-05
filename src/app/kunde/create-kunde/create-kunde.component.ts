@@ -2,11 +2,11 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
-import { Component } from '@angular/core';
+import { Component, Component } from '@angular/core';
 import { CreateAdresseComponent } from './create-adresse.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
-import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
+import { CreateGeburtsdatumModule } from './create-geburtsdatum.module';
 import { CreateGeschlechtComponent } from './create-geschlecht.component';
 import { CreateHasNewsletterComponent } from './create-hasNewsletter.component';
 import { CreateHomepageComponent } from './create-homepage.component';
@@ -22,4 +22,73 @@ import { Router } from '@angular/router';
 import { SaveError } from '../shared/errors';
 import log from 'loglevel';
 
+/**
+ * Komponente mit dem CSS-Selektor &lt;hs-create-kunde&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
+ */
+@Component({
+    selector: 'hs-create-kunde',
+    templateUrl: './create-kunde.component.html',
+    imports: [
+        CreateAdresseComponent,
+        CreateEmailComponent,
+        CreateFamilienstandComponent,
+        CreateGeburtsdatumModule,
+        CreateGeschlechtComponent,
+        CreateHasNewsletterComponent,
+        CreateHomepageComponent,
+        CreateInteressenComponent,
+        CreateKategorieComponent,
+        CreateNachnameComponent,
+        CreateUmsatzComponent,
+        CreateUsernameComponent,
+        ErrorMessageComponent,
+        NgIf,
+        ReactiveFormsModule,
+    ],
+    standalone: true,
+})
+export class CreateKundeComponent {
+    protected readonly form = new FormGroup({});
 
+    showWarning = false;
+
+    fertig = false;
+
+    protected errorMsg: string | undefined = undefined;
+
+    constructor(
+        private readonly service: KundeWriteService,
+        private readonly router: Router,
+    ) {
+        log.debug(
+            'CreateKundeComponent.constructor: Injizierter Router:',
+            router,
+        );
+    }
+
+    /**
+     * Die Methode <code>onSubmit</code> realisiert den Event-Handler, wenn das
+     * Formular abgeschickt wird, um einen neuen Kunden anzulegen.
+     */
+    onSubmit() {
+        if (this.form.invalid) {
+            log.debug(
+                'CreateKundeComponent.onSave: Validierungsfehler',
+                this.form,
+            );
+            return;
+        }
+
+        const kundeForm = this.form.value as KundeForm;
+        const neuerKunde = toKunde(kundeForm);
+        log.debug('CreateKundeComponent.onSave: neuerKunde=', neuerKunde);
+
+        this.service
+            .save(neuerKunde)
+            .pipe(
+                first(),
+                tap(result => this.#setProps(result)),
+            )
+            .subscribe({ next: () => this.#navigateToHome() });
+    }
+}
