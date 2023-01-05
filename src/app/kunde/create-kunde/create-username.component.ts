@@ -9,6 +9,9 @@ import {
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
+/**
+ * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-username&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
+ */
 @Component({
     selector: 'hs-create-username',
     templateUrl: './create-username.component.html',

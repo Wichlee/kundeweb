@@ -10,6 +10,9 @@ import { NgIf } from '@angular/common';
 import { PLZ_REGEX } from '../shared/kunde';
 import log from 'loglevel';
 
+/**
+ * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-adresse&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
+ */
 @Component({
     selector: 'hs-create-adresse',
     templateUrl: './create-adresse.component.html',
