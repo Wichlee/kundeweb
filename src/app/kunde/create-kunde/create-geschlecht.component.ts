@@ -4,9 +4,7 @@ import {
     type FormGroup,
     FormsModule,
     ReactiveFormsModule,
-    Validators,
 } from '@angular/forms';
-import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
 /**
@@ -15,14 +13,14 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-geschlecht',
     templateUrl: './create-geschlecht.component.html',
-    imports: [FormsModule, NgIf, ReactiveFormsModule],
+    imports: [FormsModule, ReactiveFormsModule],
     standalone: true,
 })
 export class CreateGeschlechtComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    geschlecht = new FormControl(undefined, Validators.required);
+    geschlecht = new FormControl('DIVERS');
 
     ngOnInit() {
         log.debug('CreateGeschlechtComponent.ngOnInit');

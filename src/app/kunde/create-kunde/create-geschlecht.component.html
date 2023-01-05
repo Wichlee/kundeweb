@@ -1,29 +1,42 @@
 <div class="row">
   <label class="col col-2 col-form-label gy-3">Geschlecht *</label>
   <div class="col col-10 gy-3" [formGroup]="form">
-    <div class="input-group">
-      <select
-        class="form-select"
+    <div class="form-check">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="maennlichInput"
         formControlName="geschlecht"
-        required
-        [class.is-invalid]="geschlecht.invalid && geschlecht.touched"
-        [class.is-valid]="geschlecht.valid && geschlecht.touched"
+        name="geschlecht"
+        value="MAENNLICH"
+      />
+      <label class="radio-inline ms-1" for="maennlichInput"
+        >M&auml;nnlich</label
       >
-        <option value="">Ein Geschlecht ausw&auml;hlen</option>
-        <option value="MAENNLICH">M&auml;nnlich</option>
-        <option value="WEIBLICH">Weiblich</option>
-        <option value="DIVERS">Divers</option>
-      </select>
+    </div>
 
-      <div
-        class="invalid-feedback"
-        *ngIf="geschlecht.invalid && geschlecht.touched && geschlecht.errors"
-      >
-        <mat-icons>error</mat-icons>
-        <div *ngIf="geschlecht.errors['required']">
-          <span class="ms-1"> Ein Geschlecht ist erforderlich. </span>
-        </div>
-      </div>
+    <div class="form-check">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="weiblichInput"
+        formControlName="geschlecht"
+        name="geschlecht"
+        value="WEIBLICH"
+      />
+      <label class="radio-inline ms-1" for="weiblichInput"> Weiblich </label>
+    </div>
+
+    <div class="form-check">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="diversInput"
+        formControlName="geschlecht"
+        name="geschlecht"
+        value="DIVERS"
+      />
+      <label class="radio-inline ms-1" for="diversInput"> Divers </label>
     </div>
   </div>
 </div>
