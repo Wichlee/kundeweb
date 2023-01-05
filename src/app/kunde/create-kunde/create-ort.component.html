@@ -1,0 +1,27 @@
+<div class="row">
+    <label for="ortInput" class="col col-2 col-form-label gy-3"
+      >Ort *</label
+    >
+    <div class="input-group">
+      <input
+        id="ortInput"
+        placeholder="Karlsruhe"
+        class="form-control"
+        required
+        minlength="2"
+        formControlName="ort"
+        [class.is-invalid]="ort.invalid && ort.touched"
+        [class.is-valid]="ort.valid && ort.touched"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="ort.invalid && ort.touched && ort.errors"
+      >
+        <mat-icon>error</mat-icon>
+        <span class="ms-1" *ngIf="ort.errors['required']">
+          Eine gültiger Ortsname, z.B. Karlsruhe, muss eingegeben werden.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
