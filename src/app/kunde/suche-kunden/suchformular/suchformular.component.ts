@@ -1,6 +1,6 @@
-import { type InteresseType, type GeschlechtType } from '../../shared/kunde';
 import { Component, Output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { type GeschlechtType } from '../../shared/kunde';
 import { Subject } from 'rxjs';
 import { SucheEmailComponent } from './suche-email.component';
 import { SucheGeschlechtComponent } from './suche-geschlecht.component';
@@ -33,13 +33,15 @@ export class SuchformularComponent {
 
     #nachname = '';
 
-    #email: string = '';
+    #email = '';
 
     #geschlecht: GeschlechtType | '' = '';
 
-    #javascript = false;
+    #sport = false;
 
-    #typescript = false;
+    #lesen = false;
+
+    #reisen = false;
 
     constructor() {
         log.debug('SuchformularComponent.constructor()');
@@ -60,14 +62,19 @@ export class SuchformularComponent {
         this.#geschlecht = geschlecht as GeschlechtType;
     }
 
-    setJavascript(isChecked: boolean) {
-        log.debug('SuchformularComponent.setJavascript', isChecked);
-        this.#javascript = isChecked;
+    setSport(isChecked: boolean) {
+        log.debug('SuchformularComponent.setSport', isChecked);
+        this.#sport = isChecked;
     }
 
-    setTypescript(isChecked: boolean) {
-        log.debug('SuchformularComponent.setTypescript', isChecked);
-        this.#typescript = isChecked;
+    setLesen(isChecked: boolean) {
+        log.debug('SuchformularComponent.setLesen', isChecked);
+        this.#lesen = isChecked;
+    }
+
+    setReisen(isChecked: boolean) {
+        log.debug('SuchformularComponent.setReisen', isChecked);
+        this.#reisen = isChecked;
     }
 
     /**
@@ -75,12 +82,13 @@ export class SuchformularComponent {
      */
     onSubmit() {
         log.debug(
-            'SuchformularComponent.onSubmit: nachname / email / geschlecht / javascript / typescript',
+            'SuchformularComponent.onSubmit: nachname / email / geschlecht / sport / lesen / reisen',
             this.#nachname,
             this.#email,
             this.#geschlecht,
-            this.#javascript,
-            this.#typescript,
+            this.#sport,
+            this.#lesen,
+            this.#reisen,
         );
 
         this.suchkriterien$.next({
@@ -88,8 +96,9 @@ export class SuchformularComponent {
             email: this.#email,
             geschlecht: this.#geschlecht,
             interessen: {
-                javascript: this.#javascript,
-                typescript: this.#typescript,
+                sport: this.#sport,
+                lesen: this.#lesen,
+                reisen: this.#reisen,
             },
         });
     }
