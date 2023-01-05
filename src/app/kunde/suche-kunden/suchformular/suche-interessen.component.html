@@ -5,22 +5,33 @@
       <input
         type="checkbox"
         class="form-check-input"
-        id="javaScriptInput"
-        [(ngModel)]="javascript"
-        (change)="onChangeJavascript($event)"
+        id="sportInput"
+        [(ngModel)]="sport"
+        (change)="onChangeSport($event)"
       />
-      <label for="javaScriptInput" class="ms-1"> JavaScript </label>
+      <label for="sportInput" class="ms-1"> Sport </label>
     </div>
     <div class="form-checkbox">
       <input
         type="checkbox"
         class="form-check-input"
-        id="typescriptInput"
-        [(ngModel)]="typescript"
-        name="typescript"
-        (change)="onChangeTypescript($event)"
+        id="lesenInput"
+        [(ngModel)]="lesen"
+        name="lesen"
+        (change)="onChangeLesen($event)"
       />
-      <label for="typescriptInput" class="ms-1"> TypeScript </label>
+      <label for="lesenInput" class="ms-1"> Lesen </label>
+    </div>
+    <div class="form-checkbox">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="reisenInput"
+        [(ngModel)]="reisen"
+        name="reisen"
+        (change)="onChangeReisen($event)"
+      />
+      <label for="reisenInput" class="ms-1"> Reisen </label>
     </div>
   </div>
 </div>
