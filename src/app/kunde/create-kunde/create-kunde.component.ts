@@ -91,4 +91,20 @@ export class CreateKundeComponent {
             )
             .subscribe({ next: () => this.#navigateToHome() });
     }
+
+    #setProps(result: SaveError | string) {
+        if (result instanceof SaveError) {
+            this.#handleError(result);
+            return;
+        }
+
+        this.fertig = true;
+        this.showWarning = false;
+        this.errorMsg = undefined;
+
+        const id = result;
+        log.debug('CreateKundeComponent.onSave: id=', id);
+    }
+
+    #handleError(result: SaveError) {}
 }
