@@ -3,7 +3,6 @@ import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
 import { Component } from '@angular/core';
-import { CreateAdresseComponent } from './create-adresse.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
 import { CreateGeburtsdatumModule } from './create-geburtsdatum.module';
@@ -13,6 +12,8 @@ import { CreateHomepageComponent } from './create-homepage.component';
 import { CreateInteressenComponent } from './create-interessen.component';
 import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateNachnameComponent } from './create-nachname.component';
+import { CreateOrtComponent } from './create-ort.component';
+import { CreatePlzComponent } from './create-plz.component';
 import { CreateUmsatzComponent } from './create-umsatz.component';
 import { CreateUsernameComponent } from './create-username.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
@@ -31,7 +32,6 @@ import log from 'loglevel';
     selector: 'hs-create-kunde',
     templateUrl: './create-kunde.component.html',
     imports: [
-        CreateAdresseComponent,
         CreateEmailComponent,
         CreateFamilienstandComponent,
         CreateGeburtsdatumModule,
@@ -41,6 +41,8 @@ import log from 'loglevel';
         CreateInteressenComponent,
         CreateKategorieComponent,
         CreateNachnameComponent,
+        CreateOrtComponent,
+        CreatePlzComponent,
         CreateUmsatzComponent,
         CreateUsernameComponent,
         ErrorMessageComponent,
