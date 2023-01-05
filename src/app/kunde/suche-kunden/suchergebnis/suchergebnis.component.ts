@@ -17,7 +17,7 @@ import log from 'loglevel';
 })
 export class SuchergebnisComponent {
     @Input()
-    Kunden: Kunde[] = [];
+    kunden: Kunde[] = [];
 
     @Input()
     errorMsg: string | undefined;
