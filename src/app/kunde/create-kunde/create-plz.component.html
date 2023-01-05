@@ -1,0 +1,31 @@
+<div class="row">
+  <label for="plzInput" class="col col-2 col-form-label gy-3"
+    >Postleitzahl *</label
+  >
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <input
+        id="plzInput"
+        placeholder="76133"
+        class="form-control"
+        required
+        maxlength="5"
+        formControlName="plz"
+        [class.is-invalid]="plz.invalid && plz.touched"
+        [class.is-valid]="plz.valid && plz.touched"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="plz.invalid && plz.touched && plz.errors"
+      >
+        <mat-icon>error</mat-icon>
+        <span
+          class="ms-1"
+          *ngIf="plz.errors['required'] && plz.errors['pattern']"
+        >
+          Eine gültige Postleitzahl, z.B. 76133, muss eingegeben werden.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
