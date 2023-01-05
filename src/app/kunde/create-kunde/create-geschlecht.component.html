@@ -1,0 +1,29 @@
+<div class="row">
+  <label class="col col-2 col-form-label gy-3">Geschlecht *</label>
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <select
+        class="form-select"
+        formControlName="geschlecht"
+        required
+        [class.is-invalid]="geschlecht.invalid && geschlecht.touched"
+        [class.is-valid]="geschlecht.valid && geschlecht.touched"
+      >
+        <option value="">Ein Geschlecht ausw&auml;hlen</option>
+        <option value="MAENNLICH">M&auml;nnlich</option>
+        <option value="WEIBLICH">Weiblich</option>
+        <option value="DIVERS">Divers</option>
+      </select>
+
+      <div
+        class="invalid-feedback"
+        *ngIf="geschlecht.invalid && geschlecht.touched && geschlecht.errors"
+      >
+        <mat-icons>error</mat-icons>
+        <div *ngIf="geschlecht.errors['required']">
+          <span class="ms-1"> Ein Geschlecht ist erforderlich. </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
