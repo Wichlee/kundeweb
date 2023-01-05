@@ -106,5 +106,48 @@ export class CreateKundeComponent {
         log.debug('CreateKundeComponent.onSave: id=', id);
     }
 
-    #handleError(result: SaveError) {}
+    #handleError(err: SaveError) {
+        const { statuscode } = err;
+        log.debug(
+            `CreateKundeComponent.#handleError: statuscode=${statuscode}, err=`,
+            err,
+        );
+
+        switch (statuscode) {
+            case HttpStatusCode.UnprocessableEntity: {
+                const { cause } = err;
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                this.errorMsg =
+                    cause instanceof HttpErrorResponse
+                        ? cause.error
+                        : JSON.stringify(cause);
+                break;
+            }
+
+            case HttpStatusCode.TooManyRequests: {
+                this.errorMsg =
+                    'Zu viele Anfragen. Bitte versuchen Sie es später noch einmal.';
+                break;
+            }
+
+            case HttpStatusCode.GatewayTimeout: {
+                this.errorMsg =
+                    'Der Server ist nicht erreichbar. Bitte versuchen Sie es später noch einmal.';
+                log.error('Laeuft der Appserver? Port-Forwarding?');
+                break;
+            }
+
+            default: {
+                this.errorMsg = 'Ein unbekannt Fehler ist aufgetreten.';
+                break;
+            }
+        }
+    }
+
+    async #navigateToHome() {
+        if (this.errorMsg === undefined) {
+            log.debug('CreateKundeComponent.#navigateToHome: success');
+            await this.router.navigate(['/']);
+        }
+    }
 }
