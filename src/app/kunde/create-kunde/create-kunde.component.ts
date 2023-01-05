@@ -16,8 +16,10 @@ import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateUmsatzComponent } from './create-umsatz.component';
 import { CreateUsernameComponent } from './create-username.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service';
 import { NgIf } from '@angular/common';
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { Router } from '@angular/router';
 import { SaveError } from '../shared/errors';
 import log from 'loglevel';
