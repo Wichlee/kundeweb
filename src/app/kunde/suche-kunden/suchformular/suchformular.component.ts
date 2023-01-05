@@ -1,8 +1,11 @@
 import { Component, Output } from '@angular/core';
+import {
+    type FamilienstandType,
+    type GeschlechtType,
+} from '../../shared/kunde';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { type GeschlechtType } from '../../shared/kunde';
 import { Subject } from 'rxjs';
-import { SucheEmailComponent } from './suche-email.component';
+import { SucheFamilienstandComponent } from './suche-familienstand.component';
 import { SucheGeschlechtComponent } from './suche-geschlecht.component';
 import { SucheInteressenComponent } from './suche-interessen.component';
 import { SucheNachnameComponent } from './suche-nachname.component';
@@ -20,7 +23,7 @@ import log from 'loglevel';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        SucheEmailComponent,
+        SucheFamilienstandComponent,
         SucheGeschlechtComponent,
         SucheInteressenComponent,
         SucheNachnameComponent,
@@ -33,7 +36,7 @@ export class SuchformularComponent {
 
     #nachname = '';
 
-    #email = '';
+    #familienstand: FamilienstandType | '' = '';
 
     #geschlecht: GeschlechtType | '' = '';
 
@@ -52,9 +55,9 @@ export class SuchformularComponent {
         this.#nachname = nachname;
     }
 
-    setEmail(email: string) {
-        log.debug('SuchformularComponent.setEmail', email);
-        this.#email = email;
+    setFamilienstand(familienstand: string) {
+        log.debug('SuchformularComponent.setFamilienstand', familienstand);
+        this.#familienstand = familienstand as FamilienstandType;
     }
 
     setGeschlecht(geschlecht: string) {
@@ -84,7 +87,7 @@ export class SuchformularComponent {
         log.debug(
             'SuchformularComponent.onSubmit: nachname / email / geschlecht / sport / lesen / reisen',
             this.#nachname,
-            this.#email,
+            this.#familienstand,
             this.#geschlecht,
             this.#sport,
             this.#lesen,
@@ -93,7 +96,7 @@ export class SuchformularComponent {
 
         this.suchkriterien$.next({
             nachname: this.#nachname,
-            email: this.#email,
+            familienstand: this.#familienstand,
             geschlecht: this.#geschlecht,
             interessen: {
                 sport: this.#sport,
