@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header">
+    <span class="ms-1 fw-bold">Neuer Kunde</span>
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="form" role="form" (submit)="onSubmit()">
+      <div class="row has-warning mb-4" *ngIf="showWarning">
+        <div class="col col-12 form-control-feedback">
+          <span class="alert alert-warning">
+            <mat-icons>warning</mat-icons>
+            <strong class="text-help ms-1">
+              Wenn Sie die Seite jetzt verlassen, verlieren Sie Ihre
+              eingegebenen Daten.
+            </strong>
+          </span>
+        </div>
+      </div>
+
+      <hs-create-nachname [form]="form"></hs-create-nachname>
+      <hs-create-email [form]="form"></hs-create-email>
+      <hs-create-kategorie [form]="form"></hs-create-kategorie>
+      <hs-create-has-newsletter [form]="form"></hs-create-has-newsletter>
+      <hs-create-geburtsdatum [form]="form"></hs-create-geburtsdatum>
+      <hs-create-homepage [form]="form"></hs-create-homepage>
+      <hs-create-geschlecht [form]="form"></hs-create-geschlecht>
+      <hs-create-familienstand [form]="form"></hs-create-familienstand>
+      <hs-create-interessen [form]="form"></hs-create-interessen>
+      <hs-create-umsatz [form]="form"></hs-create-umsatz>
+      <hs-create-adresse [form]="form"></hs-create-adresse>
+      <hs-create-username [form]="form"></hs-create-username>
+
+      <div class="row">
+        <div class="col offset-2 gy-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="form.invalid"
+          >
+            <mat-icons>check</mat-icons>
+            <span class="ms-1">Jetzt anlegen</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <small>* sind Pflichtfelder</small>
+  </div>
+</div>
+
+<div class="mt-3">
+  <hs-error-message [text]="errorMsg"></hs-error-message>
+</div>
