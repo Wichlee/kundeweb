@@ -6,7 +6,7 @@ import { type Kunde } from '../shared/kunde';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { DetailsBearbeitenComponent } from './details-bearbeiten.component';
 import { DetailsBreadcrumbsComponent } from './details-breadcrumbs.component';
-import { DetailsInteresseComponent } from './interessen/details-interessen.component';
+import { DetailsInteressenComponent } from './interessen/details-interessen.component';
 import { DetailsStammdatenComponent } from './stammdaten/details-stammdaten.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { FindError } from '../shared/errors';
