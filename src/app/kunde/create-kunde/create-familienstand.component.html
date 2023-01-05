@@ -1,0 +1,30 @@
+<div class="row">
+  <label class="col col-2 col-form-label gy-3">Familienstand *</label>
+  <div class="col col-10 gy-3" [formGroup]="form">
+    <div class="input-group">
+      <select
+        class="form-select"
+        formControlName="familienstand"
+        required
+        [class.is-invalid]="familienstand.invalid && familienstand.touched"
+        [class.is-valid]="familienstand.valid && familienstand.touched"
+      >
+        <option value="">Familienstand ausw&auml;hlen</option>
+        <option value="LEDIG">Ledig</option>
+        <option value="VERHEIRATET">Verheiratet</option>
+        <option value="GESCHIEDEN">Geschieden</option>
+        <option value="VERWITWET">Verwitwet</option>
+      </select>
+
+      <div
+        class="invalid-feedback"
+        *ngIf="familienstand.invalid && familienstand.touched && familienstand.errors"
+      >
+        <mat-icons>error</mat-icons>
+        <div *ngIf="familienstand.errors['required']">
+          <span class="ms-1"> Familienstand ist erforderlich. </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
