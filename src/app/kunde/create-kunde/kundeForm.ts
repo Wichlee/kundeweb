@@ -11,6 +11,8 @@ import log from 'loglevel';
  */
 export interface KundeForm extends KundeShared {
     geburtsdatum: Date;
+    plz: string;
+    ort: string;
     sport: boolean;
     lesen: boolean;
     reisen: boolean;
@@ -21,6 +23,7 @@ export interface KundeForm extends KundeShared {
  * @param kunde JSON-Objekt mit Daten aus dem Formular
  * @return Das initialisierte Kunde-Objekt
  */
+// eslint-disable-next-line max-lines-per-function
 export const toKunde = (kundeForm: KundeForm): Kunde => {
     log.debug('toKunde: kundeForm=', kundeForm);
 
@@ -71,7 +74,11 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         familienstand,
         interessen,
         umsatz,
-        adresse,
+        adresse: {
+            id: undefined,
+            plz,
+            ort,
+        },
         username,
         version: 0,
     };
