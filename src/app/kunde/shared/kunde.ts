@@ -36,6 +36,16 @@ export const EMAIL_REGEX = /^[a-z\d._%+-]+@[a-z\d.-]+\.[a-z]{2,4}$/u;
 
 // eslint-disable-next-line unicorn/no-unsafe-regex
 export const HOMEPAGE_REGEX = /^(https?:\/\/)?[a-z\d.-]+\.[a-z]{2,4}$/u;
+
+/**
+ * Adresse Model als Plain-Old-JavaScript-Object (POJO) fuer das Kunde-Objekt.
+ */
+export interface AdresseType {
+    id: string | undefined;
+    plz: string;
+    ort: string;
+}
+
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
@@ -53,7 +63,7 @@ export interface Kunde {
     familienstand: FamilienstandType;
     interessen: string[];
     umsatz: number;
-    adresse: string;
+    adresse: AdresseType;
     username: string;
 }
 
@@ -73,6 +83,6 @@ export interface KundeShared {
     geschlecht: GeschlechtType;
     familienstand: FamilienstandType;
     umsatz: number;
-    adresse: string;
+    adresse: AdresseType;
     username: string;
 }
