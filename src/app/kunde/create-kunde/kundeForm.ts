@@ -37,7 +37,8 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         lesen,
         reisen,
         umsatz,
-        adresse,
+        plz,
+        ort,
         username,
     } = kundeForm;
 
