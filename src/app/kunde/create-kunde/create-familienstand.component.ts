@@ -10,7 +10,7 @@ import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-familienstand&gt;, um Erfassungsformular f&uuml;r einen neun Kunden zu realisieren.
+ * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-familienstand&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
  */
 @Component({
     selector: 'hs-create-familienstand',

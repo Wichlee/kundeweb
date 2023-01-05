@@ -10,7 +10,7 @@ import { MAX_KATEGORIE, MIN_KATEGORIE } from '../shared/kunde';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-kategorie&gt;, um Erfassungsformular f&uuml;r einen neun Kunden zu realisieren.
+ * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-kategorie&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
  */
 @Component({
     selector: 'hs-create-kategorie',
