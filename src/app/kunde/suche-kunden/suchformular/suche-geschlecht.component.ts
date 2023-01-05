@@ -1,7 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { type GeschlechtType } from '../../shared/kunde';
 import { Subject } from 'rxjs';
-import { type Geschlecht } from '../../shared/kunde';
 import log from 'loglevel';
 
 /**
@@ -14,10 +14,10 @@ import log from 'loglevel';
     standalone: true,
 })
 export class SucheGeschlechtComponent {
-    protected geschlecht: Geschlecht | '' = '';
+    protected geschlecht: GeschlechtType | '' = '';
 
     @Output()
-    protected readonly geschlecht$ = new Subject<Geschlecht | ''>();
+    protected readonly geschlecht$ = new Subject<GeschlechtType | ''>();
 
     constructor() {
         log.debug('SucheGeschlechtComponent.constructor()');
@@ -26,6 +26,6 @@ export class SucheGeschlechtComponent {
     onChange(event: Event) {
         const { value } = event.target as HTMLSelectElement;
         log.debug('SucheGeschlechtComponent.onChange: value=', value);
-        this.geschlecht$.next(value as Geschlecht | '');
+        this.geschlecht$.next(value as GeschlechtType | '');
     }
 }
