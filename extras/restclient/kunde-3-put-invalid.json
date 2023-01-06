@@ -13,6 +13,9 @@
     "LESEN"
   ],
   "umsatz": 1500,
-  "adresse": "12345 Testort",
+  "adresse": {
+    "plz": "12345",
+    "ort": "Testort"
+  },
   "username": "test"
 }
