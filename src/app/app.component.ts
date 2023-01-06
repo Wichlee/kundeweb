@@ -16,7 +16,6 @@
  */
 
 // "core" enthaelt Funktionalitaet, damit die Webanwendung im Browser laeuft
-import { AppModule } from './app.module';
 import { Component } from '@angular/core';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -87,7 +86,7 @@ import log from 'loglevel';
     // aufrufen.
     templateUrl: './app.component.html',
 
-    imports: [AppModule, FooterComponent, HeaderComponent, MainComponent],
+    imports: [FooterComponent, HeaderComponent, MainComponent],
     standalone: true,
 })
 
