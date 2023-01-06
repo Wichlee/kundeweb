@@ -13,7 +13,7 @@ import log from 'loglevel';
 })
 export class DetailsUmsatzComponent implements OnInit {
     @Input()
-    umsatz: number;
+    umsatz: number | undefined;
 
     ngOnInit() {
         log.debug('DetailsUmsatzComponent.umsatz=', this.umsatz);
