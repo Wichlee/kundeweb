@@ -1,4 +1,4 @@
-import { Component, Component, Input, type OnInit } from '@angular/core';
+import { Component, Input, type OnInit } from '@angular/core';
 import {
     FormControl,
     type FormGroup,
