@@ -6,6 +6,10 @@ import { DetailsGeschlechtComponent } from './details-geschlecht.component';
 import { DetailsHasNewsletterComponent } from './details-hasNewsletter.component';
 import { DetailsKategorieComponent } from './details-kategorie.component';
 import { DetailsNachnameComponent } from './details-nachname.component';
+import { DetailsOrtComponent } from './details-ort.component';
+import { DetailsPlzComponent } from './details-plz.component';
+import { DetailsUmsatzComponent } from './details-umsatz.component';
+import { DetailsUsernameComponent } from './details-username.component';
 import { type Kunde } from '../../shared/kunde';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
@@ -24,6 +28,10 @@ import log from 'loglevel';
         DetailsHasNewsletterComponent,
         DetailsKategorieComponent,
         DetailsNachnameComponent,
+        DetailsOrtComponent,
+        DetailsPlzComponent,
+        DetailsUmsatzComponent,
+        DetailsUsernameComponent,
         NgIf,
     ],
     standalone: true,
