@@ -11,7 +11,7 @@ import log from 'loglevel';
 })
 export class DetailsOrtComponent implements OnInit {
     @Input()
-    ort: string;
+    ort: string | undefined;
 
     ngOnInit() {
         log.debug('DetailsOrtComponent.ort=', this.ort);
