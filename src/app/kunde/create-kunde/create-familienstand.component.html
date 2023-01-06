@@ -18,7 +18,9 @@
 
       <div
         class="invalid-feedback"
-        *ngIf="familienstand.invalid && familienstand.touched && familienstand.errors"
+        *ngIf="
+          familienstand.invalid && familienstand.touched && familienstand.errors
+        "
       >
         <mat-icons>error</mat-icons>
         <div *ngIf="familienstand.errors['required']">
