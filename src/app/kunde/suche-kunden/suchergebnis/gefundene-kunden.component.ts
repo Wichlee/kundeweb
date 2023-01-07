@@ -19,6 +19,7 @@ import { first, tap } from 'rxjs/operators';
 import { type Kunde } from '../../shared/kunde';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../../shared/kundeWrite.service';
+import { MatIconModule } from '@angular/material/icon';
 import { RemoveError } from '../../shared/errors';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
@@ -34,6 +35,7 @@ import log from 'loglevel';
     animations: [easeIn, easeOut],
     imports: [
         AsyncPipe,
+        MatIconModule,
         NgForOf,
         NgIf,
         NgPlural,
