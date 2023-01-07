@@ -1,5 +1,4 @@
 import { Component, Input, type OnInit } from '@angular/core';
-import { EMAIL_REGEX } from '../shared/kunde';
 import {
     FormControl,
     type FormGroup,
@@ -7,6 +6,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { EMAIL_REGEX } from '../shared/kunde';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 

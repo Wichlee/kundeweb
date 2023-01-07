@@ -11,7 +11,7 @@ import log from 'loglevel';
 })
 export class DetailsPlzComponent implements OnInit {
     @Input()
-    plz: string;
+    plz: string | undefined;
 
     ngOnInit() {
         log.debug('DetailsPlzComponent.plz=', this.plz);
