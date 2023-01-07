@@ -104,7 +104,7 @@ export class BasicAuthService {
         log.debug('BasicAuthService.login: body', body);
         if (!ok || body === null) {
             const { statusText } = result;
-            log.error('JwtService.login: statusText', statusText);
+            log.error('BasicAuthService.login: statusText', statusText);
             return;
         }
 
