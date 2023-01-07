@@ -23,7 +23,6 @@ import {
 import { first, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { JwtService } from './jwt.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { BasicAuthService } from './basic-auth.service';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
