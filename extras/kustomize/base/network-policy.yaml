@@ -28,6 +28,6 @@ spec:
   egress:
     - ports:
         # kunde
-        - port: 3000
+        - port: 8080
           protocol: TCP
   ingress: []

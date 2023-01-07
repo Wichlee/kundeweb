@@ -1,6 +1,6 @@
 {
   "/rest": {
-    "target": "https://localhost:3000",
+    "target": "https://localhost:8080",
     "secure": false,
     "pathRewrite": {
       "^/rest": ""
