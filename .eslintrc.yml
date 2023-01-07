@@ -287,6 +287,8 @@ rules:
     - ignore:
         - "@angular/common/http"
         - "@angular/platform-browser/animations"
+        - "@angular/material"
+
 
   prefer-arrow/prefer-arrow-functions:
     - error
