@@ -20,72 +20,14 @@ import { Component } from '@angular/core';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { MainComponent } from './layout/main/main.component';
-// statt console.log(...)
 import log from 'loglevel';
-
-// JIT (= Just-in-time) Compiler: Uebersetzung zur Laufzeit, d.h. dynamisch
-// AoT (= Ahead-of-Time) Compiler: statische Übersetzung fuehrt zu weniger Code bzw. kleinerem Bundle
-
-// Web-Komponente ("web component"): Zusammenfassung von
-//  * HTML-Fragment
-//  * Shadow DOM fuer das HTML-Fragment
-//  * CSS-Stil fuer das HTML-Fragment
-//  * Logik durch JavaScript
-// https://developer.mozilla.org/docs/Web/Web_Components
-// https://developer.mozilla.org/docs/Web/Web_Components/Shadow_DOM
-
-// "Composite Pattern" bei UIs: Eine UI-Komponente besteht aus wiederum aus
-// einfachen UI-Komponenten, z.B. ein Suchformular besteht aus einem Label,
-// einem Eingabefeld und einem Button.
-
-// Eine Komponente (= funktionale Einheit) ist an das MVC-Pattern angelehnt:
-// sie besteht aus einem HTML-Template (= View) und der zugehoerigen
-// Dialogsteuerung (= Controller) mit dem Model als Bindeglied.
-// Controller sind klein ("Thin Controllers") und die Anwendungslogik wird
-// in die Service-Klassen ausgelagert.
-// Innerhalb der Wurzelkomponente werden die Kindkomponenten geladen.
-// https://angular.io/docs/js/latest/api/annotations/ComponentAnnotation-class.html
-
-// Metadaten-Annotationen in Angular sind z.B. @Component.
-// Annotationen sind ein Spezialfall der Decorators:
-// Ein Decorator *ergaenzt* die vorhandene Funktionalitaet von einer Klasse oder
-// einer Methode oder einem Attribut oder einem Methodenargument.
-// siehe https://github.com/wycats/javascript-decorators
 
 /**
  * Wurzelkomponente mit dem Tag &lt;hs-root&gt;
  */
 @Component({
-    // Schnittstelle der View fuer Wiederverwendung in anderen Komponenten:
-    // durch den CSS-Selector hs-root in index.html:
-    // Beispiel:
-    //   <hs-root>
-    //       <hs-header>
-    //           ...
-    //       </hs-header>
-    //       <hs-main>
-    //           <router-outlet>
-    //               <hs-suche-kunden>
-    //                   <hs-suchformular>
-    //                       ...
-    //                   </hs-suchformular>
-    //                   <hs-suchergebnis>
-    //                       ...
-    //                   </hs-suchergebnis>
-    //               </hs-suche-kunden>
-    //           <router-outlet>
-    //       </hs-main>
-    //   </hs-root>
     selector: 'hs-root',
-
-    // "template - A document or file having a preset format, used as a
-    // starting point for a particular application so that the format does not
-    // have to be recreated each time it is used."
-    // Siehe http://www.thefreedictionary.com/template
-    // HTML-Templates ~ View bei MVC: das Model referenzieren u. den Controller
-    // aufrufen.
     templateUrl: './app.component.html',
-
     imports: [FooterComponent, HeaderComponent, MainComponent],
     standalone: true,
 })
