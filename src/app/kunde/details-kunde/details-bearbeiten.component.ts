@@ -1,4 +1,5 @@
 import { Component, Input, type OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLinkWithHref } from '@angular/router';
 import log from 'loglevel';
 
@@ -8,7 +9,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-bearbeiten',
     templateUrl: './details-bearbeiten.component.html',
-    imports: [RouterLinkWithHref],
+    imports: [MatIconModule, RouterLinkWithHref],
     standalone: true,
 })
 export class DetailsBearbeitenComponent implements OnInit {

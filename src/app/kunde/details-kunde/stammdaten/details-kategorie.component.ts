@@ -1,4 +1,5 @@
 import { Component, Input, type OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { NgForOf } from '@angular/common';
 import log from 'loglevel';
 
@@ -9,7 +10,7 @@ import log from 'loglevel';
     selector: 'hs-details-kategorie',
     templateUrl: './details-kategorie.component.html',
     styleUrls: ['./details-kategorie.component.scss'],
-    imports: [NgForOf],
+    imports: [MatIconModule, NgForOf],
     standalone: true,
 })
 export class DetailsKategorieComponent implements OnInit {
