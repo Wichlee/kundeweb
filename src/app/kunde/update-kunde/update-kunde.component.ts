@@ -8,6 +8,7 @@ import { first, map, tap } from 'rxjs/operators';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 import { KundeReadService } from '../shared/kundeRead.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { MatIconModule } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { UpdateEmailComponent } from './update-email.component';
@@ -24,6 +25,7 @@ import log from 'loglevel';
     templateUrl: './update-kunde.component.html',
     imports: [
         ErrorMessageComponent,
+        MatIconModule,
         NgIf,
         ReactiveFormsModule,
         UpdateEmailComponent,

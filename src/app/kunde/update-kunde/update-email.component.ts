@@ -6,6 +6,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
@@ -15,7 +16,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-update-email',
     templateUrl: './update-email.component.html',
-    imports: [FormsModule, NgIf, ReactiveFormsModule],
+    imports: [FormsModule, MatIconModule, NgIf, ReactiveFormsModule],
     standalone: true,
 })
 export class UpdateEmailComponent implements OnInit {

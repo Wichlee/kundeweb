@@ -6,6 +6,7 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 // eslint-disable-next-line sort-imports
@@ -17,7 +18,7 @@ import { NACHNAME_REGEX } from '../shared/kunde';
 @Component({
     selector: 'hs-update-nachname',
     templateUrl: './update-nachname.component.html',
-    imports: [FormsModule, NgIf, ReactiveFormsModule],
+    imports: [FormsModule, MatIconModule, NgIf, ReactiveFormsModule],
     standalone: true,
 })
 export class UpdateNachnameComponent implements OnInit {
