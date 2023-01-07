@@ -19,6 +19,7 @@ import { CreateUsernameComponent } from './create-username.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service';
+import { MatIconModule } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { Router } from '@angular/router';
@@ -46,6 +47,7 @@ import log from 'loglevel';
         CreateUmsatzComponent,
         CreateUsernameComponent,
         ErrorMessageComponent,
+        MatIconModule,
         NgIf,
         ReactiveFormsModule,
     ],
