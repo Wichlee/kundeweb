@@ -22,9 +22,9 @@
 hide empty description
 
 state index.html {
-    index.html: jwt
+    index.html: username
+    index.html: password
     index.html: roles
-    index.html: expiration
 
     [*] --> Home: Logout
 
