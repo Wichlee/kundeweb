@@ -1,28 +1,11 @@
-/*
- * Copyright (C) 2016 - present Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 import {
     deleteAuthorization,
     getAuthorization,
     getRoles,
 } from './storage.service';
 import { first, tap } from 'rxjs/operators';
+import { BasicAuthService } from './basic-auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { Injectable } from '@angular/core';
-import { JwtService } from './jwt.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -40,7 +23,7 @@ export class AuthService {
     // public fuer z.B. nav.component mit der Property isAdmin
     readonly rollen$ = new Subject<string[]>();
 
-    constructor(private readonly jwtService: JwtService) {
+    constructor(private readonly basicAuthService: BasicAuthService) {
         // OnInit ist nur bei @Component moeglich
         if (this.isLoggedIn) {
             log.debug('AuthService.constructor: bereits eingeloggt');
@@ -69,7 +52,7 @@ export class AuthService {
             `AuthService.login: username=${username}, password=${password}`,
         );
 
-        this.jwtService
+        this.basicAuthService
             .login(username, password)
             .pipe(
                 // den 1. Datensatz empfangen und danach implizites "unsubscribe"
