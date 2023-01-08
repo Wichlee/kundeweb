@@ -11,7 +11,7 @@ export const ROUTES: Routes = [
         // redirect erfordert pathMatch full
         pathMatch: 'full',
         component: HomeComponent,
-        title: 'Beispiel Gruppe2',
+        title: 'KundeWeb - Willkommen',
     },
     {
         path: 'kunden',
