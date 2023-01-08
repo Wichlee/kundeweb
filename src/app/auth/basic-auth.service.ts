@@ -80,7 +80,7 @@ export class BasicAuthService {
                 // den 1. Datensatz empfangen und danach implizites "unsubscribe"
                 first(),
                 catchError((err: unknown) => {
-                    log.debug('JwtService.login: err=', err);
+                    log.debug('BasicAuthService.login: err=', err);
                     // z.B. Statuscode 401 (Unauthorized) oder 504 (Gateway Timeout)
                     return of(err as HttpErrorResponse);
                 }),
