@@ -21,6 +21,7 @@ import { Component, type OnInit } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LoginLogoutComponent } from './login-logout.component';
+import { MatIconModule } from '@angular/material/icon';
 import log from 'loglevel';
 import { tap } from 'rxjs/operators';
 
@@ -33,6 +34,7 @@ import { tap } from 'rxjs/operators';
     imports: [
         AsyncPipe,
         LoginLogoutComponent,
+        MatIconModule,
         NgIf,
         RouterLinkActive,
         RouterLinkWithHref,
