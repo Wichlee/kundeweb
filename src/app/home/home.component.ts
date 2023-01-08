@@ -16,11 +16,15 @@
  */
 
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import log from 'loglevel';
 
 @Component({
     selector: 'hs-home',
     templateUrl: './home.component.html',
+    imports: [MatCardModule, MatDividerModule, MatProgressBarModule],
     standalone: true,
 })
 export class HomeComponent {
