@@ -56,13 +56,13 @@ export class BasicAuthService {
             return of();
         }
 
-        const loginPath = `${paths.login}/auth/rollen`;
+        const loginPath = `${paths.login}`;
         log.debug('BasicAuthService.login: loginPath=', loginPath);
 
         /* eslint-disable @typescript-eslint/naming-convention */
         const headers = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            Accept: 'text/plain',
+            Accept: 'application/json',
         });
         /* eslint-enable @typescript-eslint/naming-convention */
 
