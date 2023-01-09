@@ -1,5 +1,8 @@
 import { Component, Output } from '@angular/core';
+import type { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -9,7 +12,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suche-interessen',
     templateUrl: './suche-interessen.component.html',
-    imports: [FormsModule],
+    imports: [FormsModule, MatCheckboxModule, MatInputModule],
     standalone: true,
 })
 export class SucheInteressenComponent {
@@ -32,21 +35,21 @@ export class SucheInteressenComponent {
         log.debug('SucheInteressenComponent.constructor()');
     }
 
-    onChangeSport(event: Event) {
+    onChangeSport(event: MatCheckboxChange) {
         // https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript
-        const { checked } = event.target as HTMLInputElement;
+        const checked = event.checked
         log.debug(`SucheInteressenComponent.onChangeSport: checked=${checked}`);
         this.sport$.next(checked);
     }
 
-    onChangeLesen(event: Event) {
-        const { checked } = event.target as HTMLInputElement;
+    onChangeLesen(event: MatCheckboxChange) {
+        const checked = event.checked
         log.debug(`SucheInteressenComponent.onChangeLesen: checked=${checked}`);
         this.lesen$.next(checked);
     }
 
-    onChangeReisen(event: Event) {
-        const { checked } = event.target as HTMLInputElement;
+    onChangeReisen(event: MatCheckboxChange) {
+        const checked = event.checked
         log.debug(
             `SucheInteressenComponent.onChangeReisen: checked=${checked}`,
         );

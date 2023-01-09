@@ -1,37 +1,8 @@
 <div class="row">
-  <label class="col col-2 col-form-label gy-3"> Interessen </label>
+  <mat-label class="col col-2 col-form-label gy-3">Interessen</mat-label>
   <div class="col col-10 gy-3">
-    <div class="form-checkbox">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="sportInput"
-        [(ngModel)]="sport"
-        (change)="onChangeSport($event)"
-      />
-      <label for="sportInput" class="ms-1"> Sport </label>
-    </div>
-    <div class="form-checkbox">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="lesenInput"
-        [(ngModel)]="lesen"
-        name="lesen"
-        (change)="onChangeLesen($event)"
-      />
-      <label for="lesenInput" class="ms-1"> Lesen </label>
-    </div>
-    <div class="form-checkbox">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="reisenInput"
-        [(ngModel)]="reisen"
-        name="reisen"
-        (change)="onChangeReisen($event)"
-      />
-      <label for="reisenInput" class="ms-1"> Reisen </label>
-    </div>
+    <mat-checkbox [ngModel]="sport" (change)="onChangeSport($event)">Sport</mat-checkbox>
+    <mat-checkbox [ngModel]="lesen" (change)="onChangeLesen($event)">Lesen</mat-checkbox>
+    <mat-checkbox [ngModel]="reisen" (change)="onChangeReisen($event)">Reisen</mat-checkbox>
   </div>
 </div>
