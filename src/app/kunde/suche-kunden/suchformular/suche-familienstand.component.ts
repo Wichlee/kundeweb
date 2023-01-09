@@ -1,6 +1,9 @@
 import { Component, Output } from '@angular/core';
+import type { MatRadioChange } from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { type FamilienstandType } from '../../shared/kunde';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -10,7 +13,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suche-familienstand',
     templateUrl: './suche-familienstand.component.html',
-    imports: [FormsModule],
+    imports: [FormsModule, MatRadioModule, MatInputModule],
     standalone: true,
 })
 export class SucheFamilienstandComponent {
@@ -23,8 +26,8 @@ export class SucheFamilienstandComponent {
         log.debug('SucheFamilienstandComponent.constructor()');
     }
 
-    onChange(event: Event) {
-        const { value } = event.target as HTMLSelectElement;
+    onChange(event: MatRadioChange) {
+        const { value } = event.source
         log.debug('SucheFamilienstandComponent.onChange: value=', value);
         this.familienstand$.next(value as FamilienstandType | '');
     }
