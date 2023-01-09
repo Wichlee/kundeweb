@@ -73,7 +73,7 @@ export interface Kunde {
     geschlecht: GeschlechtType;
     familienstand: FamilienstandType;
     interessen: string[];
-    umsatz: number;
+    umsatz: UmsatzType;
     adresse: AdresseType;
     username: string;
 }
@@ -93,7 +93,7 @@ export interface KundeShared {
     homepage: URL;
     geschlecht: GeschlechtType;
     familienstand: FamilienstandType;
-    umsatz: number;
+    umsatz: UmsatzType;
     adresse: AdresseType;
     username: string;
 }
