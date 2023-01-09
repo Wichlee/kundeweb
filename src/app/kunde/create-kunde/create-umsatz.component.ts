@@ -7,6 +7,7 @@ import {
     Validators,
 } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
@@ -16,7 +17,13 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-umsatz',
     templateUrl: './create-umsatz.component.html',
-    imports: [FormsModule, MatIconModule, NgIf, ReactiveFormsModule],
+    imports: [
+        FormsModule,
+        MatIconModule,
+        MatInputModule,
+        NgIf,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class CreateUmsatzComponent implements OnInit {

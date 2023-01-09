@@ -1,34 +1,23 @@
-<div class="row">
-  <label for="usernameInput" class="col col-2 col-form-label gy-3">
-    Username *
-  </label>
-  <div class="col col-10 gy-3" [formGroup]="form">
-    <div class="input-group">
-      <input
-        id="usernameInput"
-        placeholder="MaxMustermann24"
-        class="form-control"
-        required
-        maxlength="20"
-        formControlName="username"
-        [class.is-invalid]="username.invalid && username.touched"
-        [class.is-valid]="username.valid && username.touched"
-      />
-
-      <div
-        class="invalid-feedback"
-        *ngIf="username.invalid && username.touched && username.errors"
-      >
-        <mat-icon>error</mat-icon>
-        <span class="ms-1">
-          <span *ngIf="username.errors['required']">
-            Username ist erforderlich.
-          </span>
-          <span *ngIf="username.errors['maxlength']">
-            Username darf maximal 20 Zeichen lang sein.
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
+<mat-form-field class="col col-10 gy-3" [formGroup]="form">
+  <mat-label for="usernameInput">Username</mat-label>
+  <input matInput
+    id="usernameInput"
+    placeholder="MaxMustermann24"
+    required
+    maxlength="20"
+    formControlName="username"
+    [class.is-invalid]="username.invalid && username.touched"
+    [class.is-valid]="username.valid && username.touched"
+  />
+  <mat-error *ngIf="username.invalid && username.touched && username.errors">
+    <mat-icon>error</mat-icon>
+    <span class="ms-1">
+      <span *ngIf="username.errors['required']">
+        Username ist erforderlich.
+      </span>
+      <span *ngIf="username.errors['maxlength']">
+        Username darf maximal 20 Zeichen lang sein.
+      </span>
+    </span>
+  </mat-error>
+</mat-form-field>
