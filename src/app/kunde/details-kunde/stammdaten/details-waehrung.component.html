@@ -1,13 +1,12 @@
 <div class="row mt-2">
-    <label class="col col-1"> Waehrung </label>
-    <div class="col col-11">
-      <span [ngSwitch]="waehrung">
-        <span *ngSwitchCase="'EUR'">EUR</span>
-        <span *ngSwitchCase="'CHF'">CHF</span>
-        <span *ngSwitchCase="'GBP'">GBP</span>
-        <span *ngSwitchCase="'USD'">USD</span>
-        <span *ngSwitchDefault>unbekannt</span>
-      </span>
-    </div>
+  <label class="col col-1"> Waehrung </label>
+  <div class="col col-11">
+    <span [ngSwitch]="waehrung">
+      <span *ngSwitchCase="'EUR'">EUR</span>
+      <span *ngSwitchCase="'CHF'">CHF</span>
+      <span *ngSwitchCase="'GBP'">GBP</span>
+      <span *ngSwitchCase="'USD'">USD</span>
+      <span *ngSwitchDefault>unbekannt</span>
+    </span>
   </div>
-  
+</div>

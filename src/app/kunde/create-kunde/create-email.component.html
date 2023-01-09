@@ -1,24 +1,22 @@
 <div class="row">
   <mat-form-field class="col col-10 gy-3" [formGroup]="form">
-    <mat-label for="emailInput">E-Mail</mat-label> 
-      <input
-        matInput
-        id="emailInput"
-        placeholder="max.mustermann@acme.com"
-        formControlName="email"
-        [class.is-invalid]="email.invalid && email.touched"
-        [class.is-valid]="email.valid && email.touched"
-      />
-      <mat-error *ngIf="email.invalid && email.touched && email.errors">
-        <mat-icon>error</mat-icon>
-        <span class="ms-1">
-          <span *ngIf="email.errors['required']">
-            E-Mail ist erforderlich.
-          </span>
-          <span *ngIf="email.errors['pattern']">
-            E-Mail muss dem gültigen Muster einer E-Mail-Adresse entsprechen.
-          </span>
+    <mat-label for="emailInput">E-Mail</mat-label>
+    <input
+      matInput
+      id="emailInput"
+      placeholder="max.mustermann@acme.com"
+      formControlName="email"
+      [class.is-invalid]="email.invalid && email.touched"
+      [class.is-valid]="email.valid && email.touched"
+    />
+    <mat-error *ngIf="email.invalid && email.touched && email.errors">
+      <mat-icon>error</mat-icon>
+      <span class="ms-1">
+        <span *ngIf="email.errors['required']"> E-Mail ist erforderlich. </span>
+        <span *ngIf="email.errors['pattern']">
+          E-Mail muss dem gültigen Muster einer E-Mail-Adresse entsprechen.
         </span>
-      </mat-error>
-    </mat-form-field>
-  </div>
+      </span>
+    </mat-error>
+  </mat-form-field>
+</div>

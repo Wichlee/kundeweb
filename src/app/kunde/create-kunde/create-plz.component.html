@@ -1,6 +1,7 @@
 <mat-form-field class="col col-10 gy-3" [formGroup]="form">
   <mat-label for="plzInput">Postleitzahl</mat-label>
-  <input matInput
+  <input
+    matInput
     id="plzInput"
     placeholder="76133"
     required
@@ -11,10 +12,7 @@
   />
   <mat-error *ngIf="plz.invalid && plz.touched && plz.errors">
     <mat-icon>error</mat-icon>
-    <span
-      class="ms-1"
-      *ngIf="plz.errors['required'] && plz.errors['pattern']"
-    >
+    <span class="ms-1" *ngIf="plz.errors['required'] && plz.errors['pattern']">
       Eine gültige Postleitzahl, z.B. 76133, muss eingegeben werden.
     </span>
   </mat-error>
