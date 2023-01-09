@@ -19,6 +19,65 @@
     Internationalisierung durch z.B. https://github.com/ocombe/ng2-translate
 -->
 
+<button mat-button>
+  <mat-icon>search</mat-icon>
+  <span
+    class="ms-1"
+    routerLink="/kunden/suche"
+    routerLinkActive="active"
+    class="mat-list-item-content"
+    aria-label="Suche Kunden"
+  >
+    Suche
+  </span>
+</button>
+
+<button mat-button *ngIf="isAdmin$ | async">
+  <mat-icon>menu_book</mat-icon>
+  <span
+    class="ms-1"
+    routerLink="/kunden/create"
+    class="mat-list-item-content"
+    aria-label="Neuen Kunde anlegen"
+  >
+    Neuen Kunde
+  </span>
+</button>
+
+<button mat-button [matMenuTriggerFor]="menu" *ngIf="isAdmin$ | async">
+  <mat-icon>bar_chart</mat-icon>
+  <span class="ms-1">Diagramme</span>
+  <mat-menu #menu="matMenu" yPosition="below">
+    <button
+      mat-menu-item
+      routerLink="/kunden/balkendiagramm"
+      mat-menu-item
+      aria-label="Balkendiagramm fuer Bewertungen"
+    >
+      <mat-icon>bar_chart</mat-icon>
+      <span class="ms-1">Balkendiagramm</span>
+    </button>
+    <a
+      routerLink="/kunden/liniendiagramm"
+      mat-menu-item
+      aria-label="Liniendiagramm fuer Bewertungen"
+    >
+      <mat-icon>multiline_chart</mat-icon>
+      <span class="ms-1">Liniendiagramm</span>
+    </a>
+    <a
+      routerLink="/kunden/tortendiagramm"
+      mat-menu-item
+      aria-label="Tortendiagramm fuer Bewertungen"
+    >
+      <mat-icon>pie_chart</mat-icon>
+      <span class="ms-1">Tortendiagramm</span>
+    </a>
+  </mat-menu>
+</button>
+<hs-login-logout></hs-login-logout>
+
+<!-- 
 <ul class="navbar-nav me-auto">
   <li class="nav-item active">
     <a
@@ -51,7 +110,7 @@
       aria-haspopup="true"
       aria-expanded="false"
     >
-      <i class="material-icons">bar_chart</i>
+      <mat-icon>bar_chart</mat-icon>
       <span class="ms-1">Diagramme</span>
     </div>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -60,7 +119,7 @@
         class="dropdown-item"
         aria-label="Balkendiagramm fuer Bewertungen"
       >
-        <i class="material-icons">bar_chart</i>
+        <mat-icon>bar_chart</mat-icon>
         <span class="ms-1">Balkendiagramm</span>
       </a>
       <a
@@ -76,11 +135,9 @@
         class="dropdown-item"
         aria-label="Tortendiagramm fuer Bewertungen"
       >
-        <i class="material-icons">pie_chart</i>
+        <mat-icon>pie_chart</mat-icon>
         <span class="ms-1">Tortendiagramm</span>
       </a>
     </div>
   </li>
-</ul>
-
-<hs-login-logout></hs-login-logout>
+</ul> -->

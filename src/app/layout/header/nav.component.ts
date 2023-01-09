@@ -21,7 +21,12 @@ import { Component, type OnInit } from '@angular/core';
 import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LoginLogoutComponent } from './login-logout.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import log from 'loglevel';
 import { tap } from 'rxjs/operators';
 
@@ -34,7 +39,12 @@ import { tap } from 'rxjs/operators';
     imports: [
         AsyncPipe,
         LoginLogoutComponent,
+        MatButtonModule,
+        MatGridListModule,
         MatIconModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
         NgIf,
         RouterLinkActive,
         RouterLinkWithHref,
