@@ -5,6 +5,10 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import log from 'loglevel';
 
 /**
@@ -13,18 +17,25 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-interessen',
     templateUrl: './create-interessen.component.html',
-    imports: [FormsModule, ReactiveFormsModule],
+    imports: [
+        FormsModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatInputModule,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class CreateInteressenComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    protected readonly sport = new FormControl(false);
+    protected sport = new FormControl(false);
 
-    protected readonly lesen = new FormControl(false);
+    protected lesen = new FormControl(false);
 
-    protected readonly reisen = new FormControl(false);
+    protected reisen = new FormControl(false);
 
     ngOnInit() {
         log.debug('CreateInteressenComponent.ngOnInit');
