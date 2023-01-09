@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { CurrencyPipe } from '@angular/common';
 import { type Temporal } from '@js-temporal/polyfill';
 
 export const MIN_KATEGORIE = 0;
