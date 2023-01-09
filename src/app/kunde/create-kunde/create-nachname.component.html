@@ -1,4 +1,34 @@
 <div class="row">
+  <mat-form-field class="col col-10 gy-3" [formGroup]="form">
+    <mat-label for="nachnameInput">Nachname *</mat-label>
+    <input
+      matInput
+      id="nachnameInput"
+      placeholder="Nachname"
+      autofocus
+      formControlName="nachname"
+      [class.is-invalid]="nachname.invalid && nachname.touched"
+      [class.is-valid]="nachname.valid && nachname.touched"
+    />
+    <mat-error *ngIf="nachname.invalid && nachname.touched && nachname.errors">
+      <mat-icon>error</mat-icon>
+      <span class="ms-1">
+        <span *ngIf="nachname.errors['required']">
+          Nachname ist erforderlich.
+        </span>
+        <span *ngIf="nachname.errors['minlength']">
+          Nachname muss mindestens 2 Zeichen lang sein.
+        </span>
+        <span *ngIf="nachname.errors['pattern']">
+          Nachname muss mit einem Buchstaben beginnen.
+        </span>
+      </span>
+    </mat-error>
+  </mat-form-field>
+</div>
+
+
+<div class="row">
   <label for="nachnameInput" class="col col-2 col-form-label gy-3">
     Nachname *
   </label>
