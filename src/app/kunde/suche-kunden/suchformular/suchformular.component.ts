@@ -4,6 +4,8 @@ import {
     type GeschlechtType,
 } from '../../shared/kunde';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Subject } from 'rxjs';
 import { SucheFamilienstandComponent } from './suche-familienstand.component';
@@ -23,6 +25,8 @@ import log from 'loglevel';
     animations: [fadeIn],
     imports: [
         FormsModule,
+        MatButtonModule,
+        MatCardModule,
         MatIconModule,
         ReactiveFormsModule,
         SucheFamilienstandComponent,
