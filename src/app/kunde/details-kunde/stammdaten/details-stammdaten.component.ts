@@ -10,6 +10,7 @@ import { DetailsNachnameComponent } from './details-nachname.component';
 import { DetailsOrtComponent } from './details-ort.component';
 import { DetailsPlzComponent } from './details-plz.component';
 import { DetailsUsernameComponent } from './details-username.component';
+import { DetailsWaehrungComponent } from './details-waehrung.component';
 import { type Kunde } from '../../shared/kunde';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
@@ -32,6 +33,7 @@ import log from 'loglevel';
         DetailsOrtComponent,
         DetailsPlzComponent,
         DetailsUsernameComponent,
+        DetailsWaehrungComponent,
         NgIf,
     ],
     standalone: true,
