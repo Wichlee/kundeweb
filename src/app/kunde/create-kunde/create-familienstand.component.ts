@@ -7,6 +7,8 @@ import {
     Validators,
 } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
@@ -16,7 +18,14 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-familienstand',
     templateUrl: './create-familienstand.component.html',
-    imports: [FormsModule, MatIconModule, NgIf, ReactiveFormsModule],
+    imports: [
+        FormsModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        NgIf,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class CreateFamilienstandComponent implements OnInit {

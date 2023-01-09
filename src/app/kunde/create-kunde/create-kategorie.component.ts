@@ -9,6 +9,7 @@ import {
 import { MAX_KATEGORIE, MIN_KATEGORIE } from '../shared/kunde';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import log from 'loglevel';
 
 /**
@@ -17,7 +18,13 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-kategorie',
     templateUrl: './create-kategorie.component.html',
-    imports: [FormsModule, MatIconModule, MatInputModule, ReactiveFormsModule],
+    imports: [
+        FormsModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class CreateKategorieComponent implements OnInit {

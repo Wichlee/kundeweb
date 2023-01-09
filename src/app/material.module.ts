@@ -6,6 +6,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatOptionModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -22,6 +23,7 @@ import { NgModule } from '@angular/core';
         MatIconModule,
         MatInputModule,
         MatMenuModule,
+        MatOptionModule,
         MatProgressBarModule,
         MatSidenavModule,
         MatStepperModule,
@@ -36,6 +38,7 @@ import { NgModule } from '@angular/core';
         MatIconModule,
         MatInputModule,
         MatMenuModule,
+        MatOptionModule,
         MatProgressBarModule,
         MatSidenavModule,
         MatStepperModule,
