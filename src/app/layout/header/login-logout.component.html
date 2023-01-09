@@ -17,6 +17,28 @@
 
 <!-- Inline form https://getbootstrap.com/docs/5.1/forms/layout/#inline-forms -->
 <!-- prettier-ignore -->
+
+<!-- <div class="login-container">
+  <mat-form-field hintLabel="Username" appearance="fill">
+    <mat-label>Enter your username</mat-label>
+    <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select me</mat-label>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+</div> -->
+
+<!-- 
+<mat-form-field appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+-->
+
 <form
   class="row row-cols-md-auto g-3 align-items-center"
   autocomplete="off"
@@ -24,12 +46,9 @@
   (submit)="onLogout()"
   *ngIf="(isLoggedIn$ | async) || init; else login"
 >
-  <button
-    type="submit"
-    class="btn btn-primary"
-  >
+  <button mat-button type="submit" class="btn btn-primary">
     <span class="me-1">Logout</span>
-    <i class="material-icons md-48">chevron_right</i>
+    <mat-icon>chevron_right</mat-icon>
   </button>
 </form>
 
@@ -73,6 +92,7 @@
     </div>
     <div class="col-12">
       <button
+        mat-button
         type="submit"
         class="btn btn-primary btn-sm"
         tabindex="3"

@@ -19,6 +19,9 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, type OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import log from 'loglevel';
@@ -29,7 +32,15 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-login-logout',
     templateUrl: './login-logout.component.html',
-    imports: [AsyncPipe, FormsModule, NgIf, ReactiveFormsModule],
+    imports: [
+        AsyncPipe,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatIconModule,
+        NgIf,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class LoginLogoutComponent implements OnInit {
