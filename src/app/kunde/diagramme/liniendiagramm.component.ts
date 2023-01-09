@@ -73,7 +73,8 @@ export class LiniendiagrammComponent implements OnInit {
         return kunden.map(kunde => {
             return {
                 name: kunde.id!, // eslint-disable-line @typescript-eslint/no-non-null-assertion
-                value: kunde.umsatz,
+                value: kunde.umsatz.betrag,
+                extra: kunde.umsatz.waehrung,
             };
         });
     }
