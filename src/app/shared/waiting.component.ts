@@ -16,11 +16,13 @@
  */
 
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import log from 'loglevel';
 
 @Component({
     selector: 'hs-waiting',
     templateUrl: './waiting.component.html',
+    imports: [MatIconModule],
     standalone: true,
 })
 export class WaitingComponent {
