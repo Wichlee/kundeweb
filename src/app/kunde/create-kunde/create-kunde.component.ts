@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
 import { Component } from '@angular/core';
+import { CreateBetragComponent } from './create-betrag.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
 import { CreateGeburtsdatumModule } from './create-geburtsdatum.module';
@@ -14,7 +15,6 @@ import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateOrtComponent } from './create-ort.component';
 import { CreatePlzComponent } from './create-plz.component';
-import { CreateUmsatzComponent } from './create-umsatz.component';
 import { CreateUsernameComponent } from './create-username.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -33,6 +33,7 @@ import log from 'loglevel';
     selector: 'hs-create-kunde',
     templateUrl: './create-kunde.component.html',
     imports: [
+        CreateBetragComponent,
         CreateEmailComponent,
         CreateFamilienstandComponent,
         CreateGeburtsdatumModule,
@@ -44,7 +45,6 @@ import log from 'loglevel';
         CreateNachnameComponent,
         CreateOrtComponent,
         CreatePlzComponent,
-        CreateUmsatzComponent,
         CreateUsernameComponent,
         ErrorMessageComponent,
         MatIconModule,

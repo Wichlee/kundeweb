@@ -1,0 +1,18 @@
+<mat-form-field class="col col-10 gy-3" [formGroup]="form">
+  <mat-label for="betragInput">Betrag</mat-label>
+  <input matInput
+    id="betragInput"
+    placeholder="Betrag, z.B. 12345.67"
+    type="number"
+    required
+    formControlName="betrag"
+    [class.is-invalid]="betrag.invalid && betrag.touched"
+    [class.is-valid]="betrag.valid && betrag.touched"
+  />
+  <mat-error *ngIf="betrag.invalid && betrag.touched && betrag.errors">
+    <mat-icon>error</mat-icon>
+    <span class="ms-1" *ngIf="betrag.errors['required']">
+      Der Betrag muss eingegeben werden, z.B. 12345.67.
+    </span>
+  </mat-error>
+</mat-form-field>
