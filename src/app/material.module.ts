@@ -4,6 +4,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -19,6 +20,7 @@ import { NgModule } from '@angular/core';
         MatFormFieldModule,
         MatGridListModule,
         MatIconModule,
+        MatInputModule,
         MatMenuModule,
         MatProgressBarModule,
         MatSidenavModule,
@@ -32,6 +34,7 @@ import { NgModule } from '@angular/core';
         MatFormFieldModule,
         MatGridListModule,
         MatIconModule,
+        MatInputModule,
         MatMenuModule,
         MatProgressBarModule,
         MatSidenavModule,
