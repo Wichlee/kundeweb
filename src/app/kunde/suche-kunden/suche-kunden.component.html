@@ -1,9 +1,11 @@
 <hs-suchformular (suchkriterien$)="suchen($event)"></hs-suchformular>
 
 <section class="mt-2" aria-label="Suchergebnis">
-  <hs-waiting *ngIf="waiting; else showSuchergebnis"></hs-waiting>
+  <ng-container *ngIf="waiting; else showSuchergebnis">
+    <hs-waiting></hs-waiting>
+  </ng-container>
 
   <ng-template #showSuchergebnis>
-    <hs-suchergebnis [kunden]="kunden" [errorMsg]="errorMsg"> </hs-suchergebnis>
+    <hs-suchergebnis [kunden]="kunden" [errorMsg]="errorMsg"></hs-suchergebnis>
   </ng-template>
 </section>
