@@ -1,5 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -9,7 +11,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-suche-nachname',
     templateUrl: './suche-nachname.component.html',
-    imports: [FormsModule],
+    imports: [FormsModule, MatFormFieldModule, MatInputModule],
     standalone: true,
 })
 export class SucheNachnameComponent {

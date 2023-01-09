@@ -1,18 +1,13 @@
 <div class="row">
-  <label for="nachnameInput" class="col col-2 col-form-label gy-3">
-    Nachname
-  </label>
-
-  <!-- vertikale und horizontale "Gutter" als Abstaende ("gaps") zwischen den Spalten -->
-  <!-- https://v5.getbootstrap.com/docs/5.1/layout/gutters/#horizontal-gutters -->
-  <div class="col col-10 gy-3">
+  <mat-form-field>
+    <mat-label for="nachnameInput">Nachname</mat-label>
     <input
       id="nachnameInput"
+      matInput
       placeholder="Den Nachnamen eingeben"
-      class="form-control"
       [(ngModel)]="nachname"
       name="nachname"
       (blur)="onBlur()"
     />
-  </div>
+  </mat-form-field>
 </div>
