@@ -9,7 +9,7 @@ import log from 'loglevel';
     templateUrl: './details-betrag.component.html',
     standalone: true,
 })
-export class DetailsUmsatzComponent implements OnInit {
+export class DetailsBetragComponent implements OnInit {
     @Input()
     betrag: number | undefined;
 
