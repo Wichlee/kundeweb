@@ -11,7 +11,10 @@
     "REISEN",
     "LESEN"
   ],
-  "umsatz": 1500,
+  "umsatz": {
+    "betrag": "1500",
+    "waehrung": "EUR"
+  },
   "adresse": {
     "plz": "12345",
     "ort": "Testort"
