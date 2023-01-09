@@ -1,4 +1,8 @@
-import { type Kunde, type KundeShared } from '../shared/kunde';
+import {
+    type Kunde,
+    type KundeShared,
+    type WaehrungType,
+} from '../shared/kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 
@@ -11,6 +15,8 @@ import log from 'loglevel';
  */
 export interface KundeForm extends KundeShared {
     geburtsdatum: Date;
+    betrag: number;
+    waehrung: WaehrungType;
     plz: string;
     ort: string;
     sport: boolean;
@@ -39,7 +45,8 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         sport,
         lesen,
         reisen,
-        umsatz,
+        betrag,
+        waehrung,
         plz,
         ort,
         username,
@@ -73,7 +80,11 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         geschlecht,
         familienstand,
         interessen,
-        umsatz,
+        umsatz: {
+            id: undefined,
+            betrag,
+            waehrung,
+        },
         adresse: {
             id: undefined,
             plz,
