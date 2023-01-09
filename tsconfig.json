@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "exactOptionalPropertyTypes": true, // bei optionalen Properties ggf. explizit undefined spezifizieren
+    "exactOptionalPropertyTypes": false, // bei optionalen Properties ggf. explizit undefined spezifizieren
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true, // Kompatibilitaet zwischen CommonJS und ES Modulen
     "strict": true,
