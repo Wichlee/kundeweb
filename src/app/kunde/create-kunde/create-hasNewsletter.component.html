@@ -1,16 +1,8 @@
 <div class="row">
-  <label for="hasNewsletterInput" class="col col-2 col-form-label gy-3">
+  <mat-label for="hasNewsletterInput" class="col col-2 col-form-label gy-3">
     Has Newsletter?
-  </label>
+  </mat-label>
 
   <div class="col col-10 gy-3" [formGroup]="form">
-    <div class="form-checkbox">
-      <input
-        id="hasNewsletterInput"
-        type="checkbox"
-        class="form-check-input"
-        formControlName="hasNewsletter"
-      />
-    </div>
-  </div>
+    <mat-checkbox formControlName="hasNewsletter"> </mat-checkbox>
 </div>

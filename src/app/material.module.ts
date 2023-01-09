@@ -1,5 +1,6 @@
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -17,6 +18,7 @@ import { NgModule } from '@angular/core';
     imports: [
         MatButtonModule,
         MatCardModule,
+        MatCheckboxModule,
         MatDividerModule,
         MatFormFieldModule,
         MatGridListModule,
@@ -32,6 +34,7 @@ import { NgModule } from '@angular/core';
     exports: [
         MatButtonModule,
         MatCardModule,
+        MatCheckboxModule,
         MatDividerModule,
         MatFormFieldModule,
         MatGridListModule,

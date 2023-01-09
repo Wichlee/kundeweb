@@ -5,6 +5,8 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
 import log from 'loglevel';
 
 /**
@@ -13,7 +15,12 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-has-newsletter',
     templateUrl: './create-hasNewsletter.component.html',
-    imports: [FormsModule, ReactiveFormsModule],
+    imports: [
+        FormsModule,
+        MatCheckboxModule,
+        MatInputModule,
+        ReactiveFormsModule,
+    ],
     standalone: true,
 })
 export class CreateHasNewsletterComponent implements OnInit {
