@@ -5,6 +5,8 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import log from 'loglevel';
 
 /**
@@ -13,7 +15,7 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-create-geschlecht',
     templateUrl: './create-geschlecht.component.html',
-    imports: [FormsModule, ReactiveFormsModule],
+    imports: [FormsModule, MatInputModule, MatRadioModule, ReactiveFormsModule],
     standalone: true,
 })
 export class CreateGeschlechtComponent implements OnInit {
