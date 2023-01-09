@@ -55,21 +55,21 @@ GET {{localHTTPS}}/rest/kunden?familienstand=LEDIG
 ### Neuen Kunden anlegen
 POST {{localHTTPS}}/rest/kunden
 Content-Type: application/json
-Authorization: Bearer {{login.response.body.$.token}}
+Authorization: Bearer {{userAdmin}} {{password}}
 
 < ./kunde-neu.json
 
 ### Neuen Kunden mit ungueltigen Daten anlegen
 POST {{localHTTPS}}/rest/kunden
 Content-Type: application/json
-Authorization: Bearer {{login.response.body.$.token}}
+Authorization: Bearer {{userAdmin}} {{password}}}
 
 < ./kunde-neu-invalid.json
 
 ### Vorhandenen Kunden aktualisieren
 PUT {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000003
 Content-Type: application/json
-Authorization: Bearer {{login.response.body.$.token}}
+Authorization: Bearer {{userAdmin}} {{password}}
 If-Match: 0
 
 < ./kunde-3-put.json
@@ -77,18 +77,18 @@ If-Match: 0
 ### Vorhandenen Kunden *OHNE* Versionsnummer aktualisieren
 PUT {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000003
 Content-Type: application/json
-Authorization: Bearer {{login.response.body.$.token}}
+Authorization: Bearer {{userAdmin}} {{password}}
 
 < ./kunde-3-put.json
 
 ### Vorhandenen Kunden mit ungueltigen Daten aktualisieren
 PUT {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000003
 Content-Type: application/json
-Authorization: Bearer {{login.response.body.$.token}}
+Authorization: Bearer {{userAdmin}} {{password}}}
 If-Match: 0
 
 < ./kunde-3-put-invalid.json
 
 ### Loeschen eines vorhandenen Kunden
 DELETE {{localHTTPS}}/rest/kunden/00000000-0000-0000-0000-000000000005
-Authorization: Bearer {{login.response.body.$.token}}
+Authorization: Bearer {{userAdmin}} {{password}}
