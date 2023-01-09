@@ -37,19 +37,19 @@ export class SucheInteressenComponent {
 
     onChangeSport(event: MatCheckboxChange) {
         // https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript
-        const checked = event.checked
+        const checked = event.checked;
         log.debug(`SucheInteressenComponent.onChangeSport: checked=${checked}`);
         this.sport$.next(checked);
     }
 
     onChangeLesen(event: MatCheckboxChange) {
-        const checked = event.checked
+        const checked = event.checked;
         log.debug(`SucheInteressenComponent.onChangeLesen: checked=${checked}`);
         this.lesen$.next(checked);
     }
 
     onChangeReisen(event: MatCheckboxChange) {
-        const checked = event.checked
+        const checked = event.checked;
         log.debug(
             `SucheInteressenComponent.onChangeReisen: checked=${checked}`,
         );

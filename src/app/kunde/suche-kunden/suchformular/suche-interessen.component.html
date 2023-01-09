@@ -1,8 +1,14 @@
 <div class="row">
   <mat-label class="col col-2 col-form-label gy-3">Interessen</mat-label>
   <div class="col col-10 gy-3">
-    <mat-checkbox [ngModel]="sport" (change)="onChangeSport($event)">Sport</mat-checkbox>
-    <mat-checkbox [ngModel]="lesen" (change)="onChangeLesen($event)">Lesen</mat-checkbox>
-    <mat-checkbox [ngModel]="reisen" (change)="onChangeReisen($event)">Reisen</mat-checkbox>
+    <mat-checkbox [ngModel]="sport" (change)="onChangeSport($event)"
+      >Sport</mat-checkbox
+    >
+    <mat-checkbox [ngModel]="lesen" (change)="onChangeLesen($event)"
+      >Lesen</mat-checkbox
+    >
+    <mat-checkbox [ngModel]="reisen" (change)="onChangeReisen($event)"
+      >Reisen</mat-checkbox
+    >
   </div>
 </div>

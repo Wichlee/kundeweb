@@ -27,7 +27,7 @@ export class SucheGeschlechtComponent {
     }
 
     onChange(event: MatRadioChange) {
-        const { value } = event.source
+        const { value } = event.source;
         log.debug('SucheGeschlechtComponent.onChange: value=', value);
         this.geschlecht$.next(value as GeschlechtType | '');
     }

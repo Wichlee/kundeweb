@@ -27,7 +27,7 @@ export class SucheFamilienstandComponent {
     }
 
     onChange(event: MatRadioChange) {
-        const { value } = event.source
+        const { value } = event.source;
         log.debug('SucheFamilienstandComponent.onChange: value=', value);
         this.familienstand$.next(value as FamilienstandType | '');
     }
