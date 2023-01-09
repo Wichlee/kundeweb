@@ -1,36 +1,10 @@
 <div class="row">
-  <label for="interessenInput" class="col col-2 col-form-label gy-3">
+  <mat-label for="interessenInput" class="col col-2 col-form-label gy-3">
     Interessen
-  </label>
+  </mat-label>
+
   <div class="col col-10 gy-3" [formGroup]="form">
-    <div class="form-checkbox">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="sportInput"
-        formControlName="sport"
-      />
-      <label for="sportInput" class="ms-1">Sport</label>
-    </div>
-
-    <div class="form-checkbox">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="lesenInput"
-        formControlName="lesen"
-      />
-      <label for="lesenInput" class="ms-1">Lesen</label>
-    </div>
-
-    <div class="form-checkbox">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="reisenInput"
-        formControlName="reisen"
-      />
-      <label for="reisenInput" class="ms-1">Reisen</label>
-    </div>
-  </div>
+    <mat-checkbox formControlName="sport">Sport</mat-checkbox>
+    <mat-checkbox formControlName="lesen">Lesen</mat-checkbox>
+    <mat-checkbox formControlName="reisen">Reisen</mat-checkbox>
 </div>
