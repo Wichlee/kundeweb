@@ -16,6 +16,7 @@ import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateOrtComponent } from './create-ort.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateUsernameComponent } from './create-username.component';
+import { CreateWaehrungComponent } from './create-waehrung.component';
 import { ErrorMessageComponent } from '../../shared/error-message.component';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { KundeWriteService } from '../shared/kundeWrite.service';
@@ -46,6 +47,7 @@ import log from 'loglevel';
         CreateOrtComponent,
         CreatePlzComponent,
         CreateUsernameComponent,
+        CreateWaehrungComponent,
         ErrorMessageComponent,
         MatIconModule,
         NgIf,
