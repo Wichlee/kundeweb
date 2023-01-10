@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { CreateBetragComponent } from './create-betrag.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
-import { CreateGeburtsdatumModule } from './create-geburtsdatum.module';
+import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
 import { CreateGeschlechtComponent } from './create-geschlecht.component';
 import { CreateHasNewsletterComponent } from './create-hasNewsletter.component';
 import { CreateHomepageComponent } from './create-homepage.component';
@@ -37,7 +37,7 @@ import log from 'loglevel';
         CreateBetragComponent,
         CreateEmailComponent,
         CreateFamilienstandComponent,
-        CreateGeburtsdatumModule,
+        CreateGeburtsdatumComponent,
         CreateGeschlechtComponent,
         CreateHasNewsletterComponent,
         CreateHomepageComponent,
