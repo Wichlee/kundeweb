@@ -91,7 +91,7 @@ export class SuchformularComponent {
      */
     onSubmit() {
         log.debug(
-            'SuchformularComponent.onSubmit: nachname / email / geschlecht / sport / lesen / reisen',
+            'SuchformularComponent.onSubmit: nachname / familienstand / geschlecht / sport / lesen / reisen',
             this.#nachname,
             this.#familienstand,
             this.#geschlecht,
