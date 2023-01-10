@@ -30,19 +30,22 @@
         https://v5.getbootstrap.com/docs/5.1/components
 -->
 <nav class="navbar navbar-expand-md navbar-light bg-faded hs-nav">
-  <hs-logo class="navbar-brand"></hs-logo>
+  <div class="container">
+    <hs-logo class="navbar-brand"></hs-logo>
+  
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <hs-nav class="collapse navbar-collapse" id="navbarCollapse"></hs-nav>
 
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarCollapse"
-    aria-controls="navbarCollapse"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <hs-nav class="collapse navbar-collapse" id="navbarCollapse"></hs-nav>
+  </div>
 </nav>
