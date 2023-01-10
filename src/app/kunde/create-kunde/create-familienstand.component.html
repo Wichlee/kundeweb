@@ -1,4 +1,9 @@
 <mat-form-field appearance="fill">
+  <div class="checkbox-icon" *ngIf="!familienstand.errors">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="height:20px; position: absolute; right: 0; color: green" class="">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
   <mat-label>Familienstand</mat-label>
   <mat-select disableRipple>
     <mat-option value="LEDIG">Ledig</mat-option>
