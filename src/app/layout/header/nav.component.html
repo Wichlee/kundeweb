@@ -31,19 +31,20 @@
       Suche
     </span>
   </button>
-  
+
   <button mat-button *ngIf="isAdmin$ | async">
     <mat-icon>person_add</mat-icon>
     <span
       class="ms-1"
       routerLink="/kunden/create"
       class="mat-list-item-content"
-      aria-label="Neuen Kunde anlegen"i
+      aria-label="Neuen Kunde anlegen"
+      i
     >
       Kunde anlegen
     </span>
   </button>
-  
+
   <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAdmin$ | async">
     <mat-icon>bar_chart</mat-icon>
     <span class="ms-1">Diagramme</span>
@@ -75,7 +76,6 @@
       </a>
     </mat-menu>
   </button>
-  
 </div>
 <hs-login-logout></hs-login-logout>
 
