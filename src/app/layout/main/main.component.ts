@@ -29,7 +29,7 @@ import log from 'loglevel';
     // beim Routing
     template: `
         <main>
-            <div class="col col-12 mt-3"><router-outlet></router-outlet></div>
+            <div class="col col-12 container pt-4"><router-outlet></router-outlet></div>
         </main>
     `,
     imports: [RouterOutlet],
