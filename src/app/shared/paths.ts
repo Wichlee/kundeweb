@@ -30,5 +30,5 @@
  */
 export const paths = {
     base: '/rest',
-    login: '/rest/auth/login',
+    login: '/auth/login',
 };
