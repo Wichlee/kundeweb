@@ -9,6 +9,7 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { NgIf } from '@angular/common';
+import { ORT_REGEX } from '../shared/kunde';
 import log from 'loglevel';
 
 /**
@@ -30,7 +31,10 @@ export class CreateOrtComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    protected readonly ort = new FormControl(undefined, Validators.required);
+    protected readonly ort = new FormControl(undefined, [
+        Validators.required,
+        Validators.pattern(ORT_REGEX),
+    ]);
 
     ngOnInit() {
         log.debug('CreateOrtComponent.ngOnInit');

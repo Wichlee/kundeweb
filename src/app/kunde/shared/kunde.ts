@@ -56,6 +56,9 @@ export interface UmsatzType {
 
 export const PLZ_REGEX = /^\d{5}$/u;
 
+// eslint-disable-next-line unicorn/no-unsafe-regex
+export const ORT_REGEX = /^[A-ZÄÖÜ][a-zäöüß]+(-[A-ZÄÖÜ][a-zäöüß]+)?/u;
+
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.

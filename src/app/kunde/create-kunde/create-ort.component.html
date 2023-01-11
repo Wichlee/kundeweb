@@ -29,8 +29,13 @@
   />
   <mat-error *ngIf="ort.invalid && ort.touched && ort.errors">
     <mat-icon>error</mat-icon>
-    <span class="ms-1" *ngIf="ort.errors['required']">
-      Eine gültiger Ortsname, z.B. Karlsruhe, muss eingegeben werden.
+    <span class="ms-1">
+      <span *ngIf="ort.errors['required']">
+        Ein Ortsname ist erforderlich.
+      </span>
+      <span *ngIf="ort.errors['pattern']">
+        Eine gültiger Ortsname, z.B. Karlsruhe, muss eingegeben werden.
+      </span>
     </span>
   </mat-error>
 </mat-form-field>
