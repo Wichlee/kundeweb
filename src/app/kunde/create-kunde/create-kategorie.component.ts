@@ -31,7 +31,7 @@ export class CreateKategorieComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    kategorie = new FormControl(undefined, [
+    kategorie = new FormControl([
         Validators.required,
         Validators.min(MIN_KATEGORIE),
         Validators.max(MAX_KATEGORIE),
