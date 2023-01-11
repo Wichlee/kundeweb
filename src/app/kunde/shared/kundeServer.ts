@@ -16,6 +16,7 @@
  */
 import { type Kunde, type KundeShared, type UmsatzType } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
+import { type User } from './user';
 import log from 'loglevel';
 
 interface Link {
@@ -43,6 +44,16 @@ export interface KundeServer extends KundeShared {
         update?: Link;
         remove?: Link;
     };
+}
+
+export interface UserServer {
+    username: string;
+    password: string;
+}
+
+export interface ObjectServer {
+    kunde: KundeServer;
+    user: UserServer;
 }
 
 /**
@@ -140,5 +151,24 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
         interessen: kunde.interessen,
         umsatz: kunde.umsatz,
         adresse: kunde.adresse,
+    };
+};
+
+/**
+ * Konvertierung des Userobjektes in ein JSON-Objekt f&uuml;r den RESTful
+ * Web Service.
+ * @return Das JSON-Objekt f&uuml;r den RESTful Web Service
+ */
+export const toUserServer = (user: User): UserServer => ({
+    username: user.username,
+    password: user.password,
+});
+
+export const toServerObject = (kunde: Kunde, user: User): ObjectServer => {
+    const kundeServer = toKundeServer(kunde);
+    const userServer = toUserServer(user);
+    return {
+        kunde: kundeServer,
+        user: userServer,
     };
 };
