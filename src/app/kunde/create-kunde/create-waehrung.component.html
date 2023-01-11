@@ -1,4 +1,4 @@
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" [formGroup]="form">
   <div class="checkbox-icon" *ngIf="!waehrung.errors">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,12 @@
     </svg>
   </div>
   <mat-label>Waehrung</mat-label>
-  <mat-select disableRipple>
+  <mat-select 
+  id="waehrungInput"
+  formControlName="waehrung"
+  [class.is-invalid]="waehrung.invalid && waehrung.touched"
+  [class.is-valid]="waehrung.valid && waehrung.touched"
+  disableRipple>
     <mat-option value="EUR">EUR</mat-option>
     <mat-option value="USD">USD</mat-option>
     <mat-option value="CHF">CHF</mat-option>

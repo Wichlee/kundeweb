@@ -1,4 +1,4 @@
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" [formGroup]="form">
   <div class="checkbox-icon" *ngIf="!familienstand.errors">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,13 @@
     </svg>
   </div>
   <mat-label>Familienstand</mat-label>
-  <mat-select disableRipple>
+  <mat-select 
+    id="familienstandInput"
+    formControlName="familienstand"
+    [class.is-invalid]="familienstand.invalid && familienstand.touched"
+    [class.is-valid]="familienstand.valid && familienstand.touched"
+    (selectionChange)="selectedValue($event)" 
+    disableRipple>
     <mat-option value="LEDIG">Ledig</mat-option>
     <mat-option value="GESCHIEDEN">Geschieden</mat-option>
     <mat-option value="VERHEIRATET">Verheiratet</mat-option>
