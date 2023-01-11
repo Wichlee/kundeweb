@@ -29,8 +29,13 @@
   />
   <mat-error *ngIf="plz.invalid && plz.touched && plz.errors">
     <mat-icon>error</mat-icon>
-    <span class="ms-1" *ngIf="plz.errors['required'] && plz.errors['pattern']">
-      Eine gültige Postleitzahl, z.B. 76133, muss eingegeben werden.
+    <span class="ms-1">
+      <span *ngIf="plz.errors['required']">
+        Eine Postleitzahl ist erforderlich.
+      </span>
+      <span *ngIf="plz.errors['pattern']">
+        Eine gültige Postleitzahl, z.B. 76133, muss eingegeben werden.
+      </span>
     </span>
   </mat-error>
 </mat-form-field>
