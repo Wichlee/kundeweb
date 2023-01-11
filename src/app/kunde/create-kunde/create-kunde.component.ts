@@ -14,6 +14,7 @@ import { CreateInteressenComponent } from './create-interessen.component';
 import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateOrtComponent } from './create-ort.component';
+import { CreatePasswordComponent } from './create-password.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateUsernameComponent } from './create-username.component';
 import { CreateWaehrungComponent } from './create-waehrung.component';
@@ -46,6 +47,7 @@ import log from 'loglevel';
         CreateNachnameComponent,
         CreateOrtComponent,
         CreatePlzComponent,
+        CreatePasswordComponent,
         CreateUsernameComponent,
         CreateWaehrungComponent,
         ErrorMessageComponent,
