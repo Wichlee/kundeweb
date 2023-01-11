@@ -28,7 +28,6 @@ import { catchError, first, map } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { Injectable } from '@angular/core';
 import { type Kunde } from './kunde';
-import { Temporal } from '@js-temporal/polyfill';
 import { type User } from './user';
 import log from 'loglevel';
 import { paths } from '../../shared/paths';
@@ -72,7 +71,6 @@ export class KundeWriteService {
      */
     save(kunde: Kunde, user: User): Observable<SaveError | string> {
         log.debug('KundeWriteService.save: kunde=', kunde, 'user=', user);
-        kunde.geburtsdatum = Temporal.Now.plainDateISO();
         log.debug('KundeWriteService.save: kunde=', kunde);
 
         const authorizationStr = `${this.authService.authorization}`;

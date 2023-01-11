@@ -81,6 +81,7 @@ export class CreateKundeComponent {
      * Formular abgeschickt wird, um einen neuen Kunden anzulegen.
      */
     onSubmit() {
+        log.debug(this.form.value);
         if (this.form.invalid) {
             log.debug(
                 'CreateKundeComponent.onSave: Validierungsfehler',

@@ -22,7 +22,7 @@ export class CreateGeschlechtComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    geschlecht = new FormControl('DIVERS');
+    geschlecht = new FormControl('D');
 
     ngOnInit() {
         log.debug('CreateGeschlechtComponent.ngOnInit');

@@ -4,6 +4,7 @@ import {
     type FormGroup,
     FormsModule,
     ReactiveFormsModule,
+    Validators,
 } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,7 +31,7 @@ export class CreateGeburtsdatumComponent {
 
     protected readonly today = new Date();
 
-    protected readonly geburtsdatum = new FormControl(this.today);
+    protected readonly geburtsdatum = new FormControl(Validators.required);
 
     // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit() {
