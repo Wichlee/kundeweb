@@ -31,7 +31,10 @@ export class CreateHomepageComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    homepage = new FormControl(undefined, [Validators.pattern(HOMEPAGE_REGEX)]);
+    homepage = new FormControl(undefined, [
+        Validators.required,
+        Validators.pattern(HOMEPAGE_REGEX),
+    ]);
 
     ngOnInit() {
         log.debug('CreateHomepageComponent.ngOnInit');

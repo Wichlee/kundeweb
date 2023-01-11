@@ -29,6 +29,9 @@
   <mat-error *ngIf="homepage.invalid && homepage.touched && homepage.errors">
     <mat-icon>error</mat-icon>
     <span class="ms-1">
+      <span *ngIf="homepage.errors['required']">
+        Eine gültige Homepage muss eingegeben werden.
+      </span>
       <span *ngIf="homepage.errors['pattern']">
         Eine gültige URL, z.B. https://acme.com, muss eingegeben werden.
       </span>
