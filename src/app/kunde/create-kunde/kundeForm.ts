@@ -79,13 +79,13 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
 
     const interessen: string[] = [];
     if (sport) {
-        interessen.push('SPORT');
+        interessen.push('S');
     }
     if (lesen) {
-        interessen.push('LESEN');
+        interessen.push('L');
     }
     if (reisen) {
-        interessen.push('REISEN');
+        interessen.push('R');
     }
 
     const kunde: Kunde = {
