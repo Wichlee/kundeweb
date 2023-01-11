@@ -13,6 +13,7 @@ import { DetailsUsernameComponent } from './details-username.component';
 import { DetailsWaehrungComponent } from './details-waehrung.component';
 import { type Kunde } from '../../shared/kunde';
 import { NgIf } from '@angular/common';
+import { type User } from '../../shared/user';
 import log from 'loglevel';
 
 /**
@@ -43,6 +44,9 @@ export class DetailsStammdatenComponent implements OnInit {
     // Decorator fuer ein Attribut. Siehe InputMetadata
     @Input()
     kunde!: Kunde;
+
+    @Input()
+    user!: User;
 
     ngOnInit() {
         log.debug('DetailsStammdatenComponent.kunde=', this.kunde);
