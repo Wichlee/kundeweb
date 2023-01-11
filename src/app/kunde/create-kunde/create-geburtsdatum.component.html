@@ -7,8 +7,19 @@
     placeholder="Geburtstag eingeben"
     [matDatepicker]="picker"
     formControlName="geburtsdatum"
+    [class.is-invalid]="geburtsdatum.invalid && geburtsdatum.touched"
+    [class.is-valid]="geburtsdatum.valid && geburtsdatum.touched"
   />
   <mat-hint>MM/DD/YYYY</mat-hint>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
+
+  <mat-error *ngIf="geburtsdatum.invalid && geburtsdatum.touched && geburtsdatum.errors">
+    <mat-icon>error</mat-icon>
+    <span class="ms-1">
+      <span *ngIf="geburtsdatum.errors['required']">
+        Eine gültige Geburtsdatum muss eingegeben werden.
+      </span>
+    </span>
+  </mat-error>
 </mat-form-field>

@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Kunde, type KundeShared } from './kunde';
+import { type Kunde, type KundeShared, type UmsatzType } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
+import { type User } from './user';
 import log from 'loglevel';
 
 interface Link {
@@ -32,6 +33,7 @@ interface Link {
  * </ul>
  */
 export interface KundeServer extends KundeShared {
+    umsatz: UmsatzType;
     geburtsdatum?: string;
     interessen?: string[];
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -42,6 +44,16 @@ export interface KundeServer extends KundeShared {
         update?: Link;
         remove?: Link;
     };
+}
+
+export interface UserServer {
+    username: string;
+    password: string;
+}
+
+export interface ObjectServer {
+    kunde: KundeServer;
+    user: UserServer;
 }
 
 /**
@@ -84,7 +96,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         interessen,
         umsatz,
         adresse,
-        username,
     } = kundeServer;
 
     let datumTemporal: Temporal.PlainDate | undefined;
@@ -112,7 +123,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         interessen: interessen ?? [],
         umsatz,
         adresse,
-        username,
         version,
     };
     log.debug('Kunde.fromServer: kunde=', kunde);
@@ -141,6 +151,24 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
         interessen: kunde.interessen,
         umsatz: kunde.umsatz,
         adresse: kunde.adresse,
-        username: kunde.username,
+    };
+};
+
+/**
+ * Konvertierung des Userobjektes in ein JSON-Objekt f&uuml;r den RESTful
+ * Web Service.
+ * @return Das JSON-Objekt f&uuml;r den RESTful Web Service
+ */
+export const toUserServer = (user: User): UserServer => ({
+    username: user.username,
+    password: user.password,
+});
+
+export const toServerObject = (kunde: Kunde, user: User): ObjectServer => {
+    const kundeServer = toKundeServer(kunde);
+    const userServer = toUserServer(user);
+    return {
+        kunde: kundeServer,
+        user: userServer,
     };
 };

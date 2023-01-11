@@ -26,13 +26,12 @@ import { type Observable, of } from 'rxjs';
 import { RemoveError, SaveError, UpdateError } from './errors';
 import { catchError, first, map } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Kunde } from './kunde';
-// eslint-disable-next-line sort-imports
 import { Injectable } from '@angular/core';
-import { Temporal } from '@js-temporal/polyfill';
+import { type Kunde } from './kunde';
+import { type User } from './user';
 import log from 'loglevel';
 import { paths } from '../../shared/paths';
-import { toKundeServer } from './kundeServer';
+import { toServerObject } from './kundeServer';
 
 // Methoden der Klasse HttpClient
 //  * get(url, options) – HTTP GET request
@@ -70,9 +69,8 @@ export class KundeWriteService {
      * Einen neuen Kunden anlegen
      * @param neuerKunde Das JSON-Objekt mit dem neuen Kunden
      */
-    save(kunde: Kunde): Observable<SaveError | string> {
-        log.debug('KundeWriteService.save: kunde=', kunde);
-        kunde.geburtsdatum = Temporal.Now.plainDateISO();
+    save(kunde: Kunde, user: User): Observable<SaveError | string> {
+        log.debug('KundeWriteService.save: kunde=', kunde, 'user=', user);
         log.debug('KundeWriteService.save: kunde=', kunde);
 
         const authorizationStr = `${this.authService.authorization}`;
@@ -90,7 +88,7 @@ export class KundeWriteService {
         /* eslint-enable @typescript-eslint/naming-convention */
 
         return this.httpClient
-            .post(this.#baseUrl, toKundeServer(kunde), {
+            .post(this.#baseUrl, toServerObject(kunde, user), {
                 headers,
                 observe: 'response',
                 responseType: 'text',

@@ -4,6 +4,8 @@ import {
     type WaehrungType,
 } from '../shared/kunde';
 import { Temporal } from '@js-temporal/polyfill';
+import type { User } from '../shared/user';
+
 import log from 'loglevel';
 
 /**
@@ -23,6 +25,24 @@ export interface KundeForm extends KundeShared {
     lesen: boolean;
     reisen: boolean;
 }
+
+export interface UserForm {
+    username: string;
+    password: string;
+}
+
+export const toUser = (userForm: UserForm): User => {
+    log.debug('toUser: userForm=', userForm);
+
+    const { username, password } = userForm;
+
+    const user: User = {
+        username,
+        password,
+    };
+    log.debug('toUser: user=', user);
+    return user;
+};
 
 /**
  * Ein Kunde-Objekt mit JSON-Objekt aus einem Formular erzeugen
@@ -49,7 +69,6 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
         waehrung,
         plz,
         ort,
-        username,
     } = kundeForm;
 
     const geburtsdatumTemporal = new Temporal.PlainDate(
@@ -90,7 +109,6 @@ export const toKunde = (kundeForm: KundeForm): Kunde => {
             plz,
             ort,
         },
-        username,
         version: 0,
     };
     log.debug('toKunde: kunde=', kunde);

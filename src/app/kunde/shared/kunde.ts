@@ -74,7 +74,6 @@ export interface Kunde {
     interessen: string[];
     umsatz: UmsatzType;
     adresse: AdresseType;
-    username: string;
 }
 
 /**
@@ -92,7 +91,5 @@ export interface KundeShared {
     homepage: URL;
     geschlecht: GeschlechtType;
     familienstand: FamilienstandType;
-    umsatz: UmsatzType;
     adresse: AdresseType;
-    username: string;
 }

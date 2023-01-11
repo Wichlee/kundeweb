@@ -1,6 +1,6 @@
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
-import { type KundeForm, toKunde } from './kundeForm';
+import { type KundeForm, type UserForm, toKunde, toUser } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { CreateBetragComponent } from './create-betrag.component';
@@ -14,6 +14,7 @@ import { CreateInteressenComponent } from './create-interessen.component';
 import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateOrtComponent } from './create-ort.component';
+import { CreatePasswordComponent } from './create-password.component';
 import { CreatePlzComponent } from './create-plz.component';
 import { CreateUsernameComponent } from './create-username.component';
 import { CreateWaehrungComponent } from './create-waehrung.component';
@@ -46,6 +47,7 @@ import log from 'loglevel';
         CreateNachnameComponent,
         CreateOrtComponent,
         CreatePlzComponent,
+        CreatePasswordComponent,
         CreateUsernameComponent,
         CreateWaehrungComponent,
         ErrorMessageComponent,
@@ -79,6 +81,7 @@ export class CreateKundeComponent {
      * Formular abgeschickt wird, um einen neuen Kunden anzulegen.
      */
     onSubmit() {
+        log.debug(this.form.value);
         if (this.form.invalid) {
             log.debug(
                 'CreateKundeComponent.onSave: Validierungsfehler',
@@ -88,11 +91,14 @@ export class CreateKundeComponent {
         }
 
         const kundeForm = this.form.value as KundeForm;
+        const userForm = this.form.value as UserForm;
         const neuerKunde = toKunde(kundeForm);
         log.debug('CreateKundeComponent.onSave: neuerKunde=', neuerKunde);
+        const neuerUser = toUser(userForm);
+        log.debug('CreateKundeComponent.onSave: neuerUser=', neuerUser);
 
         this.service
-            .save(neuerKunde)
+            .save(neuerKunde, neuerUser)
             .pipe(
                 first(),
                 tap(result => this.#setProps(result)),

@@ -6,18 +6,17 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { HOMEPAGE_REGEX } from '../shared/kunde';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
 
 /**
- * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-homepage&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
+ * Komponente f&uuml;r den CSS-Selektor &lt;hs-create-password&gt;, um Erfassungsformular f&uuml;r einen neuen Kunden zu realisieren.
  */
 @Component({
-    selector: 'hs-create-homepage',
-    templateUrl: './create-homepage.component.html',
+    selector: 'hs-create-password',
+    templateUrl: './create-password.component.html',
     imports: [
         FormsModule,
         MatIconModule,
@@ -27,17 +26,19 @@ import log from 'loglevel';
     ],
     standalone: true,
 })
-export class CreateHomepageComponent implements OnInit {
+export class CreatePasswordComponent implements OnInit {
+    private static readonly MIN_LENGTH = 8;
+
     @Input()
     form!: FormGroup;
 
-    homepage = new FormControl(undefined, [
+    protected readonly password = new FormControl(undefined, [
         Validators.required,
-        Validators.pattern(HOMEPAGE_REGEX),
+        Validators.minLength(CreatePasswordComponent.MIN_LENGTH),
     ]);
 
     ngOnInit() {
-        log.debug('CreateHomepageComponent.ngOnInit');
-        this.form.addControl('homepage', this.homepage);
+        log.debug('CreatePasswordComponent.ngOnInit');
+        this.form.addControl('password', this.password);
     }
 }
