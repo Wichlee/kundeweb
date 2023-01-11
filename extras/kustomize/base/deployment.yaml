@@ -61,3 +61,6 @@ spec:
               port: 80
             initialDelaySeconds: 3
             periodSeconds: 3
+          securityContext:
+            allowPrivilegeEscalation: false
+
