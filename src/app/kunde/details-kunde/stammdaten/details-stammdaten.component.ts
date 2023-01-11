@@ -1,5 +1,4 @@
 import { Component, Input, type OnInit } from '@angular/core';
-import { DetailsBetragComponent } from './details-betrag.component';
 import { DetailsEmailComponent } from './details-email.component';
 import { DetailsFamilienstandComponent } from './details-familienstand.component';
 import { DetailsGeburtsdatumComponent } from './details-geburtsdatum.component';
@@ -9,8 +8,6 @@ import { DetailsKategorieComponent } from './details-kategorie.component';
 import { DetailsNachnameComponent } from './details-nachname.component';
 import { DetailsOrtComponent } from './details-ort.component';
 import { DetailsPlzComponent } from './details-plz.component';
-import { DetailsUsernameComponent } from './details-username.component';
-import { DetailsWaehrungComponent } from './details-waehrung.component';
 import { type Kunde } from '../../shared/kunde';
 import { NgIf } from '@angular/common';
 import { type User } from '../../shared/user';
@@ -23,7 +20,6 @@ import log from 'loglevel';
     selector: 'hs-details-stammdaten',
     templateUrl: './details-stammdaten.component.html',
     imports: [
-        DetailsBetragComponent,
         DetailsEmailComponent,
         DetailsFamilienstandComponent,
         DetailsGeburtsdatumComponent,
@@ -33,8 +29,6 @@ import log from 'loglevel';
         DetailsNachnameComponent,
         DetailsOrtComponent,
         DetailsPlzComponent,
-        DetailsUsernameComponent,
-        DetailsWaehrungComponent,
         NgIf,
     ],
     standalone: true,
