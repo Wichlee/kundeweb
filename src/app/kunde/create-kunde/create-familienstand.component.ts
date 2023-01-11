@@ -4,10 +4,10 @@ import {
     type FormGroup,
     FormsModule,
     ReactiveFormsModule,
+    Validators,
 } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import type { MatSelectChange} from '@angular/material/select';
 import { MatSelectModule } from '@angular/material/select';
 import { NgIf } from '@angular/common';
 import log from 'loglevel';
@@ -32,16 +32,7 @@ export class CreateFamilienstandComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    selectedValue(event: MatSelectChange) {
-        const selectedData = {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            value: event.value,
-            text: event.source.triggerValue,
-        };
-        log.debug(selectedData);
-    }
-    
-    familienstand = new FormControl(undefined);
+    familienstand = new FormControl(Validators.required);
 
     ngOnInit() {
         log.debug('CreateFamilienstandComponent.ngOnInit');
