@@ -1,9 +1,9 @@
 import { Component, Output } from '@angular/core';
-import type { MatRadioChange } from '@angular/material/radio';
-import { MatRadioModule } from '@angular/material/radio';
 import { type FamilienstandType } from '../../shared/kunde';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import type { MatRadioChange } from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { Subject } from 'rxjs';
 import log from 'loglevel';
 
@@ -27,6 +27,7 @@ export class SucheFamilienstandComponent {
     }
 
     onChange(event: MatRadioChange) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { value } = event.source;
         log.debug('SucheFamilienstandComponent.onChange: value=', value);
         this.familienstand$.next(value as FamilienstandType | '');

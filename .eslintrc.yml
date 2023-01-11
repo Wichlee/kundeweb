@@ -123,7 +123,7 @@ rules:
   "@typescript-eslint/explicit-member-accessibility": off
   "@typescript-eslint/explicit-module-boundary-types": off
   "@typescript-eslint/func-call-spacing": error
-  "@typescript-eslint/keyword-spacing": error
+  "@typescript-eslint/keyword-spacing": off
   "@typescript-eslint/lines-between-class-members": error
   # angular-eslint recommended
   #"@typescript-eslint/member-ordering": error

@@ -27,6 +27,7 @@ import log from 'loglevel';
     // router-outlet: Komponente fuer das Routing, d.h.
     // Platzhalter fuer den Austausch der HTML-Templates (= Fragmente)
     // beim Routing
+    // eslint-disable-next-line @angular-eslint/component-max-inline-declarations
     template: `
         <main>
             <div class="col col-12 container pt-4">
