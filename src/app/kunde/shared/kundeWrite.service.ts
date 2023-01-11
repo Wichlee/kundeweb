@@ -85,7 +85,7 @@ export class KundeWriteService {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             Authorization: authorizationStr,
-            Accept: 'text/plain',
+            Accept: 'application/json',
         });
         /* eslint-enable @typescript-eslint/naming-convention */
 
