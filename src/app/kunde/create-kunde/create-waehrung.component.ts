@@ -32,7 +32,7 @@ export class CreateWaehrungComponent implements OnInit {
     @Input()
     form!: FormGroup;
 
-    waehrung = new FormControl(undefined, Validators.required);
+    waehrung = new FormControl(Validators.required);
 
     ngOnInit() {
         log.debug('CreateWaehrungComponent.ngOnInit');
