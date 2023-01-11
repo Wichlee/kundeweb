@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Kunde, type KundeShared } from './kunde';
+import { type Kunde, type KundeShared, type UmsatzType } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 
@@ -32,6 +32,7 @@ interface Link {
  * </ul>
  */
 export interface KundeServer extends KundeShared {
+    umsatz: UmsatzType;
     geburtsdatum?: string;
     interessen?: string[];
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -84,7 +85,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         interessen,
         umsatz,
         adresse,
-        username,
     } = kundeServer;
 
     let datumTemporal: Temporal.PlainDate | undefined;
@@ -112,7 +112,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         interessen: interessen ?? [],
         umsatz,
         adresse,
-        username,
         version,
     };
     log.debug('Kunde.fromServer: kunde=', kunde);
@@ -141,6 +140,5 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
         interessen: kunde.interessen,
         umsatz: kunde.umsatz,
         adresse: kunde.adresse,
-        username: kunde.username,
     };
 };
