@@ -22,7 +22,6 @@ import log from 'loglevel';
 
 /**
  * Komponente f&uuml;r die Kopfleiste mit dem CSS-Selektor &lt;hs-header&gt;.
- * TODO https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/#decorators-are-placed-on-modifiers-on-typescripts-syntax-trees
  */
 @Component({
     selector: 'hs-header',

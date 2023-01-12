@@ -96,7 +96,6 @@ export class BasicAuthService {
     ) {
         if (result instanceof HttpErrorResponse) {
             log.error('BasicAuthService.login: result=', result);
-            // TODO Fehlerbehandlung fuer falsche Logindaten
             return;
         }
         const { status, ok, body } = result;

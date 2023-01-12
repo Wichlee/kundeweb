@@ -72,7 +72,6 @@ const setCookie = (
     let cookieStr = `${encodeURIComponent(name)}=${encodeURIComponent(value)};`;
 
     if (expires !== undefined) {
-        // TODO Das neue "Temporal API" bietet keine Konvertierung in einen UTC-String
         const expirationDate = new Date(expires);
         cookieStr += `expires=${expirationDate.toUTCString()};`;
     }

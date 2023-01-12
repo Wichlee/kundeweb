@@ -166,7 +166,6 @@ export class UpdateKundeComponent implements OnInit {
         switch (statuscode) {
             case HttpStatusCode.UnprocessableEntity: {
                 const { cause } = result;
-                // TODO Aufbereitung der Fehlermeldung: u.a. Anfuehrungszeichen
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 this.errorMsg =
                     cause instanceof HttpErrorResponse

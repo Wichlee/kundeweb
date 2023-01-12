@@ -99,7 +99,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
     } = kundeServer;
 
     let datumTemporal: Temporal.PlainDate | undefined;
-    // TODO Parsing, ob der Datum-String valide ist
     if (geburtsdatum !== undefined) {
         const [yearStr, monthStr, dayStr] = geburtsdatum
             .replace(/T.*/gu, '')
