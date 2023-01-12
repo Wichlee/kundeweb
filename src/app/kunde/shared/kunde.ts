@@ -48,6 +48,9 @@ export interface AdresseType {
 
 export type WaehrungType = 'CHF' | 'EUR' | 'GBP' | 'USD';
 
+/**
+ * Umsatz Model als Plain-Old-JavaScript-Object (POJO) fuer das Kunde-Objekt.
+ */
 export interface UmsatzType {
     id: string | undefined;
     betrag: number;

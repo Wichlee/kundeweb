@@ -164,6 +164,12 @@ export const toUserServer = (user: User): UserServer => ({
     password: user.password,
 });
 
+/**
+ * Zusammenbauen der Objekte f&uuml;r einen Create-Objekt auf dem App-Server.
+ * @param kunde Kunden-Objekt
+ * @param user User-Objekt
+ * @returns Server-Objekt als JSON-Array f&uuml;r den RESTful Web Service
+ */
 export const toServerObject = (kunde: Kunde, user: User): ObjectServer => {
     const kundeServer = toKundeServer(kunde);
     const userServer = toUserServer(user);

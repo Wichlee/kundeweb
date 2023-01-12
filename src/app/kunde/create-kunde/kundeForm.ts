@@ -10,10 +10,8 @@ import log from 'loglevel';
 
 /**
  * Daten aus einem Formular:
- * <ul>
- *  <li> je 1 Control fuer jede Checkbox und
- *  <li> außerdem Strings für Eingabefelder für Zahlen.
- * </ul>
+ * - je 1 Control fuer jede Checkbox und
+ * - außerdem Strings für Eingabefelder für Zahlen.
  */
 export interface KundeForm extends KundeShared {
     geburtsdatum: Date;
@@ -26,11 +24,19 @@ export interface KundeForm extends KundeShared {
     reisen: boolean;
 }
 
+/**
+ * Daten aus einem Formular für den User
+ */
 export interface UserForm {
     username: string;
     password: string;
 }
 
+/**
+ * Ein User-Objekt mit Json-Objekt aus einem Formular erzeugen
+ * @param userForm Json-Objekt mit Daten aus dem Formular
+ * @returns Das initialisierte User-Objekt
+ */
 export const toUser = (userForm: UserForm): User => {
     log.debug('toUser: userForm=', userForm);
 
@@ -46,7 +52,7 @@ export const toUser = (userForm: UserForm): User => {
 
 /**
  * Ein Kunde-Objekt mit JSON-Objekt aus einem Formular erzeugen
- * @param kunde JSON-Objekt mit Daten aus dem Formular
+ * @param kundeForm JSON-Objekt mit Daten aus dem Formular
  * @return Das initialisierte Kunde-Objekt
  */
 // eslint-disable-next-line max-lines-per-function
