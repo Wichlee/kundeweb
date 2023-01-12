@@ -13,7 +13,7 @@ import log from 'loglevel';
  */
 @Component({
     selector: 'hs-tortendiagramm',
-    templateUrl: './tortendiagramm.html',
+    templateUrl: './tortendiagramm.component.html',
     imports: [NgxChartsModule],
     standalone: true,
 })

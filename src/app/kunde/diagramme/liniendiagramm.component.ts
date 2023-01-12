@@ -17,7 +17,7 @@ import log from 'loglevel';
  */
 @Component({
     selector: 'hs-liniendiagramm',
-    templateUrl: './liniendiagramm.html',
+    templateUrl: './liniendiagramm.component.html',
     imports: [NgxChartsModule],
     standalone: true,
 })

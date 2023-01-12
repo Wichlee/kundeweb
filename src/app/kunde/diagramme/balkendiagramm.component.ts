@@ -14,7 +14,7 @@ import log from 'loglevel';
  */
 @Component({
     selector: 'hs-balkendiagramm',
-    templateUrl: './balkendiagramm.html',
+    templateUrl: './balkendiagramm.component.html',
     imports: [NgxChartsModule],
     standalone: true,
 })
