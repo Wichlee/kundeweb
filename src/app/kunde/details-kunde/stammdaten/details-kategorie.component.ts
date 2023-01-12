@@ -9,7 +9,6 @@ import log from 'loglevel';
 @Component({
     selector: 'hs-details-kategorie',
     templateUrl: './details-kategorie.component.html',
-    styleUrls: ['./details-kategorie.component.scss'],
     imports: [MatIconModule, NgForOf],
     standalone: true,
 })
